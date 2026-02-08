@@ -6,7 +6,7 @@
     "spiceLevel": 3,
     "isPopular": true,
     "firstServedDate": "1966-04-12",
-    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/tacos-al-pastor.jpg",
+    "imageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/foods/FOOD-001_Tacos-al-Pastor.jpeg?raw=true",
     "category": "Savory",
     "priceTier": "€",
     "tags": ["contains-meat", "grilled", "street-classic", "quick-bite"],
@@ -15,7 +15,7 @@
       "name": "El Trompo Rojo",
       "city": "Mexico City",
       "country": "Mexico",
-      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/mx-el-trompo-rojo.jpg",
+      "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-MX-001_El-Trompo-Rojo.jpeg?raw=true",
       "isOpenNow": true
     }
   },
@@ -26,7 +26,7 @@
     "spiceLevel": 2,
     "isPopular": true,
     "firstServedDate": "1939-11-07",
-    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/pad-thai.jpg",
+    "imageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/foods/FOOD-002_Pad-Thai.jpeg?raw=true",
     "category": "Savory",
     "priceTier": "€",
     "tags": ["wok-fried", "peanuts", "sweet-sour", "gluten-free-option"],
@@ -35,7 +35,7 @@
       "name": "Bangkok Wok Express",
       "city": "Bangkok",
       "country": "Thailand",
-      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/th-bangkok-wok-express.jpg",
+      "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-TH-001_Bangkok-Wok-Express.jpeg?raw=true",
       "isOpenNow": true
     }
   },
@@ -46,7 +46,7 @@
     "spiceLevel": 2,
     "isPopular": true,
     "firstServedDate": "1958-02-20",
-    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/banh-mi.jpg",
+    "imageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/foods/FOOD-003_Banh-Mi.jpeg?raw=true",
     "category": "Savory",
     "priceTier": "€",
     "tags": ["sandwich", "contains-meat", "fresh-herbs", "crunchy"],
@@ -55,7 +55,7 @@
       "name": "Saigon Bánh Mì Corner",
       "city": "Ho Chi Minh City",
       "country": "Vietnam",
-      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/vn-saigon-banhmi-corner.jpg",
+      "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-VN-001_Saigon-Banh-Mi-Corner.jpeg?raw=true",
       "isOpenNow": false
     }
   },
@@ -66,7 +66,7 @@
     "spiceLevel": 0,
     "isPopular": true,
     "firstServedDate": "1900-06-01",
-    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/liege-waffle.jpg",
+    "imageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/foods/FOOD-004_Liege-Waffle.jpeg?raw=true",
     "category": "Sweet",
     "priceTier": "€",
     "tags": ["vegetarian", "caramelized-sugar", "dessert", "handheld"],
@@ -75,7 +75,7 @@
       "name": "Waffle Wagon Liège",
       "city": "Liège",
       "country": "Belgium",
-      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/be-waffle-wagon-liege.jpg",
+      "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-BE-001_Waffle-Wagon-Liege.jpeg?raw=true",
       "isOpenNow": true
     }
   },
@@ -86,7 +86,7 @@
     "spiceLevel": 1,
     "isPopular": true,
     "firstServedDate": "1930-09-15",
-    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/falafel-wrap.jpg",
+    "imageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/foods/FOOD-005_Falafel-Wrap.jpeg?raw=true",
     "category": "Savory",
     "priceTier": "€",
     "tags": ["vegan", "fried", "tahini", "protein"],
@@ -95,7 +95,7 @@
       "name": "Beirut Falafel House",
       "city": "Beirut",
       "country": "Lebanon",
-      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/lb-beirut-falafel-house.jpg",
+      "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-LB-001_Beirut-Falafel-House.jpeg?raw=true",
       "isOpenNow": true
     }
   },
@@ -106,7 +106,7 @@
     "spiceLevel": 4,
     "isPopular": true,
     "firstServedDate": "1942-08-03",
-    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/jerk-chicken-skewers.jpg",
+    "imageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/foods/FOOD-006_Jerk-Chicken-Skewers.jpeg?raw=true",
     "category": "Savory",
     "priceTier": "€€",
     "tags": ["grilled", "spicy", "contains-meat", "smoky"],
@@ -115,7 +115,7 @@
       "name": "Kingston Jerk Stop",
       "city": "Kingston",
       "country": "Jamaica",
-      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/jm-kingston-jerk-stop.jpg",
+      "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-JM-001_Kingston-Jerk-Stop.jpeg?raw=true",
       "isOpenNow": true
     }
   },
@@ -126,7 +126,7 @@
     "spiceLevel": 1,
     "isPopular": false,
     "firstServedDate": "1935-03-10",
-    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/takoyaki.jpg",
+    "imageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/foods/FOOD-007_Takoyaki.jpeg?raw=true",
     "category": "Savory",
     "priceTier": "€€",
     "tags": ["seafood", "snack", "sauce", "umami"],
@@ -135,7 +135,7 @@
       "name": "Osaka Octopus Ball Stand",
       "city": "Osaka",
       "country": "Japan",
-      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/jp-osaka-octopus-ball-stand.jpg",
+      "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-JP-001_Osaka-Octopus-Ball-Stand.jpeg?raw=true",
       "isOpenNow": true
     }
   },
@@ -147,7 +147,7 @@
     "spiceLevel": 0,
     "isPopular": true,
     "firstServedDate": "1850-01-01",
-    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/belgian-fries.jpg",
+    "imageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/foods/FOOD-008_Belgian-Fries.jpeg?raw=true",
     "category": "Savory",
     "priceTier": "€",
     "tags": ["vegetarian", "crispy", "street-classic", "sauce"],
@@ -156,7 +156,7 @@
       "name": "Brussels Frites Cart",
       "city": "Brussels",
       "country": "Belgium",
-      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/be-brussels-frites-cart.jpg",
+      "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-BE-002_Brussels-Frites-Cart.jpeg?raw=true",
       "isOpenNow": false
     }
   },
@@ -168,7 +168,7 @@
     "spiceLevel": 1,
     "isPopular": false,
     "firstServedDate": "1925-05-21",
-    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/arepas.jpg",
+    "imageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/foods/FOOD-009_Arepas.jpeg?raw=true",
     "category": "Savory",
     "priceTier": "€",
     "tags": ["gluten-free", "corn", "handheld", "customizable"],
@@ -177,7 +177,7 @@
       "name": "Caracas Arepa Grill",
       "city": "Caracas",
       "country": "Venezuela",
-      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/ve-caracas-arepa-grill.jpg",
+      "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-VE-001_Caracas-Arepa-Grill.jpeg?raw=true",
       "isOpenNow": true
     }
   },
@@ -188,7 +188,7 @@
     "spiceLevel": 0,
     "isPopular": true,
     "firstServedDate": "1975-07-30",
-    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/mango-sticky-rice.jpg",
+    "imageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/foods/FOOD-010_Mango-Sticky-Rice.jpeg?raw=true",
     "category": "Sweet",
     "priceTier": "€",
     "tags": ["vegetarian", "coconut", "tropical", "dessert"],
@@ -197,7 +197,7 @@
       "name": "Chatuchak Sweet Corner",
       "city": "Bangkok",
       "country": "Thailand",
-      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/th-chatuchak-sweet-corner.jpg",
+      "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-TH-002_Chatuchak-Sweet-Corner.jpeg?raw=true",
       "isOpenNow": true
     }
   },
@@ -208,7 +208,7 @@
     "spiceLevel": 0,
     "isPopular": false,
     "firstServedDate": "1905-01-01",
-    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/balut.jpg",
+    "imageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/foods/FOOD-011_Balut.jpeg?raw=true",
     "category": "Savory",
     "priceTier": "€",
     "tags": ["street-challenge", "traditional", "night-market", "protein"],
@@ -217,7 +217,7 @@
       "name": "Cebu Street Grill",
       "city": "Cebu City",
       "country": "Philippines",
-      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/ph-cebu-street-grill.jpg",
+      "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-PH-002_Cebu-Street-Grill.jpeg?raw=true",
       "isOpenNow": false
     }
   },
@@ -228,7 +228,7 @@
     "spiceLevel": 1,
     "isPopular": true,
     "firstServedDate": "1910-06-18",
-    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/chicken-adobo.jpg",
+    "imageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/foods/FOOD-012_Chicken-Adobo.jpeg?raw=true",
     "category": "Savory",
     "priceTier": "€",
     "tags": ["contains-meat", "garlic", "comfort-food", "rice-friendly"],
@@ -237,7 +237,7 @@
       "name": "Manila Night Market Eats",
       "city": "Manila",
       "country": "Philippines",
-      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/ph-manila-night-market-eats.jpg",
+      "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-PH-001_Manila-Night-Market-Eats.jpeg?raw=true",
       "isOpenNow": true
     }
   },
@@ -248,7 +248,7 @@
     "spiceLevel": 1,
     "isPopular": true,
     "firstServedDate": "1920-03-09",
-    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/sinigang.jpg",
+    "imageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/foods/FOOD-013_Sinigang.jpeg?raw=true",
     "category": "Savory",
     "priceTier": "€€",
     "tags": ["sour", "soup", "tamarind", "comfort-food"],
@@ -257,7 +257,7 @@
       "name": "Manila Night Market Eats",
       "city": "Manila",
       "country": "Philippines",
-      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/ph-manila-night-market-eats.jpg",
+      "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-PH-001_Manila-Night-Market-Eats.jpeg?raw=true",
       "isOpenNow": true
     }
   },
@@ -268,7 +268,7 @@
     "spiceLevel": 0,
     "isPopular": true,
     "firstServedDate": "1945-05-14",
-    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/halo-halo.jpg",
+    "imageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/foods/FOOD-014_Halo-Halo.jpeg?raw=true",
     "category": "Sweet",
     "priceTier": "€",
     "tags": ["dessert", "cold", "colorful", "summer"],
@@ -277,7 +277,7 @@
       "name": "Cebu Street Grill",
       "city": "Cebu City",
       "country": "Philippines",
-      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/ph-cebu-street-grill.jpg",
+      "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-PH-002_Cebu-Street-Grill.jpeg?raw=true",
       "isOpenNow": false
     }
   },
@@ -288,7 +288,7 @@
     "spiceLevel": 2,
     "isPopular": true,
     "firstServedDate": "1955-09-02",
-    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/bibimbap.jpg",
+    "imageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/foods/FOOD-015_Bibimbap.jpeg?raw=true",
     "category": "Savory",
     "priceTier": "€€",
     "tags": ["rice-bowl", "vegetables", "gochujang", "comfort-food"],
@@ -297,7 +297,7 @@
       "name": "Seoul Bowl Station",
       "city": "Seoul",
       "country": "South Korea",
-      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/kr-seoul-bowl-station.jpg",
+      "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-KR-001_Seoul-Bowl-Station.jpeg?raw=true",
       "isOpenNow": true
     }
   },
@@ -309,7 +309,7 @@
     "spiceLevel": 3,
     "isPopular": true,
     "firstServedDate": "1970-01-01",
-    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/street-tacos.jpg",
+    "imageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/foods/FOOD-016_Street-Tacos.jpeg?raw=true",
     "category": "Savory",
     "priceTier": "€",
     "tags": ["contains-meat", "handheld", "salsa", "quick-bite"],
@@ -318,7 +318,7 @@
       "name": "Mercado Taquería Norte",
       "city": "Guadalajara",
       "country": "Mexico",
-      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/mx-mercado-taqueria-norte.jpg",
+      "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-MX-002_Mercado-Taqueria-Norte.jpeg?raw=true",
       "isOpenNow": false
     }
   },
@@ -329,7 +329,7 @@
     "spiceLevel": 2,
     "isPopular": true,
     "firstServedDate": "1930-01-01",
-    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/pho-street-bowl.jpg",
+    "imageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/foods/FOOD-017_Pho-Street-Bowl.jpeg?raw=true",
     "category": "Savory",
     "priceTier": "€€",
     "tags": ["soup", "noodles", "herbs", "comfort-food"],
@@ -338,7 +338,7 @@
       "name": "Hanoi Street Bowl",
       "city": "Hanoi",
       "country": "Vietnam",
-      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/vn-hanoi-street-bowl.jpg",
+      "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-VN-002_Hanoi-Street-Bowl.jpeg?raw=true",
       "isOpenNow": true
     }
   },
@@ -349,7 +349,7 @@
     "spiceLevel": 1,
     "isPopular": true,
     "firstServedDate": "1950-01-01",
-    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/tahini-mezze-plate.jpg",
+    "imageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/foods/FOOD-018_Tahini-Mezze-Plate.jpeg?raw=true",
     "category": "Savory",
     "priceTier": "€",
     "tags": ["vegetarian-option", "mezze", "dip", "shareable"],
@@ -358,7 +358,7 @@
       "name": "Tripoli Tahini Stand",
       "city": "Tripoli",
       "country": "Lebanon",
-      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/lb-tripoli-tahini-stand.jpg",
+      "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-LB-002_Tripoli-Tahini-Stand.jpeg?raw=true",
       "isOpenNow": true
     }
   },
@@ -369,7 +369,7 @@
     "spiceLevel": 3,
     "isPopular": true,
     "firstServedDate": "2000-01-01",
-    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/spiced-skewers.jpg",
+    "imageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/foods/FOOD-019_Spiced-Skewers.jpeg?raw=true",
     "category": "Savory",
     "priceTier": "€€",
     "tags": ["grilled", "spiced", "street-snack", "contains-meat"],
@@ -378,7 +378,7 @@
       "name": "Montego Bay Grill Shack",
       "city": "Montego Bay",
       "country": "Jamaica",
-      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/jm-montego-bay-grill-shack.jpg",
+      "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-JM-002_Montego-Bay-Grill-Shack.jpeg?raw=true",
       "isOpenNow": false
     }
   },
@@ -389,7 +389,7 @@
     "spiceLevel": 2,
     "isPopular": true,
     "firstServedDate": "1985-01-01",
-    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/korean-street-bowl.jpg",
+    "imageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/foods/FOOD-020_Korean-Street-Bowl.jpeg?raw=true",
     "category": "Savory",
     "priceTier": "€€",
     "tags": ["rice-bowl", "market-food", "comfort-food", "sauce"],
@@ -398,7 +398,7 @@
       "name": "Busan Market Bites",
       "city": "Busan",
       "country": "South Korea",
-      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/kr-busan-market-bites.jpg",
+      "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-KR-002_Busan-Market-Bites.jpeg?raw=true",
       "isOpenNow": true
     }
   }
