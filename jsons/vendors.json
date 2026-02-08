@@ -6,7 +6,7 @@
     "country": "Mexico",
     "isOpenNow": true,
     "averagePriceEur": 6.5,
-    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/mx-el-trompo-rojo.jpg",
+    "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-MX-001_El-Trompo-Rojo.jpeg?raw=true",
     "sinceYear": 1998,
     "specialty": "Tacos al Pastor"
   },
@@ -17,7 +17,7 @@
     "country": "Mexico",
     "isOpenNow": false,
     "averagePriceEur": 5.8,
-    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/mx-mercado-taqueria-norte.jpg",
+    "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-MX-002_Mercado-Taqueria-Norte.jpeg?raw=true",
     "sinceYear": 2006,
     "specialty": "Street Tacos"
   },
@@ -29,7 +29,7 @@
     "country": "Thailand",
     "isOpenNow": true,
     "averagePriceEur": 5.0,
-    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/th-bangkok-wok-express.jpg",
+    "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-TH-001_Bangkok-Wok-Express.jpeg?raw=true",
     "sinceYear": 2007,
     "specialty": "Pad Thai"
   },
@@ -40,7 +40,7 @@
     "country": "Thailand",
     "isOpenNow": true,
     "averagePriceEur": 3.2,
-    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/th-chatuchak-sweet-corner.jpg",
+    "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-TH-002_Chatuchak-Sweet-Corner.jpeg?raw=true",
     "sinceYear": 2012,
     "specialty": "Mango Sticky Rice"
   },
@@ -52,7 +52,7 @@
     "country": "Vietnam",
     "isOpenNow": false,
     "averagePriceEur": 3.8,
-    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/vn-saigon-banhmi-corner.jpg",
+    "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-VN-001_Saigon-Banh-Mi-Corner.jpeg?raw=true",
     "sinceYear": 2014,
     "specialty": "Bánh Mì"
   },
@@ -63,7 +63,7 @@
     "country": "Vietnam",
     "isOpenNow": true,
     "averagePriceEur": 4.2,
-    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/vn-hanoi-street-bowl.jpg",
+    "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-VN-002_Hanoi-Street-Bowl.jpeg?raw=true",
     "sinceYear": 2009,
     "specialty": "Street Bowls"
   },
@@ -75,7 +75,7 @@
     "country": "Belgium",
     "isOpenNow": true,
     "averagePriceEur": 4.5,
-    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/be-waffle-wagon-liege.jpg",
+    "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-BE-001_Waffle-Wagon-Liege.jpeg?raw=true",
     "sinceYear": 2003,
     "specialty": "Liège Waffle"
   },
@@ -86,7 +86,7 @@
     "country": "Belgium",
     "isOpenNow": false,
     "averagePriceEur": 4.0,
-    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/be-brussels-frites-cart.jpg",
+    "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-BE-002_Brussels-Frites-Cart.jpeg?raw=true",
     "sinceYear": 1842,
     "specialty": "Belgian Fries"
   },
@@ -98,7 +98,7 @@
     "country": "Lebanon",
     "isOpenNow": true,
     "averagePriceEur": 4.2,
-    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/lb-beirut-falafel-house.jpg",
+    "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-LB-001_Beirut-Falafel-House.jpeg?raw=true",
     "sinceYear": 1989,
     "specialty": "Falafel Wrap"
   },
@@ -109,7 +109,7 @@
     "country": "Lebanon",
     "isOpenNow": true,
     "averagePriceEur": 3.9,
-    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/lb-tripoli-tahini-stand.jpg",
+    "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-LB-002_Tripoli-Tahini-Stand.jpeg?raw=true",
     "sinceYear": 1996,
     "specialty": "Falafel & Mezze"
   },
@@ -121,7 +121,7 @@
     "country": "Jamaica",
     "isOpenNow": true,
     "averagePriceEur": 7.0,
-    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/jm-kingston-jerk-stop.jpg",
+    "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-JM-001_Kingston-Jerk-Stop.jpeg?raw=true",
     "sinceYear": 2004,
     "specialty": "Jerk Chicken Skewers"
   },
@@ -132,7 +132,7 @@
     "country": "Jamaica",
     "isOpenNow": false,
     "averagePriceEur": 6.6,
-    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/jm-montego-bay-grill-shack.jpg",
+    "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-JM-002_Montego-Bay-Grill-Shack.jpeg?raw=true",
     "sinceYear": 2010,
     "specialty": "Spiced Skewers"
   },
@@ -144,7 +144,7 @@
     "country": "Philippines",
     "isOpenNow": true,
     "averagePriceEur": 3.5,
-    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/ph-manila-night-market-eats.jpg",
+    "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-PH-001_Manila-Night-Market-Eats.jpeg?raw=true",
     "sinceYear": 2011,
     "specialty": "Chicken Adobo"
   },
@@ -155,7 +155,7 @@
     "country": "Philippines",
     "isOpenNow": false,
     "averagePriceEur": 3.0,
-    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/ph-cebu-street-grill.jpg",
+    "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-PH-002_Cebu-Street-Grill.jpeg?raw=true",
     "sinceYear": 2017,
     "specialty": "Street Snacks"
   },
@@ -167,7 +167,7 @@
     "country": "South Korea",
     "isOpenNow": true,
     "averagePriceEur": 7.5,
-    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/kr-seoul-bowl-station.jpg",
+    "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-KR-001_Seoul-Bowl-Station.jpeg?raw=true",
     "sinceYear": 1990,
     "specialty": "Bibimbap"
   },
@@ -178,11 +178,11 @@
     "country": "South Korea",
     "isOpenNow": true,
     "averagePriceEur": 6.9,
-    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/kr-busan-market-bites.jpg",
+    "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-KR-002_Busan-Market-Bites.jpeg?raw=true",
     "sinceYear": 2000,
     "specialty": "Korean Street Bowls"
   },
-  
+
   {
     "id": "VEN-JP-001",
     "name": "Osaka Octopus Ball Stand",
@@ -190,7 +190,7 @@
     "country": "Japan",
     "isOpenNow": true,
     "averagePriceEur": 6.2,
-    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/jp-osaka-octopus-ball-stand.jpg",
+    "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-JP-001_Osaka-Octopus-Ball-Stand.jpeg?raw=true",
     "sinceYear": 1998,
     "specialty": "Takoyaki"
   },
@@ -201,7 +201,7 @@
     "country": "Japan",
     "isOpenNow": false,
     "averagePriceEur": 6.8,
-    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/jp-tokyo-night-snack-alley.jpg",
+    "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-JP-002_Tokyo-Night-Snack-Alley.jpeg?raw=true",
     "sinceYear": 2015,
     "specialty": "Street Snacks"
   },
@@ -213,7 +213,7 @@
     "country": "Venezuela",
     "isOpenNow": true,
     "averagePriceEur": 4.6,
-    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/ve-caracas-arepa-grill.jpg",
+    "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-VE-001_Caracas-Arepa-Grill.jpeg?raw=true",
     "sinceYear": 1999,
     "specialty": "Arepas"
   },
@@ -224,7 +224,7 @@
     "country": "Venezuela",
     "isOpenNow": false,
     "averagePriceEur": 4.2,
-    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/ve-maracaibo-corn-kitchen.jpg",
+    "standImageUrl": "https://github.com/LorelieVanDyck/ProjectOpdracht-Webontwikkeling/blob/main/assets/vendors/VEN-VE-002_Maracaibo-Corn-Kitchen.jpeg?raw=true",
     "sinceYear": 2008,
     "specialty": "Corn Street Foods"
   }
