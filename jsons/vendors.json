@@ -81,14 +81,14 @@
   },
   {
     "id": "VEN-BE-002",
-    "name": "Brussels Churros Cart",
-    "city": "Brussels",
-    "country": "Belgium",
-    "isOpenNow": false,
-    "averagePriceEur": 4.0,
-    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/be-brussels-churros-cart.jpg",
-    "sinceYear": 2015,
-    "specialty": "Churros"
+  "name": "Brussels Frites Cart",
+  "city": "Brussels",
+  "country": "Belgium",
+  "isOpenNow": false,
+  "averagePriceEur": 4.0,
+  "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/be-brussels-frites-cart.jpg",
+  "sinceYear": 1842,
+  "specialty": "Belgian Fries"
   },
 
   {
@@ -168,7 +168,7 @@
     "isOpenNow": true,
     "averagePriceEur": 7.5,
     "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/kr-seoul-bowl-station.jpg",
-    "sinceYear": 2009,
+    "sinceYear": 1990,
     "specialty": "Bibimbap"
   },
   {
@@ -179,7 +179,7 @@
     "isOpenNow": true,
     "averagePriceEur": 6.9,
     "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/kr-busan-market-bites.jpg",
-    "sinceYear": 2013,
+    "sinceYear": 2000,
     "specialty": "Korean Street Bowls"
   },
 
@@ -191,7 +191,7 @@
     "isOpenNow": true,
     "averagePriceEur": 6.2,
     "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/jp-osaka-octopus-ball-stand.jpg",
-    "sinceYear": 2001,
+    "sinceYear": 1998,
     "specialty": "Takoyaki"
   },
   {
