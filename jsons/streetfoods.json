@@ -1,0 +1,302 @@
+[
+  {
+    "id": "FOOD-001",
+    "name": "Tacos al Pastor",
+    "description": "Marinated pork shaved from a rotating spit, served on warm corn tortillas with pineapple, onion, and cilantro. A street-food icon that balances smoky, sweet, and tangy flavors in one bite.",
+    "spiceLevel": 3,
+    "isPopular": true,
+    "firstServedDate": "1966-04-12",
+    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/tacos-al-pastor.jpg",
+    "category": "Savory",
+    "priceTier": "€",
+    "tags": ["contains-meat", "grilled", "street-classic", "quick-bite"],
+    "vendor": {
+      "id": "VEN-MX-001",
+      "name": "El Trompo Rojo",
+      "city": "Mexico City",
+      "country": "Mexico",
+      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/mx-el-trompo-rojo.jpg",
+      "isOpenNow": true
+    }
+  },
+  {
+    "id": "FOOD-002",
+    "name": "Pad Thai",
+    "description": "Stir-fried rice noodles with egg, tamarind sauce, crunchy peanuts and fresh lime. Often finished with shrimp or chicken and served piping hot from a wok.",
+    "spiceLevel": 2,
+    "isPopular": true,
+    "firstServedDate": "1939-11-07",
+    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/pad-thai.jpg",
+    "category": "Savory",
+    "priceTier": "€",
+    "tags": ["wok-fried", "peanuts", "sweet-sour", "gluten-free-option"],
+    "vendor": {
+      "id": "VEN-TH-001",
+      "name": "Bangkok Wok Express",
+      "city": "Bangkok",
+      "country": "Thailand",
+      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/th-bangkok-wok-express.jpg",
+      "isOpenNow": true
+    }
+  },
+  {
+    "id": "FOOD-003",
+    "name": "Bánh Mì",
+    "description": "A crispy baguette filled with pâté, seasoned meat, pickled vegetables, herbs and a punchy sauce. A street sandwich that’s fresh, crunchy and satisfying.",
+    "spiceLevel": 2,
+    "isPopular": true,
+    "firstServedDate": "1958-02-20",
+    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/banh-mi.jpg",
+    "category": "Savory",
+    "priceTier": "€",
+    "tags": ["sandwich", "contains-meat", "fresh-herbs", "crunchy"],
+    "vendor": {
+      "id": "VEN-VN-001",
+      "name": "Saigon Bánh Mì Corner",
+      "city": "Ho Chi Minh City",
+      "country": "Vietnam",
+      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/vn-saigon-banhmi-corner.jpg",
+      "isOpenNow": false
+    }
+  },
+  {
+    "id": "FOOD-004",
+    "name": "Liège Waffle",
+    "description": "A dense Belgian waffle made with buttery dough and pearl sugar that caramelizes while baking. Sweet, chewy and perfect to eat while walking through the city.",
+    "spiceLevel": 0,
+    "isPopular": true,
+    "firstServedDate": "1900-06-01",
+    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/liege-waffle.jpg",
+    "category": "Sweet",
+    "priceTier": "€",
+    "tags": ["vegetarian", "caramelized-sugar", "dessert", "handheld"],
+    "vendor": {
+      "id": "VEN-BE-001",
+      "name": "Waffle Wagon Liège",
+      "city": "Liège",
+      "country": "Belgium",
+      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/be-waffle-wagon-liege.jpg",
+      "isOpenNow": true
+    }
+  },
+  {
+    "id": "FOOD-005",
+    "name": "Falafel Wrap",
+    "description": "Crispy chickpea fritters wrapped with salad, pickles and tahini sauce. A filling vegan street meal that’s savory, herby and satisfying.",
+    "spiceLevel": 1,
+    "isPopular": true,
+    "firstServedDate": "1930-09-15",
+    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/falafel-wrap.jpg",
+    "category": "Savory",
+    "priceTier": "€",
+    "tags": ["vegan", "fried", "tahini", "protein"],
+    "vendor": {
+      "id": "VEN-LB-001",
+      "name": "Beirut Falafel House",
+      "city": "Beirut",
+      "country": "Lebanon",
+      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/lb-beirut-falafel-house.jpg",
+      "isOpenNow": true
+    }
+  },
+  {
+    "id": "FOOD-006",
+    "name": "Jerk Chicken Skewers",
+    "description": "Smoky grilled chicken marinated in jerk spices, served as juicy skewers with a punchy, spicy aroma. Often paired with citrus or a sweet sauce for balance.",
+    "spiceLevel": 4,
+    "isPopular": true,
+    "firstServedDate": "1942-08-03",
+    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/jerk-chicken-skewers.jpg",
+    "category": "Savory",
+    "priceTier": "€€",
+    "tags": ["grilled", "spicy", "contains-meat", "smoky"],
+    "vendor": {
+      "id": "VEN-JM-001",
+      "name": "Kingston Jerk Stop",
+      "city": "Kingston",
+      "country": "Jamaica",
+      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/jm-kingston-jerk-stop.jpg",
+      "isOpenNow": true
+    }
+  },
+  {
+    "id": "FOOD-007",
+    "name": "Takoyaki",
+    "description": "Golden octopus balls cooked in a special pan, topped with savory sauce, mayo, seaweed and bonito flakes. Crispy outside, soft inside and addictive.",
+    "spiceLevel": 1,
+    "isPopular": false,
+    "firstServedDate": "1935-03-10",
+    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/takoyaki.jpg",
+    "category": "Savory",
+    "priceTier": "€€",
+    "tags": ["seafood", "snack", "sauce", "umami"],
+    "vendor": {
+      "id": "VEN-JP-001",
+      "name": "Osaka Octopus Ball Stand",
+      "city": "Osaka",
+      "country": "Japan",
+      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/jp-osaka-octopus-ball-stand.jpg",
+      "isOpenNow": true
+    }
+  },
+  {
+    "id": "FOOD-008",
+    "name": "Churros",
+    "description": "Fried dough sticks rolled in sugar, often served with warm chocolate for dipping. Crunchy on the outside, fluffy on the inside and crowd-pleasing.",
+    "spiceLevel": 0,
+    "isPopular": true,
+    "firstServedDate": "1890-01-01",
+    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/churros.jpg",
+    "category": "Sweet",
+    "priceTier": "€",
+    "tags": ["vegetarian", "fried", "sugary", "dessert"],
+    "vendor": {
+      "id": "VEN-BE-002",
+      "name": "Brussels Churros Cart",
+      "city": "Brussels",
+      "country": "Belgium",
+      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/be-brussels-churros-cart.jpg",
+      "isOpenNow": false
+    }
+  },
+  {
+    "id": "FOOD-009",
+    "name": "Arepas",
+    "description": "Cornmeal cakes grilled and split open, filled with cheese, meat, beans or avocado. Comforting, warm and easy to customize with your favorite fillings.",
+    "spiceLevel": 1,
+    "isPopular": false,
+    "firstServedDate": "1925-05-21",
+    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/arepas.jpg",
+    "category": "Savory",
+    "priceTier": "€",
+    "tags": ["gluten-free", "corn", "handheld", "customizable"],
+    "vendor": {
+      "id": "VEN-VE-001",
+      "name": "Caracas Arepa Grill",
+      "city": "Caracas",
+      "country": "Venezuela",
+      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/ve-caracas-arepa-grill.jpg",
+      "isOpenNow": true
+    }
+  },
+  {
+    "id": "FOOD-010",
+    "name": "Mango Sticky Rice",
+    "description": "Sweet coconut sticky rice paired with ripe mango slices. A classic street dessert that tastes tropical, creamy and refreshing at the same time.",
+    "spiceLevel": 0,
+    "isPopular": true,
+    "firstServedDate": "1975-07-30",
+    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/mango-sticky-rice.jpg",
+    "category": "Sweet",
+    "priceTier": "€",
+    "tags": ["vegetarian", "coconut", "tropical", "dessert"],
+    "vendor": {
+      "id": "VEN-TH-002",
+      "name": "Chatuchak Sweet Corner",
+      "city": "Bangkok",
+      "country": "Thailand",
+      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/th-chatuchak-sweet-corner.jpg",
+      "isOpenNow": true
+    }
+  },
+  {
+    "id": "FOOD-011",
+    "name": "Balut",
+    "description": "A fertilized duck egg that is boiled and eaten warm, often seasoned with salt and vinegar. Known as a daring street snack with a unique texture and strong cultural presence in night markets.",
+    "spiceLevel": 0,
+    "isPopular": false,
+    "firstServedDate": "1905-01-01",
+    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/balut.jpg",
+    "category": "Savory",
+    "priceTier": "€",
+    "tags": ["street-challenge", "traditional", "night-market", "protein"],
+    "vendor": {
+      "id": "VEN-PH-002",
+      "name": "Cebu Street Grill",
+      "city": "Cebu City",
+      "country": "Philippines",
+      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/ph-cebu-street-grill.jpg",
+      "isOpenNow": false
+    }
+  },
+  {
+    "id": "FOOD-012",
+    "name": "Chicken Adobo",
+    "description": "Chicken braised in soy sauce, vinegar, garlic and bay leaves until tender and deeply savory. A beloved Filipino comfort dish often served with rice in night markets.",
+    "spiceLevel": 1,
+    "isPopular": true,
+    "firstServedDate": "1910-06-18",
+    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/chicken-adobo.jpg",
+    "category": "Savory",
+    "priceTier": "€",
+    "tags": ["contains-meat", "garlic", "comfort-food", "rice-friendly"],
+    "vendor": {
+      "id": "VEN-PH-001",
+      "name": "Manila Night Market Eats",
+      "city": "Manila",
+      "country": "Philippines",
+      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/ph-manila-night-market-eats.jpg",
+      "isOpenNow": true
+    }
+  },
+  {
+    "id": "FOOD-013",
+    "name": "Sinigang",
+    "description": "A sour and savory soup typically made with tamarind, vegetables and meat or seafood. Comforting, tangy and commonly served hot in bowls with rice.",
+    "spiceLevel": 1,
+    "isPopular": true,
+    "firstServedDate": "1920-03-09",
+    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/sinigang.jpg",
+    "category": "Savory",
+    "priceTier": "€€",
+    "tags": ["sour", "soup", "tamarind", "comfort-food"],
+    "vendor": {
+      "id": "VEN-PH-001",
+      "name": "Manila Night Market Eats",
+      "city": "Manila",
+      "country": "Philippines",
+      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/ph-manila-night-market-eats.jpg",
+      "isOpenNow": true
+    }
+  },
+  {
+    "id": "FOOD-014",
+    "name": "Halo-Halo",
+    "description": "A colorful shaved-ice dessert layered with sweet beans, jellies, fruits and leche flan, finished with milk or ice cream. Refreshing and a summer street favorite.",
+    "spiceLevel": 0,
+    "isPopular": true,
+    "firstServedDate": "1945-05-14",
+    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/halo-halo.jpg",
+    "category": "Sweet",
+    "priceTier": "€",
+    "tags": ["dessert", "cold", "colorful", "summer"],
+    "vendor": {
+      "id": "VEN-PH-002",
+      "name": "Cebu Street Grill",
+      "city": "Cebu City",
+      "country": "Philippines",
+      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/ph-cebu-street-grill.jpg",
+      "isOpenNow": false
+    }
+  },
+  {
+    "id": "FOOD-015",
+    "name": "Bibimbap",
+    "description": "A rice bowl topped with assorted vegetables, seasoned meat and gochujang, often finished with a fried egg. Mixed together for a balanced, flavorful street meal.",
+    "spiceLevel": 2,
+    "isPopular": true,
+    "firstServedDate": "1955-09-02",
+    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/bibimbap.jpg",
+    "category": "Savory",
+    "priceTier": "€€",
+    "tags": ["rice-bowl", "vegetables", "gochujang", "comfort-food"],
+    "vendor": {
+      "id": "VEN-KR-001",
+      "name": "Seoul Bowl Station",
+      "city": "Seoul",
+      "country": "South Korea",
+      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/kr-seoul-bowl-station.jpg",
+      "isOpenNow": true
+    }
+  }
+]

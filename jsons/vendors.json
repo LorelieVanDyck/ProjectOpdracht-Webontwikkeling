@@ -1,0 +1,231 @@
+[
+  {
+    "id": "VEN-MX-001",
+    "name": "El Trompo Rojo",
+    "city": "Mexico City",
+    "country": "Mexico",
+    "isOpenNow": true,
+    "averagePriceEur": 6.5,
+    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/mx-el-trompo-rojo.jpg",
+    "sinceYear": 1998,
+    "specialty": "Tacos al Pastor"
+  },
+  {
+    "id": "VEN-MX-002",
+    "name": "Mercado Taquería Norte",
+    "city": "Guadalajara",
+    "country": "Mexico",
+    "isOpenNow": false,
+    "averagePriceEur": 5.8,
+    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/mx-mercado-taqueria-norte.jpg",
+    "sinceYear": 2006,
+    "specialty": "Street Tacos"
+  },
+
+  {
+    "id": "VEN-TH-001",
+    "name": "Bangkok Wok Express",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "isOpenNow": true,
+    "averagePriceEur": 5.0,
+    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/th-bangkok-wok-express.jpg",
+    "sinceYear": 2007,
+    "specialty": "Pad Thai"
+  },
+  {
+    "id": "VEN-TH-002",
+    "name": "Chatuchak Sweet Corner",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "isOpenNow": true,
+    "averagePriceEur": 3.2,
+    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/th-chatuchak-sweet-corner.jpg",
+    "sinceYear": 2012,
+    "specialty": "Mango Sticky Rice"
+  },
+
+  {
+    "id": "VEN-VN-001",
+    "name": "Saigon Bánh Mì Corner",
+    "city": "Ho Chi Minh City",
+    "country": "Vietnam",
+    "isOpenNow": false,
+    "averagePriceEur": 3.8,
+    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/vn-saigon-banhmi-corner.jpg",
+    "sinceYear": 2014,
+    "specialty": "Bánh Mì"
+  },
+  {
+    "id": "VEN-VN-002",
+    "name": "Hanoi Street Bowl",
+    "city": "Hanoi",
+    "country": "Vietnam",
+    "isOpenNow": true,
+    "averagePriceEur": 4.2,
+    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/vn-hanoi-street-bowl.jpg",
+    "sinceYear": 2009,
+    "specialty": "Street Bowls"
+  },
+
+  {
+    "id": "VEN-BE-001",
+    "name": "Waffle Wagon Liège",
+    "city": "Liège",
+    "country": "Belgium",
+    "isOpenNow": true,
+    "averagePriceEur": 4.5,
+    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/be-waffle-wagon-liege.jpg",
+    "sinceYear": 2003,
+    "specialty": "Liège Waffle"
+  },
+  {
+    "id": "VEN-BE-002",
+    "name": "Brussels Churros Cart",
+    "city": "Brussels",
+    "country": "Belgium",
+    "isOpenNow": false,
+    "averagePriceEur": 4.0,
+    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/be-brussels-churros-cart.jpg",
+    "sinceYear": 2015,
+    "specialty": "Churros"
+  },
+
+  {
+    "id": "VEN-LB-001",
+    "name": "Beirut Falafel House",
+    "city": "Beirut",
+    "country": "Lebanon",
+    "isOpenNow": true,
+    "averagePriceEur": 4.2,
+    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/lb-beirut-falafel-house.jpg",
+    "sinceYear": 1989,
+    "specialty": "Falafel Wrap"
+  },
+  {
+    "id": "VEN-LB-002",
+    "name": "Tripoli Tahini Stand",
+    "city": "Tripoli",
+    "country": "Lebanon",
+    "isOpenNow": true,
+    "averagePriceEur": 3.9,
+    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/lb-tripoli-tahini-stand.jpg",
+    "sinceYear": 1996,
+    "specialty": "Falafel & Mezze"
+  },
+
+  {
+    "id": "VEN-JM-001",
+    "name": "Kingston Jerk Stop",
+    "city": "Kingston",
+    "country": "Jamaica",
+    "isOpenNow": true,
+    "averagePriceEur": 7.0,
+    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/jm-kingston-jerk-stop.jpg",
+    "sinceYear": 2004,
+    "specialty": "Jerk Chicken Skewers"
+  },
+  {
+    "id": "VEN-JM-002",
+    "name": "Montego Bay Grill Shack",
+    "city": "Montego Bay",
+    "country": "Jamaica",
+    "isOpenNow": false,
+    "averagePriceEur": 6.6,
+    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/jm-montego-bay-grill-shack.jpg",
+    "sinceYear": 2010,
+    "specialty": "Spiced Skewers"
+  },
+
+  {
+    "id": "VEN-PH-001",
+    "name": "Manila Night Market Eats",
+    "city": "Manila",
+    "country": "Philippines",
+    "isOpenNow": true,
+    "averagePriceEur": 3.5,
+    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/ph-manila-night-market-eats.jpg",
+    "sinceYear": 2011,
+    "specialty": "Chicken Adobo"
+  },
+  {
+    "id": "VEN-PH-002",
+    "name": "Cebu Street Grill",
+    "city": "Cebu City",
+    "country": "Philippines",
+    "isOpenNow": false,
+    "averagePriceEur": 3.0,
+    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/ph-cebu-street-grill.jpg",
+    "sinceYear": 2017,
+    "specialty": "Street Snacks"
+  },
+
+  {
+    "id": "VEN-KR-001",
+    "name": "Seoul Bowl Station",
+    "city": "Seoul",
+    "country": "South Korea",
+    "isOpenNow": true,
+    "averagePriceEur": 7.5,
+    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/kr-seoul-bowl-station.jpg",
+    "sinceYear": 2009,
+    "specialty": "Bibimbap"
+  },
+  {
+    "id": "VEN-KR-002",
+    "name": "Busan Market Bites",
+    "city": "Busan",
+    "country": "South Korea",
+    "isOpenNow": true,
+    "averagePriceEur": 6.9,
+    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/kr-busan-market-bites.jpg",
+    "sinceYear": 2013,
+    "specialty": "Korean Street Bowls"
+  },
+
+  {
+    "id": "VEN-JP-001",
+    "name": "Osaka Octopus Ball Stand",
+    "city": "Osaka",
+    "country": "Japan",
+    "isOpenNow": true,
+    "averagePriceEur": 6.2,
+    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/jp-osaka-octopus-ball-stand.jpg",
+    "sinceYear": 2001,
+    "specialty": "Takoyaki"
+  },
+  {
+    "id": "VEN-JP-002",
+    "name": "Tokyo Night Snack Alley",
+    "city": "Tokyo",
+    "country": "Japan",
+    "isOpenNow": false,
+    "averagePriceEur": 6.8,
+    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/jp-tokyo-night-snack-alley.jpg",
+    "sinceYear": 2015,
+    "specialty": "Street Snacks"
+  },
+
+  {
+    "id": "VEN-VE-001",
+    "name": "Caracas Arepa Grill",
+    "city": "Caracas",
+    "country": "Venezuela",
+    "isOpenNow": true,
+    "averagePriceEur": 4.6,
+    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/ve-caracas-arepa-grill.jpg",
+    "sinceYear": 1999,
+    "specialty": "Arepas"
+  },
+  {
+    "id": "VEN-VE-002",
+    "name": "Maracaibo Corn Kitchen",
+    "city": "Maracaibo",
+    "country": "Venezuela",
+    "isOpenNow": false,
+    "averagePriceEur": 4.2,
+    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/ve-maracaibo-corn-kitchen.jpg",
+    "sinceYear": 2008,
+    "specialty": "Corn Street Foods"
+  }
+]
