@@ -81,14 +81,14 @@
   },
   {
     "id": "VEN-BE-002",
-  "name": "Brussels Frites Cart",
-  "city": "Brussels",
-  "country": "Belgium",
-  "isOpenNow": false,
-  "averagePriceEur": 4.0,
-  "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/be-brussels-frites-cart.jpg",
-  "sinceYear": 1842,
-  "specialty": "Belgian Fries"
+    "name": "Brussels Frites Cart",
+    "city": "Brussels",
+    "country": "Belgium",
+    "isOpenNow": false,
+    "averagePriceEur": 4.0,
+    "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/be-brussels-frites-cart.jpg",
+    "sinceYear": 1842,
+    "specialty": "Belgian Fries"
   },
 
   {
@@ -182,7 +182,7 @@
     "sinceYear": 2000,
     "specialty": "Korean Street Bowls"
   },
-
+  
   {
     "id": "VEN-JP-001",
     "name": "Osaka Octopus Ball Stand",

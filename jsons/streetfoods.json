@@ -139,26 +139,28 @@
       "isOpenNow": true
     }
   },
+
   {
     "id": "FOOD-008",
-    "name": "Churros",
-    "description": "Fried dough sticks rolled in sugar, often served with warm chocolate for dipping. Crunchy on the outside, fluffy on the inside and crowd-pleasing.",
+    "name": "Belgian Fries",
+    "description": "Crispy double-fried potatoes served hot in a paper cone, usually paired with classic Belgian sauces like andalouse or mayonnaise. A Brussels street-food staple.",
     "spiceLevel": 0,
     "isPopular": true,
-    "firstServedDate": "1890-01-01",
-    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/churros.jpg",
-    "category": "Sweet",
+    "firstServedDate": "1850-01-01",
+    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/belgian-fries.jpg",
+    "category": "Savory",
     "priceTier": "€",
-    "tags": ["vegetarian", "fried", "sugary", "dessert"],
+    "tags": ["vegetarian", "crispy", "street-classic", "sauce"],
     "vendor": {
       "id": "VEN-BE-002",
-      "name": "Brussels Churros Cart",
+      "name": "Brussels Frites Cart",
       "city": "Brussels",
       "country": "Belgium",
-      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/be-brussels-churros-cart.jpg",
+      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/be-brussels-frites-cart.jpg",
       "isOpenNow": false
     }
   },
+
   {
     "id": "FOOD-009",
     "name": "Arepas",
@@ -296,6 +298,107 @@
       "city": "Seoul",
       "country": "South Korea",
       "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/kr-seoul-bowl-station.jpg",
+      "isOpenNow": true
+    }
+  },
+
+  {
+    "id": "FOOD-016",
+    "name": "Street Tacos",
+    "description": "Small corn tortillas topped with grilled meat, onion, cilantro, and salsa. Served fast and hot as a classic street snack in Guadalajara.",
+    "spiceLevel": 3,
+    "isPopular": true,
+    "firstServedDate": "1970-01-01",
+    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/street-tacos.jpg",
+    "category": "Savory",
+    "priceTier": "€",
+    "tags": ["contains-meat", "handheld", "salsa", "quick-bite"],
+    "vendor": {
+      "id": "VEN-MX-002",
+      "name": "Mercado Taquería Norte",
+      "city": "Guadalajara",
+      "country": "Mexico",
+      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/mx-mercado-taqueria-norte.jpg",
+      "isOpenNow": false
+    }
+  },
+  {
+    "id": "FOOD-017",
+    "name": "Pho Street Bowl",
+    "description": "A fragrant Vietnamese noodle soup with beef or chicken, fresh herbs, lime, and chili. Served steaming hot in busy street markets in Hanoi.",
+    "spiceLevel": 2,
+    "isPopular": true,
+    "firstServedDate": "1930-01-01",
+    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/pho-street-bowl.jpg",
+    "category": "Savory",
+    "priceTier": "€€",
+    "tags": ["soup", "noodles", "herbs", "comfort-food"],
+    "vendor": {
+      "id": "VEN-VN-002",
+      "name": "Hanoi Street Bowl",
+      "city": "Hanoi",
+      "country": "Vietnam",
+      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/vn-hanoi-street-bowl.jpg",
+      "isOpenNow": true
+    }
+  },
+  {
+    "id": "FOOD-018",
+    "name": "Tahini Mezze Plate",
+    "description": "A shareable mezze plate with creamy tahini dip, fresh vegetables, pickles, and warm flatbread. Popular in Tripoli street-side eateries.",
+    "spiceLevel": 1,
+    "isPopular": true,
+    "firstServedDate": "1950-01-01",
+    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/tahini-mezze-plate.jpg",
+    "category": "Savory",
+    "priceTier": "€",
+    "tags": ["vegetarian-option", "mezze", "dip", "shareable"],
+    "vendor": {
+      "id": "VEN-LB-002",
+      "name": "Tripoli Tahini Stand",
+      "city": "Tripoli",
+      "country": "Lebanon",
+      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/lb-tripoli-tahini-stand.jpg",
+      "isOpenNow": true
+    }
+  },
+  {
+    "id": "FOOD-019",
+    "name": "Spiced Skewers",
+    "description": "Char-grilled skewers seasoned with island spices and served with a tangy dipping sauce. A Montego Bay street favorite for late-night hunger.",
+    "spiceLevel": 3,
+    "isPopular": true,
+    "firstServedDate": "2000-01-01",
+    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/spiced-skewers.jpg",
+    "category": "Savory",
+    "priceTier": "€€",
+    "tags": ["grilled", "spiced", "street-snack", "contains-meat"],
+    "vendor": {
+      "id": "VEN-JM-002",
+      "name": "Montego Bay Grill Shack",
+      "city": "Montego Bay",
+      "country": "Jamaica",
+      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/jm-montego-bay-grill-shack.jpg",
+      "isOpenNow": false
+    }
+  },
+  {
+    "id": "FOOD-020",
+    "name": "Korean Street Bowl",
+    "description": "A hearty Korean street bowl with rice, seasoned vegetables, and a savory protein option, finished with a spicy sauce. Popular in busy markets in Busan.",
+    "spiceLevel": 2,
+    "isPopular": true,
+    "firstServedDate": "1985-01-01",
+    "imageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/foods/korean-street-bowl.jpg",
+    "category": "Savory",
+    "priceTier": "€€",
+    "tags": ["rice-bowl", "market-food", "comfort-food", "sauce"],
+    "vendor": {
+      "id": "VEN-KR-002",
+      "name": "Busan Market Bites",
+      "city": "Busan",
+      "country": "South Korea",
+      "standImageUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/images/vendors/kr-busan-market-bites.jpg",
       "isOpenNow": true
     }
   }
