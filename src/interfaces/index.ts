@@ -4,10 +4,10 @@ export interface Vendor {
     city: string;
     country: string;
     isOpenNow: boolean;
-    averagePriceEur: number;
+    averagePriceEur?: number;
     standImageUrl: string;
-    sinceYear: number;
-    specialty: string;
+    sinceYear?: number;
+    specialty?: string;
 }
 
 export interface StreetFood {

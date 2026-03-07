@@ -2,7 +2,7 @@
   {
     "id": "FOOD-001",
     "name": "Tacos al Pastor",
-    "description": "Marinated pork shaved from a rotating spit, served on warm corn tortillas with pineapple, onion, and cilantro. A street-food icon that balances smoky, sweet, and tangy flavors in one bite.",
+    "description": "Marinated pork shaved from a rotating spit, served on warm corn tortillas with pineapple, onion and cilantro. A street-food icon that balances smoky, sweet, and tangy flavors in one bite.",
     "spiceLevel": 3,
     "isPopular": true,
     "firstServedDate": "1966-04-12",
