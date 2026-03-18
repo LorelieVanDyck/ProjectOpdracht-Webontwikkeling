@@ -1,7 +1,5 @@
 // Aanpassing package.json
-/*
-"start": "ts-node src/app.ts" i.p.v. "start": "ts-node index.ts"
-*/
+// "start": "ts-node src/app.ts" i.p.v. "start": "ts-node index.ts"
 
 // Toepassen 'readline-sync'
 import * as readline from 'readline-sync';
@@ -11,7 +9,7 @@ import { Vendor } from './interfaces/Vendor';
 import { StreetFood } from './interfaces/StreetFood';
 
 async function main() {
-    //Jsons ophalen
+    // Jsons ophalen (raw url)
     const vendorResponse = await fetch(`https://raw.githubusercontent.com/LorelieVanDyck/Projectopdracht-Webontwikkeling_Jsons/refs/heads/main/jsons/vendors.json`);
     const vendors: Vendor[] = await vendorResponse.json();
 
@@ -21,7 +19,7 @@ async function main() {
     let running: boolean = true;
     const menu: string[] = ["View all data 'Streetfoods'", "View all data 'Vendors'", "Filter by ID 'Streetfoods'", "Filter by ID 'Vendors'", "Exit"];
 
-    //Menu Loop
+    // Menu loop
     do {
         console.log(`Welcome to the JSON data viewer!`);
         const choiceMenu: number = readline.keyInSelect(menu, `Please enter your choice: `, {cancel: false});
@@ -83,7 +81,7 @@ async function main() {
             case 3:
                 while (!found) {
                     const choiceId: string = readline.question(`Please enter the ID you want to filter by (VEN-MX-001 - VEN-VE-002): `);
-                    //Als er niet wordt gevonden = undefined
+                    // Als er niets wordt gevonden = undefined
                     const vendor = vendors.find(v => v.id === choiceId.toLocaleUpperCase());
                     
                     if (vendor) {
@@ -94,7 +92,7 @@ async function main() {
                         console.log(`   - Average Price in Euro: ${vendor.averagePriceEur}`);
                         console.log(`   - Image Vendor: ${vendor.standImageUrl}`);
                         console.log(`   - Since Year: ${vendor.sinceYear}`);
-                        console.log(`   - Specialty: ${vendor.specialty}`);
+                        console.log(`   - Specialty: ${vendor.specialty}\n`);
                 
                         found = true;
                         break;
