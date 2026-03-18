@@ -1,3 +1,8 @@
+// Aanpassing package.json
+/*
+"start": "ts-node src/app.ts" i.p.v. "start": "ts-node index.ts"
+*/
+
 // Toepassen 'readline-sync'
 import * as readline from 'readline-sync';
 
@@ -7,10 +12,10 @@ import { StreetFood } from './interfaces/StreetFood';
 
 async function main() {
     //Jsons ophalen
-    const vendorResponse = await fetch(`https://github.com/LorelieVanDyck/Projectopdracht-Webontwikkeling_Jsons/blob/main/jsons/streetfoods.json`);
+    const vendorResponse = await fetch(`https://raw.githubusercontent.com/LorelieVanDyck/Projectopdracht-Webontwikkeling_Jsons/refs/heads/main/jsons/vendors.json`);
     const vendors: Vendor[] = await vendorResponse.json();
 
-    const streetFoodResponse = await fetch(`https://github.com/LorelieVanDyck/Projectopdracht-Webontwikkeling_Jsons/blob/main/jsons/vendors.json`);
+    const streetFoodResponse = await fetch(`https://raw.githubusercontent.com/LorelieVanDyck/Projectopdracht-Webontwikkeling_Jsons/refs/heads/main/jsons/streetfoods.json`);
     const streetFoods: StreetFood[] = await streetFoodResponse.json();
 
     let running: boolean = true;
@@ -70,7 +75,6 @@ async function main() {
                         break;
                     } else {
                         console.log(`\nNo 'Streetfood' found with that ID. Please try again!\n`);
-                        return;
                     }
                 }
                 break;
