@@ -5,8 +5,8 @@
 import * as readline from 'readline-sync';
 
 // Importeren interfaces
-import { Vendor } from './interfaces/Vendor';
-import { StreetFood } from './interfaces/StreetFood';
+import { Vendor } from './types';
+import { StreetFood } from './types';
 
 async function main() {
     // Jsons ophalen (raw url)
