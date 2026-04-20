@@ -1,0 +1,44 @@
+<%- include("partials/header") %>
+
+<h1>Streetfoods</h1>
+
+<form method="GET" action="/">
+    <input type="text" name ="q" placeholder="Zoek 'streetfoods'..." value="<%= search %>"/>
+    <button type="submit">Zoek</button>
+</form>
+
+
+/* Bericht: Geen gevonden resultaten */
+<% if (noResults) { %>
+    <p>Geen 'streetfoods' gevonden met zoekopdracht: "<%= search %>"</p>
+<% } %>
+
+
+/* Lijst met zoekresultaten */
+<% if (streetfoods.lenght > 0) { %>
+    <% for (let food of streetfoods) { %>
+        <a href="/streetfoods/<%= food.id %>" class="card-link">
+            <article class="food-card">
+                /* Afbeelding */
+                <img src="<%= food.imageUrl %>" alt="<%= food.name %>" width="200xp"/>
+
+                /* Basis Info */
+                <h2><%= food.name %></h2>
+                <p><%= food.descrption %></p>
+
+                /* Categorie Info */
+                <p><strong>Categorie:</strong> <%= food.category %></p>
+                <p><strong>Prijschaal:</strong> <%= food.priceTier %></p>
+                <p><strong>Spice Level:</strong> 🌶️ <%= food.spiceLevel %></p>
+
+                /* Populariteit Info */
+                <% if (food.isPopular) { %>
+                    <p>🔥 Popular</p>
+                <% } %>
+
+            </article>
+        </a>
+    <% } %>
+<% } %>
+
+<%- include("partials/footer") %>
