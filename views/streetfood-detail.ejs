@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title><%= filteredStreetFoods.name %></title>
+</head>
+<body>
+    <article>
+        <h2><%= filteredStreetFoods.name %></h2>
+        <img src="<%= filteredStreetFoods.imageUrl %>" width="300px">
+        <p><%= filteredStreetFoods.description %></p>
+        
+        <p><strong>Category: </strong><%= filteredStreetFoods.category %></p>
+        <p><strong>Prijs: </strong><%= filteredStreetFoods.priceTier %></p>
+        <p><strong>Spice Level: </strong><%= "🌶️".repeat(filteredStreetFoods.spiceLevel) %></p>
+        <p><strong>Populariteit: </strong><%= filteredStreetFoods.isPopular ? "🔥 Popular" : "" %></p>
+    </article>
+    <article class="clickable-row" onclick="window.location='/vendors/<%= streetFoods.vendor?.id %>'">
+        // "?" => Alleen verder gaan als dit bestaat, anders stop zonder error”
+        <h3>Verkoper</h3>
+        <p><%= filteredStreetFoods.vendor.name %></p>
+        <img src="<%= filteredStreetFoods.vendor.standImageUrl %>" width="300px">
+        <p><strong>Positie: </strong><%= filteredStreetFoods.vendor.city %>, <%= filteredStreetFoods.vendor.country %></p>
+        <p><strong>Ontstaan: </strong><%= filteredStreetFoods.vendor.sinceYear %></p>
+        <p><strong>Open/Gesloten: </strong><%= filteredStreetFoods.vendor.isOpenNow ? "Open" : "Gesloten" %></p>
+        <p><strong>Specialiteit: </strong><%= filteredStreetFoods.vendor.specialty %></p>
+        <p><strong>Gemiddelde Prijs in Euro: </strong><%= filteredStreetFoods.vendor.averagePriceEur %></p>
+    </article>
+    // Aaan te passen!
+    <article>
+        <h3>Soortgelijke</h3>
+        <ul>
+
+        </ul>
+    </article>
+</body>
+</html>

@@ -1,0 +1,16 @@
+// Vendors met meerdere streetfoods
+<h3>Andere streetfoods van deze vendor</h3>
+
+<ul>
+    <% for (let food of streetfoods) { %>
+        <% if (food.vendor.id === vendor.id) { %>
+            <li class="clickable-row" onclick="window.location='/streetfoods/<%= food.id %>'">
+                <h2><%= food.name %></h2>
+                <img src="<%= food.imageUrl %>" width="300px">
+                <p><strong>Prijs: </strong><%= food.priceTier %></p>
+                <p><strong>Spice Level: </strong><%= "🌶️".repeat(food.spiceLevel) %></p>
+                <p><strong>Populariteit: </strong><%= food.isPopular ? "🔥 Popular" : "" %></p>
+            </li>
+        <% } %>
+    <% } %>
+</ul>

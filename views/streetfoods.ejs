@@ -2,7 +2,7 @@
 
 <h1>Streetfoods</h1>
 
-<form method="GET" action="/">
+<form method="GET" action="/streetfoods">
     <input type="text" name ="q" placeholder="Zoek 'streetfoods'..." value="<%= search %>"/>
     <button type="submit">Zoek</button>
 </form>
@@ -14,31 +14,87 @@
 <% } %>
 
 
-/* Lijst met zoekresultaten */
-<% if (streetfoods.lenght > 0) { %>
-    <% for (let food of streetfoods) { %>
-        <a href="/streetfoods/<%= food.id %>" class="card-link">
-            <article class="food-card">
-                /* Afbeelding */
-                <img src="<%= food.imageUrl %>" alt="<%= food.name %>" width="200xp"/>
+/* Tabel met zoekresultaten */
+<% if (streetfoods.length === 0) { %>
+    <p>Geen resultaten gevonden</p>
+<% } else { %>
+    <table>
+        <thead>
+            <tr>
+                <!-- IMAGE -->
+                <th>Afbeelding</th>
 
-                /* Basis Info */
-                <h2><%= food.name %></h2>
-                <p><%= food.descrption %></p>
+                <!-- NAME -->
+                <th>
+                    <a href="/streetfoods?q=<%= search %>&sortField=name&sortDirection=<%= sortField === 'name' && sortDirection === 'asc ? 'desc' : 'asc' %>">
+                        Naam
+                        <% if (sortfield === 'name') { %>
+                            <%= sortDirection === 'asc' ? '▲' : '▼' %>
+                        <% } %>
+                    </a>
+                </th>
 
-                /* Categorie Info */
-                <p><strong>Categorie:</strong> <%= food.category %></p>
-                <p><strong>Prijschaal:</strong> <%= food.priceTier %></p>
-                <p><strong>Spice Level:</strong> 🌶️ <%= food.spiceLevel %></p>
+                <!-- DESCRIPTION -->
+                <th>Beschrijving</th>
 
-                /* Populariteit Info */
-                <% if (food.isPopular) { %>
-                    <p>🔥 Popular</p>
-                <% } %>
+                <!-- CATEGORY -->
+                <th>
+                    <a href="/streedfoods?q=<%= search %>&sortField=category&sortDirection=<%= sortField === 'category' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
+                        Categorie
+                        <% if (sortField === 'category') { %>
+                            <% sortDirection === 'asc' ? '▲' : '▼' %>
+                        <% } %>
+                    </a>
+                </th>
 
-            </article>
-        </a>
-    <% } %>
+                <!-- Price Tier -->
+                <th>
+                    <a href="/streetfoods?q=<% search %>&sortField=category&sortDirection=<%= sortField === 'category' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
+                        Prijs
+                        <% if (sortField === 'priceTier') { %>
+                            <% sortDirection === 'asc' ? '▲' : '▼' %>
+                        <% } %>
+                    </a>
+                </th>
+
+                <!-- Spice Level -->
+                <th>
+                    <a href="/streetfoods?q=<%= search %>&sortField=spiceLevel&sortDirection=<%= sortField === 'spiceLevel' && sortDirection === 'asc' ? 'asc' : 'desc' %>">
+                        Spice Level
+                        <% if (sortField === 'spiceLevel') { %>
+                            <% sortDirection === 'asc' ? '▲' : '▼' %>
+                        <% } %>  
+                    </a>
+                </th>
+
+                <!-- Popularity -->
+                <th>Populariteit</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% for (let food of streetfoods) { %>
+                <tr class="clickable-row" onclick="window.location='/streetfoods/<%= food.id %>'">
+                    <td>
+                        <img src="<%= food.imageUrl %>" alt="<%= food.name %>" width="100px"/>
+                    </td>
+
+                    <td><%= food.name %></td>
+                    <td><%= food.description %></td>
+                    <td><%= food.category %></td>
+                    <td><%= food.priceTier %></td>
+
+                    <td>
+                        <%= "🌶️".repeat(food.spiceLevel) %>
+                    </td>
+
+                    <td>
+                        <p><%= food.isPopular ? "🔥 Popular" : "" %></p>
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
 <% } %>
 
 <%- include("partials/footer") %>

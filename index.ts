@@ -51,8 +51,8 @@ app.get("/streetfoods", async (req, res) => {
     // filter enkel als er effectief gezocht is
     // anders toon je gewoon alle streetfoods
     const filteredStreetFoods = search 
-        ? streetfoods.filter(streetfoods => 
-            streetfoods.name.toLowerCase().includes(search))
+        ? streetfoods.filter(food => 
+            food.name.toLowerCase().includes(search))
         : streetfoods
     ;
 
@@ -62,11 +62,57 @@ app.get("/streetfoods", async (req, res) => {
     // → voorkomt foutieve "No results" bij lege zoekbalk
     const noResults = search !== "" && filteredStreetFoods.length === 0;
 
+
+    /* Deel van Sorteren */
+    const sortField = typeof req.query.sortField === "string"
+            ? req.query.sortField
+            : "name"
+    ;
+
+    const sortDirection = typeof req.query.sortDirection === "string"
+            ? req.query.sortDirection
+            : "asc"
+    ;
+
+    /* ASC/DESC */
+    let sortedStreetFoods = [...filteredStreetFoods].sort((a, b) => {
+        if (sortField === "name") {
+            return sortDirection === "asc"
+                ? a.name.localeCompare(b.name)
+                : b.name.localeCompare(a.name);
+        } else if (sortField === "category") {
+            return sortDirection ==  "asc"
+                ? a.category.localeCompare(b.category)
+                : b.category.localeCompare(a.category);
+        } else if (sortField === "priceTier") {
+            return sortDirection === "asc"
+                ? a.priceTier.localeCompare(b.priceTier)
+                : b.priceTier.localeCompare(b.priceTier);
+        } else if (sortField === "spiceLevel") {
+            return sortDirection === "asc"
+                ? a.spiceLevel - b.spiceLevel
+                : b.spiceLevel - a.spiceLevel;
+        }  else {
+            return 0;
+        }
+    });
+
+    let sortFields = [
+        { value: "name", text: "Naam" },
+        { value: "category", text: "Categorie" },
+        { value: "priceTier", text: "Prijs" },
+        { value: "spiceLevel", text: "Spice Level" }
+    ];
+       
+
     res.render("streetfoods", {
-       streetfoods: filteredStreetFoods, 
+       streetfoods: sortedStreetFoods, 
        // Langere notatie => search: search
        search,
-       noResults
+       noResults,
+       sortField,
+       sortDirection,
+       sortFields
     });
 });
 
@@ -82,8 +128,8 @@ app.get("/vendors", async (req, res) => {
     // filter enkel als er effectief gezocht is
     // anders toon je gewoon alle streetfoods
     const filteredVendors = search 
-        ? vendors.filter(vendors => 
-            vendors.name.toLowerCase().includes(search))
+        ? vendors.filter(vendor => 
+            vendor.name.toLowerCase().includes(search))
         : vendors
     ;
 
@@ -108,14 +154,14 @@ app.get("/streetfoods/:id", async(req, res) => {
 
     const id = req.params.id;
 
-    const filteredStreetFoods = streetfoods.find(streetfoods => streetfoods.id === id);
+    const streetfood = streetfoods.find(f => f.id === id);
 
-    if (!filteredStreetFoods) {
+    if (!streetfood) {
         return res.status(404).render("page_404");
     }
 
     res.render("streetfood-detail", {
-        filteredStreetFoods
+        streetfood
     });
 });
 
@@ -125,13 +171,13 @@ app.get("/vendors/:id", async(req, res) => {
 
     const id = req.params.id;
 
-    const filteredVendors = vendors.find(vendors => vendors.id === id);
+    const vendor = vendors.find(v => v.id === id);
 
-    if (!filteredVendors) {
+    if (!vendor) {
         return res.status(404).render("page_404");
     }
 
-    res.render("streetfood-detail", {
-        filteredVendors
+    res.render("vendor-detail", {
+        vendor
     });
 });
