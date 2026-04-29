@@ -1,3 +1,59 @@
+/* Aside */
+.sidebar {
+    width: 220px;
+    background: #222;
+    color: white;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* ruimte tussen search en nav */
+}
+
+/* Input */
+.sidebar input {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 5px;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 6px;
+}
+
+/* Links Uitlijnen */
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 5px 0;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+/* Logo */
+.logo {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    font-size: 26px;
+}
+
+.logo-text {
+    letter-spacing: 1px;
+}
+
+/* Click-Functie */
 .clickable-row {
     cursor: pointer;
 }

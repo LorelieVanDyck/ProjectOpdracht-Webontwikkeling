@@ -2,7 +2,7 @@ import express, { Express } from "express";
 import dotenv from "dotenv";
 import path from "path";
 
-/* Import interfaces */
+/* Import Interfaces */
 import { Vendor, StreetFood } from "./types";
 
 dotenv.config();
@@ -17,28 +17,29 @@ app.set('views', path.join(__dirname, "views"));
 
 app.set("port", process.env.PORT || 3000);
 
-
-/* Data ophalen uit JSON met interface 'StreetFood' */
+/* Data Ophalen */
+/* Interface 'StreetFood' */
 async function fetchStreetFood() : Promise<StreetFood[]> {
     const response = await fetch("https://raw.githubusercontent.com/LorelieVanDyck/Projectopdracht-Webontwikkeling_Jsons/refs/heads/main/jsons/streetfoods.json");
     const data : StreetFood[] = await response.json();
     return data;
 };
 
-/* Data ophalen uit JSON met interface 'Vendor' */
+/* Interface 'Vendor' */
 async function fetchVendors() : Promise<Vendor[]> {
     const response = await fetch("https://raw.githubusercontent.com/LorelieVanDyck/Projectopdracht-Webontwikkeling_Jsons/refs/heads/main/jsons/vendors.json");
     const data : Vendor[] = await response.json();
     return data;
 };
 
-
-/* Startpagina 'Home' */
+/* ---------------- HOME ---------------- */
 app.get("/", (req, res) => {
-    res.render("home");
+    res.render("home", {
+        title: "Home" /* Nodig voor dynamische titel */
+    });
 });
 
-
+/* ---------------- STREETFOODS LIST ---------------- */
 /* Overzichtspagina 'Streetfoods' met 'search-function' */
 app.get("/streetfoods", async (req, res) => {
     const streetfoods = await fetchStreetFood();
@@ -46,7 +47,7 @@ app.get("/streetfoods", async (req, res) => {
     // 'search' wordt altijd een string:
     // - undefined of geen input → ""
     // - trim() verwijdert spaties
-    const search = (req.query.q as string || "").toLowerCase().trim();
+    const search = (req.query.search_bar as string || "").toLowerCase().trim();
 
     // filter enkel als er effectief gezocht is
     // anders toon je gewoon alle streetfoods
@@ -63,7 +64,7 @@ app.get("/streetfoods", async (req, res) => {
     const noResults = search !== "" && filteredStreetFoods.length === 0;
 
 
-    /* Deel van Sorteren */
+    /* Onderdeel Sorteren */
     const sortField = typeof req.query.sortField === "string"
             ? req.query.sortField
             : "name"
@@ -74,7 +75,7 @@ app.get("/streetfoods", async (req, res) => {
             : "asc"
     ;
 
-    /* ASC/DESC */
+    /* ASC & DESC */
     let sortedStreetFoods = [...filteredStreetFoods].sort((a, b) => {
         if (sortField === "name") {
             return sortDirection === "asc"
@@ -87,7 +88,7 @@ app.get("/streetfoods", async (req, res) => {
         } else if (sortField === "priceTier") {
             return sortDirection === "asc"
                 ? a.priceTier.localeCompare(b.priceTier)
-                : b.priceTier.localeCompare(b.priceTier);
+                : b.priceTier.localeCompare(a.priceTier);
         } else if (sortField === "spiceLevel") {
             return sortDirection === "asc"
                 ? a.spiceLevel - b.spiceLevel
@@ -104,7 +105,6 @@ app.get("/streetfoods", async (req, res) => {
         { value: "spiceLevel", text: "Spice Level" }
     ];
        
-
     res.render("streetfoods", {
        streetfoods: sortedStreetFoods, 
        // Langere notatie => search: search
@@ -112,10 +112,13 @@ app.get("/streetfoods", async (req, res) => {
        noResults,
        sortField,
        sortDirection,
-       sortFields
+       sortFields,
+       title: "Streetfoods", /* Dynamische Titel */
+       searchAction: "/streetfoods" /* Dynamische Search */
     });
 });
 
+/* ---------------- VENDORS LIST ---------------- */
 /* Overzichtspagina 'Vendors' met 'search-function' */
 app.get("/vendors", async (req, res) => {
     const vendors = await fetchVendors();
@@ -123,7 +126,7 @@ app.get("/vendors", async (req, res) => {
     // 'search' wordt altijd een string:
     // - undefined of geen input → ""
     // - trim() verwijdert spaties
-    const search = (req.query.q as string || "").toLowerCase().trim();
+    const search = (req.query.search_bar as string || "").toLowerCase().trim();
 
     // filter enkel als er effectief gezocht is
     // anders toon je gewoon alle streetfoods
@@ -143,12 +146,13 @@ app.get("/vendors", async (req, res) => {
        vendors: filteredVendors, 
        // Langere notatie => search: search
        search,
-       noResults
+       noResults,
+       title: "Vendors", /* Dynamische Titel */
+       searchAction: "/vendors" /* Dynamische Search */
     });
 });
 
-
-/* Detailpagina 'Streetfoods' */
+/* ---------------- STREETFOOD DETAIL ---------------- */
 app.get("/streetfoods/:id", async(req, res) => {
     const streetfoods = await fetchStreetFood();
 
@@ -157,15 +161,18 @@ app.get("/streetfoods/:id", async(req, res) => {
     const streetfood = streetfoods.find(f => f.id === id);
 
     if (!streetfood) {
-        return res.status(404).render("page_404");
+        return res.status(404).render("page_404", {
+            title: "Not Found" /* Nodig voor dynamische titel */
+        });
     }
 
     res.render("streetfood-detail", {
-        streetfood
+        streetfood,
+        title: `Streetfood - ${streetfood.name} (#${streetfood.id})` /* nodig voor dynamische titel */
     });
 });
 
-/* Detailpagina 'Vendors' */
+/* ---------------- VENDOR DETAIL ---------------- */
 app.get("/vendors/:id", async(req, res) => {
     const vendors = await fetchVendors();
 
@@ -174,14 +181,18 @@ app.get("/vendors/:id", async(req, res) => {
     const vendor = vendors.find(v => v.id === id);
 
     if (!vendor) {
-        return res.status(404).render("page_404");
+        return res.status(404).render("page_404", {
+            title: "Not Found" /* Nodig voor dynamische titel */
+        });
     }
 
     res.render("vendor-detail", {
-        vendor
+        vendor,
+        title: `Vendor - ${vendor.name} (#${vendor.id})` /* Nodig voor dynamische titel */
     });
 });
 
+/* ---------------- START SERVER ---------------- */
 app.listen(app.get("port"), () => {
     console.log("Server started on http://localhost:" + app.get("port"));
 });

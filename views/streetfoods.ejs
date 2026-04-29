@@ -2,19 +2,13 @@
 
 <h1>Streetfoods</h1>
 
-<form method="GET" action="/streetfoods">
-    <input type="text" name ="q" placeholder="Zoek 'streetfoods'..." value="<%= search %>"/>
-    <button type="submit">Zoek</button>
-</form>
-
-
-/* Bericht: Geen gevonden resultaten */
+<!-- Bericht: Geen gevonden resultaten -->
 <% if (noResults) { %>
     <p>Geen 'streetfoods' gevonden met zoekopdracht: "<%= search %>"</p>
 <% } %>
 
 
-/* Tabel met zoekresultaten */
+<!-- Tabel met zoekresultaten -->
 <% if (streetfoods.length === 0) { %>
     <p>Geen resultaten gevonden</p>
 <% } else { %>
@@ -26,9 +20,9 @@
 
                 <!-- NAME -->
                 <th>
-                    <a href="/streetfoods?q=<%= search %>&sortField=name&sortDirection=<%= sortField === 'name' && sortDirection === 'asc ? 'desc' : 'asc' %>">
+                    <a href="/streetfoods?q=<%= search %>&sortField=name&sortDirection=<%= sortField === 'name' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
                         Naam
-                        <% if (sortfield === 'name') { %>
+                        <% if (sortField === 'name') { %>
                             <%= sortDirection === 'asc' ? '▲' : '▼' %>
                         <% } %>
                     </a>
@@ -39,30 +33,30 @@
 
                 <!-- CATEGORY -->
                 <th>
-                    <a href="/streedfoods?q=<%= search %>&sortField=category&sortDirection=<%= sortField === 'category' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
+                    <a href="/streetfoods?q=<%= search %>&sortField=category&sortDirection=<%= sortField === 'category' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
                         Categorie
                         <% if (sortField === 'category') { %>
-                            <% sortDirection === 'asc' ? '▲' : '▼' %>
+                            <%= sortDirection === 'asc' ? '▲' : '▼' %>
                         <% } %>
                     </a>
                 </th>
 
                 <!-- Price Tier -->
                 <th>
-                    <a href="/streetfoods?q=<% search %>&sortField=category&sortDirection=<%= sortField === 'category' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
+                    <a href="/streetfoods?q=<%= search %>&sortField=priceTier&sortDirection=<%= sortField === 'priceTier' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
                         Prijs
                         <% if (sortField === 'priceTier') { %>
-                            <% sortDirection === 'asc' ? '▲' : '▼' %>
+                            <%= sortDirection === 'asc' ? '▲' : '▼' %>
                         <% } %>
                     </a>
                 </th>
 
                 <!-- Spice Level -->
                 <th>
-                    <a href="/streetfoods?q=<%= search %>&sortField=spiceLevel&sortDirection=<%= sortField === 'spiceLevel' && sortDirection === 'asc' ? 'asc' : 'desc' %>">
+                    <a href="/streetfoods?q=<%= search %>&sortField=spiceLevel&sortDirection=<%= sortField === 'spiceLevel' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
                         Spice Level
                         <% if (sortField === 'spiceLevel') { %>
-                            <% sortDirection === 'asc' ? '▲' : '▼' %>
+                            <%= sortDirection === 'asc' ? '▲' : '▼' %>
                         <% } %>  
                     </a>
                 </th>
@@ -89,7 +83,9 @@
                     </td>
 
                     <td>
-                        <p><%= food.isPopular ? "🔥 Popular" : "" %></p>
+                        <% if (food.isPopular) { %>
+                            🔥 Popular
+                        <% } %>
                     </td>
                 </tr>
             <% } %>
