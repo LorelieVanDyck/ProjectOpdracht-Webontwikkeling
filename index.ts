@@ -35,7 +35,8 @@ async function fetchVendors() : Promise<Vendor[]> {
 /* ---------------- HOME ---------------- */
 app.get("/", (req, res) => {
     res.render("home", {
-        title: "Home" /* Nodig voor dynamische titel */
+        title: "Home", /* Dynamische Titel */
+        showSearch: false /* Dynamische Search */
     });
 });
 
@@ -114,7 +115,9 @@ app.get("/streetfoods", async (req, res) => {
        sortDirection,
        sortFields,
        title: "Streetfoods", /* Dynamische Titel */
-       searchAction: "/streetfoods" /* Dynamische Search */
+       searchAction: "/streetfoods", /* Dynamische Search */
+       showSearch: true, 
+       searchPlaceholder: "Zoek een streetfood"
     });
 });
 
@@ -148,7 +151,9 @@ app.get("/vendors", async (req, res) => {
        search,
        noResults,
        title: "Vendors", /* Dynamische Titel */
-       searchAction: "/vendors" /* Dynamische Search */
+       searchAction: "/vendors", /* Dynamische Search */
+       showSearch: true,
+       searchPlaceholder: "Zoek een vendor"
     });
 });
 

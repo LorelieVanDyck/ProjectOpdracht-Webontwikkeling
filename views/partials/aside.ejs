@@ -5,12 +5,14 @@
         <span class="logo-text">UrbanTaste</span>
     </h2>
 
-    <h3>Search</h3>
+    <% if (showSearch) { %>
+        <h3>Search</h3>
 
-    <form method="GET" action="/streetfoods">
-        <input type="text" name="search_bar" placeholder="Zoek..." value="<%= search_bar || '' %>">
-        <button type="submit">Zoek</button>
-    </form>
+        <form method="GET" action="<%= searchAction %>">
+            <input type="text" name="search_bar" placeholder="<%= searchPlaceHolder || 'Zoek...' %>" value="<%= search || '' %>">
+            <button type="submit">Zoek</button>
+        </form>
+    <% } %>
 
     <h3>Navigation</h3>
 
