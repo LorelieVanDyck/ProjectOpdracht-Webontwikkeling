@@ -1,10 +1,11 @@
+
 <%- include("partials/header") %>
 
 <h1>Vendors</h1>
 
 <!-- Bericht: Geen gevonden resultaten -->
 <% if (noResults) { %>
-    <p>Geen 'vendors' gevonden met zoekopdracht: "<%= search %>"</p>
+    <p>Geen vendors gevonden met zoekopdracht: "<%= search %>"</p>
 <% } %>
 
 
@@ -12,85 +13,113 @@
 <% if (vendors.length === 0) { %>
     <p>Geen resultaten gevonden</p>
 <% } else { %>
-    <table>
-        <thead>
-            <tr>
-                <!-- IMAGE -->
-                <th>Afbeelding</th>
+<table>
 
-                <!-- NAME -->
-                <th>
-                    <a href="/streetfoods?q=<%= search %>&sortField=name&sortDirection=<%= sortField === 'name' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
-                        Naam
-                        <% if (sortField === 'name') { %>
-                            <%= sortDirection === 'asc' ? '▲' : '▼' %>
+    <thead>
+        <tr>
+            <!-- IMAGE -->
+            <th>Afbeelding</th>
+
+            <!-- NAME SORT -->
+            <th>
+                <a href="/vendors?search_bar=<%= search %>&cityFilter=<%= cityFilter %>&countryFilter=<%= countryFilter %>&sortField=name&sortDirection=<%= sortField === 'name' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
+                    Naam
+
+                    <% if (sortField === "name") { %>
+                        <%= sortDirection === "asc" ? "▲" : "▼" %>
+                    <% } %>
+                </a>
+            </th>
+
+            <!-- CITY FILTER -->
+            <th>
+                <form method="GET" action="/vendors">
+                    <input type="hidden" name="search_bar" value="<%= search %>">
+                    <input type="hidden" name="countryFilter" value="<%= countryFilter %>">
+
+                    <select name="cityFilter" onchange="this.form.submit()">
+                        <option value="">Alle steden</option>
+                        <% for (let city of allCities) { %>
+                            <option value="<%= city %>" <%= cityFilter === city ? "selected" : "" %>>
+                                <%= city %>
+                            </option>
                         <% } %>
-                    </a>
-                </th>
+                    </select>
+                </form>
+            </th>
 
-                <!-- DESCRIPTION -->
-                <th>Beschrijving</th>
+            <!-- COUNTRY FILTER -->
+            <th>
+                <form method="GET" action="/vendors">
+                    <input type="hidden" name="search_bar" value="<%= search %>">
+                    <input type="hidden" name="cityFilter" value="<%= cityFilter %>">
 
-                <!-- CATEGORY -->
-                <th>
-                    <a href="/streetfoods?q=<%= search %>&sortField=category&sortDirection=<%= sortField === 'category' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
-                        Categorie
-                        <% if (sortField === 'category') { %>
-                            <%= sortDirection === 'asc' ? '▲' : '▼' %>
+                    <select name="countryFilter" onchange="this.form.submit()">
+                        <option value="">Alle landen</option>
+                        <% for (let country of allCountries) { %>
+                            <option value="<%= country %>" <%= countryFilter === country ? "selected" : "" %>>
+                                <%= country %>
+                            </option>
                         <% } %>
-                    </a>
-                </th>
+                    </select>
+                </form>
+            </th>
 
-                <!-- Price Tier -->
-                <th>
-                    <a href="/streetfoods?q=<%= search %>&sortField=priceTier&sortDirection=<%= sortField === 'priceTier' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
-                        Prijs
-                        <% if (sortField === 'priceTier') { %>
-                            <%= sortDirection === 'asc' ? '▲' : '▼' %>
-                        <% } %>
-                    </a>
-                </th>
+            <!-- STATUS -->
+            <th>Status</th>
 
-                <!-- Spice Level -->
-                <th>
-                    <a href="/streetfoods?q=<%= search %>&sortField=spiceLevel&sortDirection=<%= sortField === 'spiceLevel' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
-                        Spice Level
-                        <% if (sortField === 'spiceLevel') { %>
-                            <%= sortDirection === 'asc' ? '▲' : '▼' %>
-                        <% } %>  
-                    </a>
-                </th>
+            <!-- PRICE SORT -->
+            <th>
+                <a href="/vendors?search_bar=<%= search %>&cityFilter=<%= cityFilter %>&countryFilter=<%= countryFilter %>&sortField=averagePriceEur&sortDirection=<%= sortField === 'averagePriceEur' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
+                    Prijs
 
-                <!-- Popularity -->
-                <th>Populariteit</th>
-            </tr>
-        </thead>
+                    <% if (sortField === "averagePriceEur") { %>
+                        <%= sortDirection === "asc" ? "▲" : "▼" %>
+                    <% } %>
+                </a>
+            </th>
 
-        <tbody>
-            <% for (let food of streetfoods) { %>
-                <tr class="clickable-row" onclick="window.location='/streetfoods/<%= food.id %>'">
-                    <td>
-                        <img src="<%= food.imageUrl %>" alt="<%= food.name %>" width="100px"/>
-                    </td>
+            <!-- SPECIALITY -->
+            <th>Specialiteit</th>
 
-                    <td><%= food.name %></td>
-                    <td><%= food.description %></td>
-                    <td><%= food.category %></td>
-                    <td><%= food.priceTier %></td>
+        </tr>
+    </thead>
 
-                    <td>
-                        <%= "🌶️".repeat(food.spiceLevel) %>
-                    </td>
+    <tbody>
 
-                    <td>
-                        <% if (food.isPopular) { %>
-                            🔥 Popular
-                        <% } %>
-                    </td>
-                </tr>
-            <% } %>
-        </tbody>
-    </table>
+        <% for (let vendor of vendors) { %>
+
+        <tr class="clickable-row"
+            onclick="window.location='/vendors/<%= vendor.id %>'">
+
+            <td>
+                <img src="<%= vendor.standImageUrl %>" alt="<%= vendor.name %>" width="100px">
+            </td>
+
+            <td><%= vendor.name %></td>
+            <td><%= vendor.city %></td>
+            <td><%= vendor.country %></td>
+
+            <td>
+                <%= vendor.isOpenNow ? "🟢 Open" : "🔴 Closed" %>
+            </td>
+
+            <td>
+                €<%= vendor.averagePriceEur || "-" %>
+            </td>
+
+            <td>
+                <%= vendor.specialty || "-" %>
+            </td>
+
+        </tr>
+
+        <% } %>
+
+    </tbody>
+
+</table>
+
 <% } %>
 
 <%- include("partials/footer") %>

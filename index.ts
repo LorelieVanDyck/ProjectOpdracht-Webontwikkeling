@@ -32,130 +32,292 @@ async function fetchVendors() : Promise<Vendor[]> {
     return data;
 };
 
+
 /* ---------------- HOME ---------------- */
 app.get("/", (req, res) => {
     res.render("home", {
-        title: "Home", /* Dynamische Titel */
-        showSearch: false /* Dynamische Search */
+        title: "Home", // Dynamische Titel
+        showSearch: false // Dynamische Search
     });
 });
 
-/* ---------------- STREETFOODS LIST ---------------- */
-/* Overzichtspagina 'Streetfoods' met 'search-function' */
+
+/* ---------------- STREETFOODS LIST ----------------- */
 app.get("/streetfoods", async (req, res) => {
+
+    // Haalt alle streetfoods op uit API/JSON
     const streetfoods = await fetchStreetFood();
    
-    // 'search' wordt altijd een string:
-    // - undefined of geen input → ""
-    // - trim() verwijdert spaties
-    const search = (req.query.search_bar as string || "").toLowerCase().trim();
+    /* =========================
+       🔍 1. SEARCH
+    ========================= */
+    // Zoekterm uit URL (?search_bar=...)
+    // undefined → "" zodat code niet breekt
+    // lowercase + trim = niet hoofdlettergevoelig + geen spaties
+    const search = (req.query.search_bar as string || "")
+        .toLowerCase()
+        .trim();
 
-    // filter enkel als er effectief gezocht is
-    // anders toon je gewoon alle streetfoods
-    const filteredStreetFoods = search 
-        ? streetfoods.filter(food => 
-            food.name.toLowerCase().includes(search))
-        : streetfoods
-    ;
+    /* =========================
+       🔎 2. FILTER LOGICA
+    ========================= */
+    // Als er search is → filter op naam
+    // Anders → toon alles
+    const filteredStreetFoods = search
+        ? streetfoods.filter(food =>
+            food.name.toLowerCase().includes(search)
+        )
+        : streetfoods;
 
-    // 'noResults' is enkel true als:
-    // 1. er een echte search is uitgevoerd (search !== "")
-    // 2. en er geen resultaten zijn gevonden
-    // → voorkomt foutieve "No results" bij lege zoekbalk
+    /* =========================
+       📉 3. NO RESULTS CHECK
+    ========================= */
+    // Alleen true als:
+    // - er een search was
+    // - en geen resultaten gevonden zijn
     const noResults = search !== "" && filteredStreetFoods.length === 0;
 
-
-    /* Onderdeel Sorteren */
+    /* =========================
+       📊 4. SORT INPUT
+    ========================= */
+    // Welke kolom wordt gesorteerd (name, category, priceTier, spiceLevel)
     const sortField = typeof req.query.sortField === "string"
-            ? req.query.sortField
-            : "name"
-    ;
+        ? req.query.sortField
+        : "name";
 
+    // Sort richting (asc / desc)
     const sortDirection = typeof req.query.sortDirection === "string"
-            ? req.query.sortDirection
-            : "asc"
-    ;
+        ? req.query.sortDirection
+        : "asc";
 
-    /* ASC & DESC */
-    let sortedStreetFoods = [...filteredStreetFoods].sort((a, b) => {
+    /* =========================
+       💰 5. PRICE HELPER FUNCTION
+    ========================= */
+    // Zet "€€€" om naar een getal zodat we kunnen sorteren
+    const priceValue = (p: string): number => {
+
+        // "€"   → 1
+        // "€€"  → 2
+        // "€€€" → 3
+        return p.length;
+    };
+
+    /* =========================
+       🔥 6. SORT LOGICA
+    ========================= */
+    const sortedStreetFoods = [...filteredStreetFoods].sort((a, b) => {
+
+        // SORT OP NAAM (A-Z)
         if (sortField === "name") {
             return sortDirection === "asc"
                 ? a.name.localeCompare(b.name)
                 : b.name.localeCompare(a.name);
-        } else if (sortField === "category") {
-            return sortDirection ==  "asc"
+        }
+
+        // SORT OP CATEGORY (A-Z)
+        if (sortField === "category") {
+            return sortDirection === "asc"
                 ? a.category.localeCompare(b.category)
                 : b.category.localeCompare(a.category);
-        } else if (sortField === "priceTier") {
+        }
+
+        // SORT OP PRICE (€/€€/€€€)
+        if (sortField === "priceTier") {
             return sortDirection === "asc"
-                ? a.priceTier.localeCompare(b.priceTier)
-                : b.priceTier.localeCompare(a.priceTier);
-        } else if (sortField === "spiceLevel") {
+                ? priceValue(a.priceTier) - priceValue(b.priceTier)
+                : priceValue(b.priceTier) - priceValue(a.priceTier);
+        }
+
+        // SORT OP SPICE LEVEL (numeriek)
+        if (sortField === "spiceLevel") {
             return sortDirection === "asc"
                 ? a.spiceLevel - b.spiceLevel
                 : b.spiceLevel - a.spiceLevel;
-        }  else {
-            return 0;
         }
+
+        // Fallback (geen sort)
+        return 0;
     });
 
-    let sortFields = [
+    /* =========================
+       📋 7. SORT
+    ========================= */
+
+    // Dropdown opties voor sorteren in frontend
+    const sortFields = [
         { value: "name", text: "Naam" },
         { value: "category", text: "Categorie" },
         { value: "priceTier", text: "Prijs" },
         { value: "spiceLevel", text: "Spice Level" }
     ];
-       
+
+    /* =========================
+       🌐 8. RENDER
+    ========================= */
     res.render("streetfoods", {
-       streetfoods: sortedStreetFoods, 
-       // Langere notatie => search: search
-       search,
-       noResults,
-       sortField,
-       sortDirection,
-       sortFields,
-       title: "Streetfoods", /* Dynamische Titel */
-       searchAction: "/streetfoods", /* Dynamische Search */
-       showSearch: true, 
-       searchPlaceholder: "Zoek een streetfood"
+
+        streetfoods: sortedStreetFoods, // Uiteindelijke data
+
+        search, // Zoekterm doorgeven
+        noResults, // Melding als niks gevonden
+
+        sortField, // Actieve sort kolom
+        sortDirection, // Asc of desc
+
+        sortFields, // Lijst van sort-opties
+
+        title: "Streetfoods", // Dynamische Titel
+
+        searchAction: "/streetfoods", // Dynamische Search
+        showSearch: true, 
+        searchPlaceholder: "Zoek een streetfood"
     });
 });
 
-/* ---------------- VENDORS LIST ---------------- */
-/* Overzichtspagina 'Vendors' met 'search-function' */
+
+/* ---------------- VENDORS LIST ----------------- */
 app.get("/vendors", async (req, res) => {
+
+    // Haalt alle vendors op uit je JSON/API
     const vendors = await fetchVendors();
    
-    // 'search' wordt altijd een string:
-    // - undefined of geen input → ""
-    // - trim() verwijdert spaties
-    const search = (req.query.search_bar as string || "").toLowerCase().trim();
+    /* =========================
+       🔍 1. SEARCH
+    ========================= */
+    // Haalt zoekterm op uit URL (?search_bar=...)
+    // Zet undefined om naar "" en maakt alles lowercase zodat zoeken niet hoofdlettergevoelig is
+    const search = (req.query.search_bar as string || "")
+        .toLowerCase()
+        .trim();
 
-    // filter enkel als er effectief gezocht is
-    // anders toon je gewoon alle streetfoods
-    const filteredVendors = search 
-        ? vendors.filter(vendor => 
-            vendor.name.toLowerCase().includes(search))
-        : vendors
-    ;
+    /* =========================
+       🌍 2. FILTERS
+    ========================= */
+    // Filter op stad (dropdown)
+    const cityFilter = (req.query.cityFilter as string || "").trim();
 
-    // 'noResults' is enkel true als:
-    // 1. er een echte search is uitgevoerd (search !== "")
-    // 2. en er geen resultaten zijn gevonden
-    // → voorkomt foutieve "No results" bij lege zoekbalk
-    const noResults = search !== "" && filteredVendors.length === 0;
+    // Filter op land (dropdown)
+    const countryFilter = (req.query.countryFilter as string || "").trim();
 
+    /* =========================
+       📊 3. SORT INPUT
+    ========================= */
+    // Welke kolom wordt gesorteerd (bv. name, price)
+    const sortField = typeof req.query.sortField === "string"
+        ? req.query.sortField
+        : "name"; // default sort = naam
+
+    // Welke richting (asc = A-Z, desc = Z-A)
+    const sortDirection = typeof req.query.sortDirection === "string"
+        ? req.query.sortDirection
+        : "asc"; // default = oplopend
+
+    /* =========================
+       🌐 4. DROPDOWNS DATA
+    ========================= */
+    // Alle unieke steden uit vendors halen
+    const allCities = [...new Set(vendors.map(v => v.city))].sort();
+
+    // Alle unieke landen uit vendors halen
+    const allCountries = [...new Set(vendors.map(v => v.country))].sort();
+
+    /* =========================
+       🔎 5. FILTER LOGICA
+    ========================= */
+    // Start met alle vendors
+    let filteredVendors = vendors;
+
+    // Filter op naam (search bar)
+    if (search) {
+        filteredVendors = filteredVendors.filter(v =>
+            v.name.toLowerCase().includes(search)
+        );
+    }
+
+    // Filter op city dropdown
+    if (cityFilter) {
+        filteredVendors = filteredVendors.filter(v =>
+            v.city === cityFilter
+        );
+    }
+
+    // Filter op country dropdown
+    if (countryFilter) {
+        filteredVendors = filteredVendors.filter(v =>
+            v.country === countryFilter
+        );
+    }
+
+    /* =========================
+       📉 6. NO RESULTS CHECK
+    ========================= */
+    // Checkt of er filters/search actief zijn én geen resultaten
+    const noResults =
+        (search !== "" || cityFilter !== "" || countryFilter !== "")
+        && filteredVendors.length === 0;
+
+    /* =========================
+       🔥 7. SORT LOGICA
+    ========================= */
+    // Sorteert de gefilterde vendors
+    const sortedVendors = [...filteredVendors].sort((a, b) => {
+
+        // SORT OP NAAM (string vergelijking)
+        if (sortField === "name") {
+            return sortDirection === "asc"
+                ? a.name.localeCompare(b.name)
+                : b.name.localeCompare(a.name);
+        }
+
+        // SORT OP PRIJS (nummer vergelijking)
+        if (sortField === "averagePriceEur") {
+            return sortDirection === "asc"
+                ? (a.averagePriceEur || 0) - (b.averagePriceEur || 0)
+                : (b.averagePriceEur || 0) - (a.averagePriceEur || 0);
+        }
+
+        // Fallback (geen sort)
+        return 0;
+    });
+
+    /* =========================
+       📋 7B. SORT
+    ========================= */
+    // Lijst van sorteeropties voor dropdown in EJS
+    let sortFields = [
+        { value: "name", text: "Naam" },
+        { value: "averagePriceEur", text: "Gemiddelde Kostprijs" }
+    ];
+
+    /* =========================
+       🌐 8. RENDER
+    ========================= */
     res.render("vendors", {
-       vendors: filteredVendors, 
-       // Langere notatie => search: search
-       search,
-       noResults,
-       title: "Vendors", /* Dynamische Titel */
-       searchAction: "/vendors", /* Dynamische Search */
-       showSearch: true,
-       searchPlaceholder: "Zoek een vendor"
+
+        vendors: sortedVendors, // Uiteindelijke data
+
+        search, // Zoekterm doorgeven
+        noResults, // Melding als niks gevonden
+
+        sortField, // Actieve sort kolom
+        sortDirection, // Asc of desc
+
+        sortFields, // Lijst van sort-opties
+
+        cityFilter, // Actieve city filter
+        countryFilter, // Actieve country filter
+
+        allCities, // Dropdown data
+        allCountries, // Dropdown data
+
+        title: "Vendors", // Dynamische Titel
+
+        searchAction: "/vendors", // Dynamische Search
+        showSearch: true,
+        searchPlaceholder: "Zoek een vendor"
     });
 });
+
 
 /* ---------------- STREETFOOD DETAIL ---------------- */
 app.get("/streetfoods/:id", async(req, res) => {
@@ -167,15 +329,16 @@ app.get("/streetfoods/:id", async(req, res) => {
 
     if (!streetfood) {
         return res.status(404).render("page_404", {
-            title: "Not Found" /* Nodig voor dynamische titel */
+            title: "Not Found" // Nodig voor dynamische titel
         });
     }
 
     res.render("streetfood-detail", {
         streetfood,
-        title: `Streetfood - ${streetfood.name} (#${streetfood.id})` /* nodig voor dynamische titel */
+        title: `Streetfood - ${streetfood.name} (#${streetfood.id})` // nodig voor dynamische titel
     });
 });
+
 
 /* ---------------- VENDOR DETAIL ---------------- */
 app.get("/vendors/:id", async(req, res) => {
@@ -187,15 +350,16 @@ app.get("/vendors/:id", async(req, res) => {
 
     if (!vendor) {
         return res.status(404).render("page_404", {
-            title: "Not Found" /* Nodig voor dynamische titel */
+            title: "Not Found" // Nodig voor dynamische titel
         });
     }
 
     res.render("vendor-detail", {
         vendor,
-        title: `Vendor - ${vendor.name} (#${vendor.id})` /* Nodig voor dynamische titel */
+        title: `Vendor - ${vendor.name} (#${vendor.id})` // Nodig voor dynamische titel
     });
 });
+
 
 /* ---------------- START SERVER ---------------- */
 app.listen(app.get("port"), () => {

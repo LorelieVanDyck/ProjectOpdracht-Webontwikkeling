@@ -18,9 +18,9 @@
                 <!-- IMAGE -->
                 <th>Afbeelding</th>
 
-                <!-- NAME -->
+                <!-- NAME SORT -->
                 <th>
-                    <a href="/streetfoods?q=<%= search %>&sortField=name&sortDirection=<%= sortField === 'name' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
+                    <a href="/streetfoods?search_bar=<%= search %>&sortField=name&sortDirection=<%= sortField === 'name' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
                         Naam
                         <% if (sortField === 'name') { %>
                             <%= sortDirection === 'asc' ? '▲' : '▼' %>
@@ -31,9 +31,9 @@
                 <!-- DESCRIPTION -->
                 <th>Beschrijving</th>
 
-                <!-- CATEGORY -->
+                <!-- CATEGORY SORT -->
                 <th>
-                    <a href="/streetfoods?q=<%= search %>&sortField=category&sortDirection=<%= sortField === 'category' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
+                    <a href="/streetfoods?search_bar=<%= search %>&sortField=category&sortDirection=<%= sortField === 'category' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
                         Categorie
                         <% if (sortField === 'category') { %>
                             <%= sortDirection === 'asc' ? '▲' : '▼' %>
@@ -41,9 +41,9 @@
                     </a>
                 </th>
 
-                <!-- Price Tier -->
+                <!-- PPRICA TIER SORT -->
                 <th>
-                    <a href="/streetfoods?q=<%= search %>&sortField=priceTier&sortDirection=<%= sortField === 'priceTier' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
+                    <a href="/streetfoods?search_bar=<%= search %>&sortField=priceTier&sortDirection=<%= sortField === 'priceTier' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
                         Prijs
                         <% if (sortField === 'priceTier') { %>
                             <%= sortDirection === 'asc' ? '▲' : '▼' %>
@@ -51,9 +51,9 @@
                     </a>
                 </th>
 
-                <!-- Spice Level -->
+                <!-- SPICE LEVEL SORT -->
                 <th>
-                    <a href="/streetfoods?q=<%= search %>&sortField=spiceLevel&sortDirection=<%= sortField === 'spiceLevel' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
+                    <a href="/streetfoods?search_bar=<%= search %>&sortField=spiceLevel&sortDirection=<%= sortField === 'spiceLevel' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
                         Spice Level
                         <% if (sortField === 'spiceLevel') { %>
                             <%= sortDirection === 'asc' ? '▲' : '▼' %>
@@ -61,7 +61,7 @@
                     </a>
                 </th>
 
-                <!-- Popularity -->
+                <!-- POPULARITY -->
                 <th>Populariteit</th>
             </tr>
         </thead>
