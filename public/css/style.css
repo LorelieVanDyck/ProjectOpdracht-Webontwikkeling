@@ -1,63 +1,387 @@
-/* Aside */
-.sidebar {
-    width: 220px;
-    background: #222;
-    color: white;
-    padding: 15px;
-
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* ruimte tussen search en nav */
+/* =============================================
+   CSS VARIABLES
+   ============================================= */
+:root {
+    --green-dark:    #2d6a4f;
+    --green-medium:  #52b788;
+    --green-pastel:  #b7e4c7;
+    --green-light:   #d8f3dc;
+    --green-xlight:  #f0faf3;
+    --cream:         #fefae0;
+    --text-dark:     #1b2e23;
+    --text-mid:      #4a5e52;
+    --white:         #ffffff;
+    --shadow:        0 2px 14px rgba(45, 106, 79, 0.13);
+    --radius:        10px;
 }
 
-/* Input */
-.sidebar input {
+/* =============================================
+   RESET & BASE
+   ============================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--green-xlight);
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =============================================
+   LAYOUT — sidebar links, content rechts
+   ============================================= */
+main.content {
+    display: flex;
+    flex: 1;
+    align-items: stretch;
+}
+
+.page-content {
+    flex: 1;
+    padding: 36px 44px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    overflow-y: auto;
+}
+
+/* =============================================
+   SIDEBAR
+   ============================================= */
+.sidebar {
+    width: 240px;
+    min-width: 240px;
+    background: var(--green-dark);
+    color: var(--white);
+    padding: 28px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    min-height: 100vh;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--white);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    padding-bottom: 18px;
+}
+.logo-icon { font-size: 28px; }
+.logo-text { letter-spacing: 1px; }
+
+.sidebar h3 {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--green-pastel);
+    margin-bottom: 10px;
+}
+
+/* Search */
+.sidebar input[type="text"] {
     width: 100%;
-    padding: 6px;
-    margin-bottom: 5px;
+    padding: 8px 12px;
+    border-radius: 7px;
+    border: none;
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--white);
+    font-size: 14px;
+    outline: none;
+    margin-bottom: 8px;
+}
+.sidebar input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.45);
 }
 
 .sidebar button {
     width: 100%;
-    padding: 6px;
+    padding: 8px;
+    background: var(--green-medium);
+    color: var(--white);
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+.sidebar button:hover {
+    background: #3fa070;
 }
 
-/* Links Uitlijnen */
+/* Nav */
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
 .sidebar a {
     display: block;
-    color: white;
+    color: rgba(255, 255, 255, 0.82);
     text-decoration: none;
-    margin: 5px 0;
+    padding: 9px 12px;
+    border-radius: 7px;
+    font-size: 15px;
+    transition: background 0.18s, color 0.18s;
 }
-
 .sidebar a:hover {
-    text-decoration: underline;
+    background: rgba(255, 255, 255, 0.13);
+    color: var(--white);
 }
 
-/* Logo */
-.logo {
-    margin: 0;
-    font-size: 20px;
-    font-weight: bold;
+/* =============================================
+   HEADINGS
+   ============================================= */
+h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--green-dark);
+    border-left: 5px solid var(--green-medium);
+    padding-left: 14px;
+    line-height: 1.2;
+}
 
+h2 {
+    font-size: 19px;
+    color: var(--green-dark);
+    font-weight: 600;
+}
+
+/* =============================================
+   HOME — hero image
+   ============================================= */
+.hero {
+    padding: 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--green-light);
+}
+.hero img {
+    width: 100%;
+    max-height: 440px;
+    object-fit: cover;
+    display: block;
+}
+.hero p {
+    padding: 20px 26px;
+    font-size: 16px;
+    color: var(--text-mid);
+    line-height: 1.65;
+    background: var(--white);
+}
+
+/* =============================================
+   ARTICLES — gewone kaarten
+   ============================================= */
+article {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--green-light);
+}
+article h3 {
+    font-size: 17px;
+    color: var(--green-dark);
+    margin-bottom: 8px;
+}
+article p {
+    color: var(--text-mid);
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+/* Klikbare kaarten (home, detail sub-items) */
+article.clickable-row {
+    cursor: pointer;
+    transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+}
+article.clickable-row:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(45, 106, 79, 0.18);
+    border-color: var(--green-medium);
+}
+
+/* =============================================
+   DETAIL CARD — afbeelding links, info rechts
+   ============================================= */
+.detail-card {
     display: flex;
-    align-items: center;
+    flex-direction: row;
+    gap: 36px;
+    align-items: flex-start;
+    padding: 28px;
+}
+.detail-card img {
+    width: 300px;
+    min-width: 300px;
+    border-radius: var(--radius);
+    object-fit: cover;
+    box-shadow: var(--shadow);
+}
+.detail-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
 }
-
-.logo-icon {
-    font-size: 26px;
+.detail-info h2 {
+    margin-top: 6px;
+}
+.detail-info p {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.65;
+}
+.detail-info p strong {
+    color: var(--text-dark);
 }
 
-.logo-text {
-    letter-spacing: 1px;
+/* Sub-items (vendor op streetfood-detail / foods op vendor-detail) */
+.sub-card {
+    display: flex;
+    flex-direction: row;
+    gap: 22px;
+    align-items: flex-start;
+    padding: 18px 22px;
+}
+.sub-card img {
+    width: 160px;
+    min-width: 160px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+.sub-card-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.sub-card-info h3 {
+    margin-bottom: 4px;
+}
+.sub-card-info p {
+    font-size: 14px;
 }
 
-/* Click-Functie */
-.clickable-row {
+/* =============================================
+   TABLE
+   ============================================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+thead {
+    background: var(--green-dark);
+    color: var(--white);
+}
+thead th {
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+}
+thead th a {
+    color: var(--white);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+thead th a:hover {
+    color: var(--green-pastel);
+}
+
+/* Dropdown in thead */
+thead th select {
+    background: rgba(255, 255, 255, 0.14);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 5px;
+    padding: 5px 8px;
+    font-size: 13px;
+    cursor: pointer;
+    outline: none;
+    width: 100%;
+    max-width: 160px;
+}
+thead th select option {
+    background: var(--green-dark);
+    color: var(--white);
+}
+
+tbody tr {
+    border-bottom: 1px solid var(--green-light);
+    transition: background 0.14s;
+}
+tbody tr:last-child {
+    border-bottom: none;
+}
+tbody tr.clickable-row {
     cursor: pointer;
 }
+tbody tr.clickable-row:hover {
+    background: var(--green-xlight);
+}
 
-.clickable-row:hover {
-    background-color: #f5f5f5;
+tbody td {
+    padding: 12px 16px;
+    font-size: 14px;
+    color: var(--text-mid);
+    vertical-align: middle;
+}
+tbody td img {
+    border-radius: 7px;
+    display: block;
+}
+
+/* =============================================
+   INFO / NO RESULTS BERICHTEN
+   ============================================= */
+.page-content > p {
+    background: var(--cream);
+    border-left: 4px solid var(--green-medium);
+    padding: 12px 18px;
+    border-radius: 6px;
+    color: var(--text-mid);
+    font-size: 14px;
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+footer {
+    background: var(--green-dark);
+    color: rgba(255, 255, 255, 0.65);
+    text-align: center;
+    padding: 18px;
+    font-size: 13px;
+}
+footer a {
+    color: var(--green-pastel);
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
 }

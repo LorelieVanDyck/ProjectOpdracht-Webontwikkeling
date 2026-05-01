@@ -2,109 +2,76 @@
 
 <h1><%= streetfood.name %></h1>
 
-<!-- STREETFOOD INFO -->
-<article>
+<!-- STREETFOOD INFO: afbeelding links, details rechts -->
+<article class="detail-card">
+    <img src="<%= streetfood.imageUrl %>" alt="<%= streetfood.name %>">
 
-    <img src="<%= streetfood.imageUrl %>" alt="<%= streetfood.name %>" width="320px">
+    <div class="detail-info">
+        <h2>Beschrijving</h2>
+        <p><%= streetfood.description %></p>
 
-    <h2>Beschrijving</h2>
-    <p><%= streetfood.description %></p>
-
-    <h2>Details</h2>
-    <p><strong>Categorie:</strong> <%= streetfood.category %></p>
-    <p><strong>Prijs:</strong> <%= streetfood.priceTier %></p>
-    <p>
-        <strong>Spice Level:</strong>
-        <%= "🌶️".repeat(streetfood.spiceLevel) %>
-    </p>
-
-    <p>
-        <strong>Populariteit:</strong>
-        <%= streetfood.isPopular ? "🔥 Popular" : "Normaal" %>
-    </p>
-
-    <p>
-        <strong>Tags:</strong>
-        <%= streetfood.tags.join(", ") %>
-    </p>
-
-    <p>
-        <strong>First Served:</strong>
-        <%= streetfood.firstServedDate %>
-    </p>
-
+        <h2>Details</h2>
+        <p><strong>Categorie:</strong> <%= streetfood.category %></p>
+        <p><strong>Prijs:</strong> <%= streetfood.priceTier %></p>
+        <p>
+            <strong>Spice Level:</strong>
+            <%= "🌶️".repeat(streetfood.spiceLevel) %>
+        </p>
+        <p>
+            <strong>Populariteit:</strong>
+            <%= streetfood.isPopular ? "🔥 Popular" : "Normaal" %>
+        </p>
+        <p>
+            <strong>Tags:</strong>
+            <%= streetfood.tags.join(", ") %>
+        </p>
+        <p>
+            <strong>First Served:</strong>
+            <%= streetfood.firstServedDate %>
+        </p>
+    </div>
 </article>
 
 
 <!-- VENDOR INFO -->
 <h2>Vendor</h2>
 
-<article class="clickable-row"
+<article class="sub-card clickable-row"
     onclick="window.location='/vendors/<%= streetfood.vendor.id %>'">
 
-    <img src="<%= streetfood.vendor.standImageUrl %>" alt="<%= streetfood.vendor.name %>" width="280px">
+    <img src="<%= streetfood.vendor.standImageUrl %>" alt="<%= streetfood.vendor.name %>">
 
-    <h3><%= streetfood.vendor.name %></h3>
-
-    <p>
-        <strong>Locatie:</strong>
-        <%= streetfood.vendor.city %>,
-        <%= streetfood.vendor.country %>
-    </p>
-
-    <p>
-        <strong>Status:</strong>
-        <%= streetfood.vendor.isOpenNow ? "🟢 Open" : "🔴 Closed" %>
-    </p>
-
-    <p>
-        <strong>Specialiteit:</strong>
-        <%= streetfood.vendor.specialty || "-" %>
-    </p>
-
-    <p>
-        <strong>Sinds:</strong>
-        <%= streetfood.vendor.sinceYear || "-" %>
-    </p>
-
-    <p>
-        <strong>Gemiddelde prijs:</strong>
-        €<%= streetfood.vendor.averagePriceEur || "-" %>
-    </p>
-
+    <div class="sub-card-info">
+        <h3><%= streetfood.vendor.name %></h3>
+        <p><strong>Locatie:</strong> <%= streetfood.vendor.city %>, <%= streetfood.vendor.country %></p>
+        <p><strong>Status:</strong> <%= streetfood.vendor.isOpenNow ? "🟢 Open" : "🔴 Closed" %></p>
+        <p><strong>Specialiteit:</strong> <%= streetfood.vendor.specialty || "-" %></p>
+        <p><strong>Sinds:</strong> <%= streetfood.vendor.sinceYear || "-" %></p>
+        <p><strong>Gemiddelde prijs:</strong> €<%= streetfood.vendor.averagePriceEur || "-" %></p>
+    </div>
 </article>
 
 
-<!-- SAME VENDOR FOODS -->
+<!-- ANDERE STREETFOODS VAN DEZE VENDOR -->
 <h2>Andere streetfoods van deze vendor</h2>
 
 <% if (sameVendorFoods.length === 0) { %>
-
     <p>Geen andere streetfoods gevonden.</p>
-
 <% } else { %>
-
     <% for (let food of sameVendorFoods) { %>
-
-        <article class="clickable-row"
+        <article class="sub-card clickable-row"
             onclick="window.location='/streetfoods/<%= food.id %>'">
 
-            <img src="<%= food.imageUrl %>" alt="<%= food.name %>" width="180px">
+            <img src="<%= food.imageUrl %>" alt="<%= food.name %>">
 
-            <h3><%= food.name %></h3>
-
-            <p><strong>Categorie:</strong> <%= food.category %></p>
-            <p><strong>Prijs:</strong> <%= food.priceTier %></p>
-
-            <p>
-                <strong>Spice Level:</strong>
-                <%= "🌶️".repeat(food.spiceLevel) %>
-            </p>
-
+            <div class="sub-card-info">
+                <h3><%= food.name %></h3>
+                <p><strong>Categorie:</strong> <%= food.category %></p>
+                <p><strong>Prijs:</strong> <%= food.priceTier %></p>
+                <p><strong>Spice Level:</strong> <%= "🌶️".repeat(food.spiceLevel) %></p>
+            </div>
         </article>
-
     <% } %>
-
 <% } %>
 
 <%- include("partials/footer") %>
