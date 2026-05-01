@@ -342,7 +342,7 @@ app.get("/streetfoods/:id", async(req, res) => {
     res.render("streetfood-detail", {
         streetfood,
         sameVendorFoods,
-        showSearch: false, //showSearch wordt verwacht -> false aanduiden -> anders error
+        showSearch: false, //showSearch wordt verwacht (toont zoekbar) -> false aanduiden -> anders error
         title: `Streetfood - ${streetfood.name} (#${streetfood.id})` // nodig voor dynamische titel
     });
 });
@@ -368,7 +368,7 @@ app.get("/vendors/:id", async(req, res) => {
     res.render("vendor-detail", {
         vendor,
         vendorFoods,
-        showSearch: false, //showSearch wordt verwacht -> false aanduiden -> anders error
+        showSearch: false, //showSearch wordt verwacht (toont zoekbar) -> false aanduiden -> anders error
         title: `Vendor - ${vendor.name} (#${vendor.id})` // Nodig voor dynamische titel
     });
 });
