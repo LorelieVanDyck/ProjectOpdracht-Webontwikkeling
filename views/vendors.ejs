@@ -1,4 +1,3 @@
-
 <%- include("partials/header") %>
 
 <h1>Vendors</h1>
@@ -11,12 +10,16 @@
 
 <!-- Tabel met zoekresultaten -->
 <% if (vendors.length === 0) { %>
+
     <p>Geen resultaten gevonden</p>
+
 <% } else { %>
+
 <table>
 
     <thead>
         <tr>
+
             <!-- IMAGE -->
             <th>Afbeelding</th>
 
@@ -24,7 +27,6 @@
             <th>
                 <a href="/vendors?search_bar=<%= search %>&cityFilter=<%= cityFilter %>&countryFilter=<%= countryFilter %>&sortField=name&sortDirection=<%= sortField === 'name' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
                     Naam
-
                     <% if (sortField === "name") { %>
                         <%= sortDirection === "asc" ? "▲" : "▼" %>
                     <% } %>
@@ -33,36 +35,26 @@
 
             <!-- CITY FILTER -->
             <th>
-                <form method="GET" action="/vendors">
-                    <input type="hidden" name="search_bar" value="<%= search %>">
-                    <input type="hidden" name="countryFilter" value="<%= countryFilter %>">
-
-                    <select name="cityFilter" onchange="this.form.submit()">
-                        <option value="">Alle steden</option>
-                        <% for (let city of allCities) { %>
-                            <option value="<%= city %>" <%= cityFilter === city ? "selected" : "" %>>
-                                <%= city %>
-                            </option>
-                        <% } %>
-                    </select>
-                </form>
+                <select name="cityFilter" onchange="this.form.submit()">
+                    <option value="">Alle steden</option>
+                    <% for (let city of allCities) { %>
+                        <option value="<%= city %>" <%= cityFilter === city ? "selected" : "" %>>
+                            <%= city %>
+                        </option>
+                    <% } %>
+                </select>
             </th>
 
             <!-- COUNTRY FILTER -->
             <th>
-                <form method="GET" action="/vendors">
-                    <input type="hidden" name="search_bar" value="<%= search %>">
-                    <input type="hidden" name="cityFilter" value="<%= cityFilter %>">
-
-                    <select name="countryFilter" onchange="this.form.submit()">
-                        <option value="">Alle landen</option>
-                        <% for (let country of allCountries) { %>
-                            <option value="<%= country %>" <%= countryFilter === country ? "selected" : "" %>>
-                                <%= country %>
-                            </option>
-                        <% } %>
-                    </select>
-                </form>
+                <select name="countryFilter" onchange="this.form.submit()">
+                    <option value="">Alle landen</option>
+                    <% for (let country of allCountries) { %>
+                        <option value="<%= country %>" <%= countryFilter === country ? "selected" : "" %>>
+                            <%= country %>
+                        </option>
+                    <% } %>
+                </select>
             </th>
 
             <!-- STATUS -->
@@ -72,14 +64,13 @@
             <th>
                 <a href="/vendors?search_bar=<%= search %>&cityFilter=<%= cityFilter %>&countryFilter=<%= countryFilter %>&sortField=averagePriceEur&sortDirection=<%= sortField === 'averagePriceEur' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
                     Prijs
-
                     <% if (sortField === "averagePriceEur") { %>
                         <%= sortDirection === "asc" ? "▲" : "▼" %>
                     <% } %>
                 </a>
             </th>
 
-            <!-- SPECIALITY -->
+            <!-- SPECIALTY -->
             <th>Specialiteit</th>
 
         </tr>
@@ -93,7 +84,7 @@
             onclick="window.location='/vendors/<%= vendor.id %>'">
 
             <td>
-                <img src="<%= vendor.standImageUrl %>" alt="<%= vendor.name %>" width="100px">
+                <img src="<%= vendor.standImageUrl %>" width="100px">
             </td>
 
             <td><%= vendor.name %></td>
