@@ -79,7 +79,7 @@
                     <td><%= vendor.city %></td>
                     <td><%= vendor.country %></td>
                     <td><%= vendor.isOpenNow ? "🟢 Open" : "🔴 Closed" %></td>
-                    <td>€<%= vendor.averagePriceEur || "-" %></td>
+                    <td>€ <%= vendor.averagePriceEur || "-" %></td>
                     <td><%= vendor.specialty || "-" %></td>
                 </tr>
             <% } %>
