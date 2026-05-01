@@ -1,39 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <title><%= filteredStreetFoods.name %></title>
-</head>
-<body>
-    <article>
-        <h2><%= filteredStreetFoods.name %></h2>
-        <img src="<%= filteredStreetFoods.imageUrl %>" width="300px">
-        <p><%= filteredStreetFoods.description %></p>
-        
-        <p><strong>Category: </strong><%= filteredStreetFoods.category %></p>
-        <p><strong>Prijs: </strong><%= filteredStreetFoods.priceTier %></p>
-        <p><strong>Spice Level: </strong><%= "🌶️".repeat(filteredStreetFoods.spiceLevel) %></p>
-        <p><strong>Populariteit: </strong><%= filteredStreetFoods.isPopular ? "🔥 Popular" : "" %></p>
-    </article>
-    <article class="clickable-row" onclick="window.location='/vendors/<%= streetFoods.vendor?.id %>'">
-        // "?" => Alleen verder gaan als dit bestaat, anders stop zonder error”
-        <h3>Verkoper</h3>
-        <p><%= filteredStreetFoods.vendor.name %></p>
-        <img src="<%= filteredStreetFoods.vendor.standImageUrl %>" width="300px">
-        <p><strong>Positie: </strong><%= filteredStreetFoods.vendor.city %>, <%= filteredStreetFoods.vendor.country %></p>
-        <p><strong>Ontstaan: </strong><%= filteredStreetFoods.vendor.sinceYear %></p>
-        <p><strong>Open/Gesloten: </strong><%= filteredStreetFoods.vendor.isOpenNow ? "Open" : "Gesloten" %></p>
-        <p><strong>Specialiteit: </strong><%= filteredStreetFoods.vendor.specialty %></p>
-        <p><strong>Gemiddelde Prijs in Euro: </strong><%= filteredStreetFoods.vendor.averagePriceEur %></p>
-    </article>
-    // Aaan te passen!
-    <article>
-        <h3>Soortgelijke</h3>
-        <ul>
+<%- include("partials/header") %>
 
-        </ul>
-    </article>
-</body>
-</html>
+<h1><%= streetfood.name %></h1>
+
+<!-- STREETFOOD INFO -->
+<article>
+
+    <img src="<%= streetfood.imageUrl %>" alt="<%= streetfood.name %>" width="320px">
+
+    <h2>Beschrijving</h2>
+    <p><%= streetfood.description %></p>
+
+    <h2>Details</h2>
+    <p><strong>Categorie:</strong> <%= streetfood.category %></p>
+    <p><strong>Prijs:</strong> <%= streetfood.priceTier %></p>
+    <p>
+        <strong>Spice Level:</strong>
+        <%= "🌶️".repeat(streetfood.spiceLevel) %>
+    </p>
+
+    <p>
+        <strong>Populariteit:</strong>
+        <%= streetfood.isPopular ? "🔥 Popular" : "Normaal" %>
+    </p>
+
+    <p>
+        <strong>Tags:</strong>
+        <%= streetfood.tags.join(", ") %>
+    </p>
+
+    <p>
+        <strong>First Served:</strong>
+        <%= streetfood.firstServedDate %>
+    </p>
+
+</article>
+
+
+<!-- VENDOR INFO -->
+<h2>Vendor</h2>
+
+<article class="clickable-row"
+    onclick="window.location='/vendors/<%= streetfood.vendor.id %>'">
+
+    <img src="<%= streetfood.vendor.standImageUrl %>" alt="<%= streetfood.vendor.name %>" width="280px">
+
+    <h3><%= streetfood.vendor.name %></h3>
+
+    <p>
+        <strong>Locatie:</strong>
+        <%= streetfood.vendor.city %>,
+        <%= streetfood.vendor.country %>
+    </p>
+
+    <p>
+        <strong>Status:</strong>
+        <%= streetfood.vendor.isOpenNow ? "🟢 Open" : "🔴 Closed" %>
+    </p>
+
+    <p>
+        <strong>Specialiteit:</strong>
+        <%= streetfood.vendor.specialty || "-" %>
+    </p>
+
+    <p>
+        <strong>Sinds:</strong>
+        <%= streetfood.vendor.sinceYear || "-" %>
+    </p>
+
+    <p>
+        <strong>Gemiddelde prijs:</strong>
+        €<%= streetfood.vendor.averagePriceEur || "-" %>
+    </p>
+
+</article>
+
+
+<!-- SAME VENDOR FOODS -->
+<h2>Andere streetfoods van deze vendor</h2>
+
+<% if (sameVendorFoods.length === 0) { %>
+
+    <p>Geen andere streetfoods gevonden.</p>
+
+<% } else { %>
+
+    <% for (let food of sameVendorFoods) { %>
+
+        <article class="clickable-row"
+            onclick="window.location='/streetfoods/<%= food.id %>'">
+
+            <img src="<%= food.imageUrl %>" alt="<%= food.name %>" width="180px">
+
+            <h3><%= food.name %></h3>
+
+            <p><strong>Categorie:</strong> <%= food.category %></p>
+            <p><strong>Prijs:</strong> <%= food.priceTier %></p>
+
+            <p>
+                <strong>Spice Level:</strong>
+                <%= "🌶️".repeat(food.spiceLevel) %>
+            </p>
+
+        </article>
+
+    <% } %>
+
+<% } %>
+
+<%- include("partials/footer") %>

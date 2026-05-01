@@ -4,7 +4,9 @@
 
 <!-- Bericht: Geen gevonden resultaten -->
 <% if (noResults) { %>
+
     <p>Geen vendors gevonden met zoekopdracht: "<%= search %>"</p>
+
 <% } %>
 
 
@@ -84,7 +86,7 @@
             onclick="window.location='/vendors/<%= vendor.id %>'">
 
             <td>
-                <img src="<%= vendor.standImageUrl %>" width="100px">
+                <img src="<%= vendor.standImageUrl %>" alt="<%= vendor.name %>" width="100px">
             </td>
 
             <td><%= vendor.name %></td>

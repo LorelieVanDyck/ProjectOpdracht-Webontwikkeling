@@ -333,8 +333,15 @@ app.get("/streetfoods/:id", async(req, res) => {
         });
     }
 
+    /* Andere streetfoods van dezelfde vendor */
+    const sameVendorFoods = streetfoods.filter(food =>
+        food.vendor.id === streetfood.vendor.id &&
+        food.id !== streetfood.id
+    );
+
     res.render("streetfood-detail", {
         streetfood,
+        sameVendorFoods,
         title: `Streetfood - ${streetfood.name} (#${streetfood.id})` // nodig voor dynamische titel
     });
 });

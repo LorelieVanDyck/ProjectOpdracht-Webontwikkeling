@@ -1,16 +1,76 @@
-// Vendors met meerdere streetfoods
-<h3>Andere streetfoods van deze vendor</h3>
+<%- include("partials/header") %>
 
-<ul>
-    <% for (let food of streetfoods) { %>
-        <% if (food.vendor.id === vendor.id) { %>
-            <li class="clickable-row" onclick="window.location='/streetfoods/<%= food.id %>'">
-                <h2><%= food.name %></h2>
-                <img src="<%= food.imageUrl %>" width="300px">
-                <p><strong>Prijs: </strong><%= food.priceTier %></p>
-                <p><strong>Spice Level: </strong><%= "🌶️".repeat(food.spiceLevel) %></p>
-                <p><strong>Populariteit: </strong><%= food.isPopular ? "🔥 Popular" : "" %></p>
-            </li>
-        <% } %>
+<h1><%= vendor.name %></h1>
+
+<!-- VENDOR INFO -->
+<article>
+
+    <img src="<%= vendor.standImageUrl %>" alt="<%= vendor.name %>" width="320px">
+
+    <h2>Locatie</h2>
+    <p><%= vendor.city %>, <%= vendor.country %></p>
+
+    <h2>Details</h2>
+
+    <p>
+        <strong>Status:</strong>
+        <%= vendor.isOpenNow ? "🟢 Open" : "🔴 Closed" %>
+    </p>
+
+    <p>
+        <strong>Gemiddelde prijs:</strong>
+        €<%= vendor.averagePriceEur || "-" %>
+    </p>
+
+    <p>
+        <strong>Sinds:</strong>
+        <%= vendor.sinceYear || "-" %>
+    </p>
+
+    <p>
+        <strong>Specialiteit:</strong>
+        <%= vendor.specialty || "-" %>
+    </p>
+
+</article>
+
+
+<!-- ALL STREETFOODS OF VENDOR -->
+<h2>Streetfoods van deze vendor</h2>
+
+<% if (vendorFoods.length === 0) { %>
+
+    <p>Geen streetfoods gevonden.</p>
+
+<% } else { %>
+
+    <% for (let food of vendorFoods) { %>
+
+        <article class="clickable-row"
+            onclick="window.location='/streetfoods/<%= food.id %>'">
+
+            <img src="<%= food.imageUrl %>" alt="<%= food.name %>" width="180px">
+
+            <h3><%= food.name %></h3>
+
+            <p><strong>Categorie:</strong> <%= food.category %></p>
+
+            <p><strong>Prijs:</strong> <%= food.priceTier %></p>
+
+            <p>
+                <strong>Spice Level:</strong>
+                <%= "🌶️".repeat(food.spiceLevel) %>
+            </p>
+
+            <p>
+                <strong>Populariteit:</strong>
+                <%= food.isPopular ? "🔥 Popular" : "Normaal" %>
+            </p>
+
+        </article>
+
     <% } %>
-</ul>
+
+<% } %>
+
+<%- include("partials/footer") %>
