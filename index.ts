@@ -361,8 +361,12 @@ app.get("/vendors/:id", async(req, res) => {
         });
     }
 
+    const streetfoods = await fetchStreetFood();
+    const vendorFoods = streetfoods.filter(food => food.vendor.id === vendor.id);
+
     res.render("vendor-detail", {
         vendor,
+        vendorFoods,
         title: `Vendor - ${vendor.name} (#${vendor.id})` // Nodig voor dynamische titel
     });
 });
