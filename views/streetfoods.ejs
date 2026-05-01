@@ -91,7 +91,7 @@
             <td><%= food.priceTier %></td>
 
             <td>
-                <%= "🌶️".repeat(food.spiceLevel) %>
+                <%= food.spiceLevel > 0 ? "🌶️".repeat(food.spiceLevel) : "-" %>
             </td>
 
             <td>
