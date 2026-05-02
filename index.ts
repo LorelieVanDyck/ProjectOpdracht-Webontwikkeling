@@ -352,6 +352,10 @@ app.get("/streetfoods/:id", async(req, res) => {
         });
     }
 
+    /* Volledige vendor ophalen uit vendors.json */
+    const vendors = await fetchVendors();
+    const fullVendor = vendors.find(v => v.id === streetfood.vendor.id);
+
     /* Andere streetfoods van dezelfde vendor */
     const sameVendorFoods = streetfoods.filter(food =>
         food.vendor.id === streetfood.vendor.id &&
@@ -359,7 +363,11 @@ app.get("/streetfoods/:id", async(req, res) => {
     );
 
     res.render("streetfood-detail", {
-        streetfood,
+        streetfood: {
+            ...streetfood,          // kopieer alle velden van streetfood (name, description, etc.)
+            vendor: fullVendor      // overschrijf vendor met de volledige vendor uit vendors.json
+            ?? streetfood.vendor // als fullVendor niet gevonden → gebruik de originele (ingebedde) vendor als fallback
+        },
         sameVendorFoods,
         showSearch: false, //showSearch wordt verwacht (toont zoekbar) -> false aanduiden -> anders error
         title: `Streetfood - ${streetfood.name} (#${streetfood.id})` // nodig voor dynamische titel

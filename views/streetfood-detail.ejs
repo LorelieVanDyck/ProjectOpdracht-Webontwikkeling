@@ -12,29 +12,29 @@
 
         <h2>Details</h2>
         <p><strong>Categorie:</strong> <%= streetfood.category %></p>
-        <p><strong>Prijs:</strong> <%= streetfood.priceTier %></p>
+        <p><strong>Prijs:</strong> <%= streetfood.priceTier %> of €€€</p>
         <p>
             <strong>Spice Level:</strong>
-            <%= "🌶️".repeat(streetfood.spiceLevel) %>
+            <%= streetfood.spiceLevel > 0 ? "🌶️".repeat(streetfood.spiceLevel) : "🫑" %>
         </p>
         <p>
             <strong>Populariteit:</strong>
-            <%= streetfood.isPopular ? "🔥 Popular" : "Normaal" %>
+            <%= streetfood.isPopular ? "🔥 Favoriet" : "Normaal" %>
+        </p>
+        <p>
+            <strong>First Served:</strong>
+            <%= new Date(streetfood.firstServedDate).toLocaleDateString("nl-Be") %>
         </p>
         <p>
             <strong>Tags:</strong>
             <%= streetfood.tags.join(", ") %>
-        </p>
-        <p>
-            <strong>First Served:</strong>
-            <%= streetfood.firstServedDate %>
         </p>
     </div>
 </article>
 
 
 <!-- VENDOR INFO -->
-<h2>Vendor</h2>
+<h2>Wie is de vendor?</h2>
 
 <article class="sub-card clickable-row"
     onclick="window.location='/vendors/<%= streetfood.vendor.id %>'">
@@ -44,16 +44,16 @@
     <div class="sub-card-info">
         <h3><%= streetfood.vendor.name %></h3>
         <p><strong>Locatie:</strong> <%= streetfood.vendor.city %>, <%= streetfood.vendor.country %></p>
-        <p><strong>Status:</strong> <%= streetfood.vendor.isOpenNow ? "🟢 Open" : "🔴 Closed" %></p>
-        <p><strong>Specialiteit:</strong> <%= streetfood.vendor.specialty || "-" %></p>
-        <p><strong>Sinds:</strong> <%= streetfood.vendor.sinceYear || "-" %></p>
-        <p><strong>Gemiddelde prijs:</strong> €<%= streetfood.vendor.averagePriceEur || "-" %></p>
+        <p><strong>Sinds:</strong> <%= streetfood.vendor.sinceYear %></p>
+        <p><strong>Specialiteit:</strong> <%= streetfood.vendor.specialty %></p>
+        <p><strong>Gemiddelde prijs:</strong> € <%= streetfood.vendor.averagePriceEur?.toFixed(2).replace(".", ",") %></p>
+        <p><strong>Status:</strong> <%= streetfood.vendor.isOpenNow ? "🟢 Open" : "🔴 Gesloten" %></p>
     </div>
 </article>
 
 
 <!-- ANDERE STREETFOODS VAN DEZE VENDOR -->
-<h2>Andere streetfoods van deze vendor</h2>
+<h2>Andere streetfoods van dezelfde vendor</h2>
 
 <% if (sameVendorFoods.length === 0) { %>
     <p>Geen andere streetfoods gevonden.</p>
@@ -67,8 +67,15 @@
             <div class="sub-card-info">
                 <h3><%= food.name %></h3>
                 <p><strong>Categorie:</strong> <%= food.category %></p>
-                <p><strong>Prijs:</strong> <%= food.priceTier %></p>
-                <p><strong>Spice Level:</strong> <%= "🌶️".repeat(food.spiceLevel) %></p>
+                <p><strong>Prijs:</strong> <%= food.priceTier %> of €€€<p>
+                <p>
+                    <strong>Spice Level:</strong>
+                    <%= streetfood.spiceLevel > 0 ? "🌶️".repeat(streetfood.spiceLevel) : "🫑" %>
+                </p>
+                <p>
+                    <strong>Populariteit:</strong>
+                    <%= streetfood.isPopular ? "🔥 Favoriet" : "Normaal" %>
+                </p>
             </div>
         </article>
     <% } %>

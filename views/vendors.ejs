@@ -62,7 +62,14 @@
                 <th>Status</th>
 
                 <!-- AVERAGE PRICE -->
-                <th>Gem. Prijs (€)</th>
+                <th>
+                    <a href="/vendors?search_bar=<%= search %>&cityFilter=<%= cityFilter %>&countryFilter=<%= countryFilter %>&sortField=averagePriceEur&sortDirection=<%= sortField === 'averagePriceEur' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
+                        Gem. Prijs (€)
+                        <% if (sortField === "averagePriceEur") { %>
+                            <%= sortDirection === "asc" ? "▲" : "▼" %>
+                        <% } %>
+                    </a>
+                </th>
 
                 <!-- SPECIALTY -->
                 <th>Specialiteit</th>
@@ -78,9 +85,9 @@
                     <td><%= vendor.name %></td>
                     <td><%= vendor.city %></td>
                     <td><%= vendor.country %></td>
-                    <td><%= vendor.isOpenNow ? "🟢 Open" : "🔴 Closed" %></td>
-                    <td>€ <%= vendor.averagePriceEur || "-" %></td>
-                    <td><%= vendor.specialty || "-" %></td>
+                    <td><%= vendor.isOpenNow ? "🟢 Open" : "🔴 Gesloten" %></td>
+                    <td>€ <%= vendor.averagePriceEur.toFixed(2).replace(".", ",") %></td>
+                    <td><%= vendor.specialty %></td>
                 </tr>
             <% } %>
         </tbody>
