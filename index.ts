@@ -32,6 +32,15 @@ async function fetchVendors() : Promise<Vendor[]> {
     return data;
 };
 
+/* Helper Functie */
+function normalizeString(normalString: string): string {
+    return normalString
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "") // wegwerken van accenten
+        .trim();
+};
+
 
 /* ---------------- HOME ---------------- */
 app.get("/", (req, res) => {
@@ -61,12 +70,17 @@ app.get("/streetfoods", async (req, res) => {
     /* =========================
        🔎 2. FILTER LOGICA
     ========================= */
+    const normalizeSearch = normalizeString(search);
+    const searchNoSpaces = normalizeSearch.replace(/\s+/g, "");
+    
     // Als er search is → filter op naam
     // Anders → toon alles
     const filteredStreetFoods = search
-        ? streetfoods.filter(food =>
-            food.name.toLowerCase().includes(search)
-        )
+        ? streetfoods.filter(food => {
+            const normalizedName = normalizeString(food.name);
+            const nameNoSpaces = normalizedName.replace(/\s+/g, "");
+            return normalizedName.includes(normalizeSearch) || nameNoSpaces.includes(searchNoSpaces);
+        })
         : streetfoods;
 
     /* =========================
@@ -224,14 +238,19 @@ app.get("/vendors", async (req, res) => {
     /* =========================
        🔎 5. FILTER LOGICA
     ========================= */
+    const normalizedSearch = normalizeString(search);
+    const searchNoSpaces = normalizedSearch.replace(/\s+/g, "");
+    
     // Start met alle vendors
     let filteredVendors = vendors;
 
-    // Filter op naam (search bar)
+    // Filter op naam (search bar), aangepast op volledige search
     if (search) {
-        filteredVendors = filteredVendors.filter(v =>
-            v.name.toLowerCase().includes(search)
-        );
+        filteredVendors = filteredVendors.filter(v => {
+            const normalizedName = normalizeString(v.name);
+            const nameNoSpaces = normalizedName.replace(/\s+/g, "");
+            return normalizedName.includes(normalizedSearch) || nameNoSpaces.includes(searchNoSpaces);
+        });
     }
 
     // Filter op city dropdown
