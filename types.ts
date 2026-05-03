@@ -3,8 +3,8 @@ export interface Vendor {
     name: string;
     city: string;
     country: string;
-    isOpenNow?: boolean;
-    averagePriceEur?: number;
+    isOpenNow: boolean;
+    averagePriceEur: number;
     standImageUrl: string;
     sinceYear: number;
     specialty: string;

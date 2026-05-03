@@ -4,24 +4,17 @@
 
 <!-- Bericht: Geen gevonden resultaten -->
 <% if (noResults) { %>
-
     <p>Geen streetfoods gevonden met zoekopdracht: "<%= search %>"</p>
-
 <% } %>
-
 
 <!-- Tabel met zoekresultaten -->
 <% if (streetfoods.length === 0) { %>
-
     <p>Geen resultaten gevonden</p>
-
 <% } else { %>
-
 <table>
 
     <thead>
         <tr>
-
             <!-- IMAGE -->
             <th>Afbeelding</th>
 
@@ -70,42 +63,30 @@
 
             <!-- POPULARITY -->
             <th>Populariteit</th>
-
         </tr>
     </thead>
 
     <tbody>
-
         <% for (let food of streetfoods) { %>
-
-        <tr class="clickable-row"
-            onclick="window.location='/streetfoods/<%= food.id %>'">
-
+        <tr class="clickable-row" onclick="window.location='/streetfoods/<%= food.id %>'">
             <td>
                 <img src="<%= food.imageUrl %>" alt="<%= food.name %>" width="100px">
             </td>
-
             <td><%= food.name %></td>
             <td><%= food.description %></td>
             <td><%= food.category %></td>
             <td><%= food.priceTier %></td>
-
             <td>
                 <%= food.spiceLevel > 0 ? "🌶️".repeat(food.spiceLevel) : "🫑" %>
             </td>
-
             <td>
                 <%= food.isPopular ? "🔥 Favoriet" : "Normaal" %>
             </td>
-
         </tr>
-
         <% } %>
-
     </tbody>
 
 </table>
-
 <% } %>
 
 <%- include("partials/footer") %>

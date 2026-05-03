@@ -7,18 +7,17 @@
     <p>Geen vendors gevonden met zoekopdracht: "<%= search %>"</p>
 <% } %>
 
-
 <!-- Tabel met zoekresultaten -->
 <% if (vendors.length === 0) { %>
     <p>Geen resultaten gevonden</p>
 <% } else { %>
-
 <form method="GET" action="/vendors">
     <input type="hidden" name="search_bar" value="<%= search %>">
     <input type="hidden" name="sortField" value="<%= sortField %>">
     <input type="hidden" name="sortDirection" value="<%= sortDirection %>">
 
     <table>
+        
         <thead>
             <tr>
                 <!-- IMAGE -->
@@ -91,9 +90,9 @@
                 </tr>
             <% } %>
         </tbody>
+
     </table>
 </form>
-
 <% } %>
 
 <%- include("partials/footer") %>

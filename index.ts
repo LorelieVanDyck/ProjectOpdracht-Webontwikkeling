@@ -2,6 +2,7 @@ import express, { Express } from "express";
 import dotenv from "dotenv";
 import path from "path";
 
+
 /* Import Interfaces */
 import { Vendor, StreetFood } from "./types";
 
@@ -16,6 +17,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.set('views', path.join(__dirname, "views"));
 
 app.set("port", process.env.PORT || 3000);
+
 
 /* Data Ophalen */
 /* Interface 'StreetFood' */
@@ -32,7 +34,8 @@ async function fetchVendors() : Promise<Vendor[]> {
     return data;
 };
 
-/* Helper Functie */
+
+/* Helper Functie: Wegwerken Accenten */
 function normalizeString(normalString: string): string {
     return normalString
         .toLowerCase()
@@ -61,11 +64,9 @@ app.get("/streetfoods", async (req, res) => {
        🔍 1. SEARCH
     ========================= */
     // Zoekterm uit URL (?search_bar=...)
-    // undefined → "" zodat code niet breekt
-    // lowercase + trim = niet hoofdlettergevoelig + geen spaties
-    const search = (req.query.search_bar as string || "")
-        .toLowerCase()
-        .trim();
+    // Undefined → "" zodat code niet breekt
+    // Lowercase + trim = niet hoofdlettergevoelig + geen spaties
+    const search = (req.query.search_bar as string || "").toLowerCase().trim();
 
     /* =========================
        🔎 2. FILTER LOGICA
@@ -364,9 +365,9 @@ app.get("/streetfoods/:id", async(req, res) => {
 
     res.render("streetfood-detail", {
         streetfood: {
-            ...streetfood,          // kopieer alle velden van streetfood (name, description, etc.)
-            vendor: fullVendor      // overschrijf vendor met de volledige vendor uit vendors.json
-            ?? streetfood.vendor // als fullVendor niet gevonden → gebruik de originele (ingebedde) vendor als fallback
+            ...streetfood,          // Kopieer alle velden van streetfood (name, description, etc.)
+            vendor: fullVendor      // Overschrijf vendor met de volledige vendor uit vendors.json
+            ?? streetfood.vendor // Als fullVendor niet gevonden → gebruik de originele (ingebedde) vendor als fallback
         },
         sameVendorFoods,
         showSearch: false, //showSearch wordt verwacht (toont zoekbar) -> false aanduiden -> anders error
