@@ -11,10 +11,10 @@
         <p><%= vendor.city %>, <%= vendor.country %></p>
 
         <h2>Details</h2>
-        <p><strong>Status:</strong> <%= vendor.isOpenNow ? "🟢 Open" : "🔴 Gesloten" %></p>
-        <p><strong>Gemiddelde prijs:</strong> €<%= vendor.averagePriceEur %></p>
         <p><strong>Sinds:</strong> <%= vendor.sinceYear %></p>
         <p><strong>Specialiteit:</strong> <%= vendor.specialty %></p>
+        <p><strong>Gemiddelde prijs:</strong> € <%= vendor.averagePriceEur?.toFixed(2).replace(".", ",") %></p>
+        <p><strong>Status:</strong> <%= vendor.isOpenNow ? "🟢 Open" : "🔴 Gesloten" %></p>
     </div>
 </article>
 
@@ -34,9 +34,9 @@
             <div class="sub-card-info">
                 <h3><%= food.name %></h3>
                 <p><strong>Categorie:</strong> <%= food.category %></p>
-                <p><strong>Prijs:</strong> <%= food.priceTier %></p>
+                <p><strong>Prijs:</strong> <%= food.priceTier %> of €€€ </p>
                 <p><strong>Spice Level:</strong> <%= "🌶️".repeat(food.spiceLevel) %></p>
-                <p><strong>Populariteit:</strong> <%= food.isPopular ? "🔥 Popular" : "Normaal" %></p>
+                <p><strong>Populariteit:</strong> <%= food.isPopular ? "🔥 Favoriet" : "Normaal" %></p>
             </div>
         </article>
     <% } %>

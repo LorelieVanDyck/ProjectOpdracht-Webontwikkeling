@@ -226,7 +226,8 @@ article.clickable-row:hover {
     align-items: flex-start;
     padding: 28px;
 }
-.detail-card img {
+.detail-card img {    
+    margin-top: 14px;
     width: 300px;
     min-width: 300px;
     border-radius: var(--radius);
@@ -260,6 +261,7 @@ article.clickable-row:hover {
     padding: 18px 22px;
 }
 .sub-card img {
+    margin-top: 6px;
     width: 160px;
     min-width: 160px;
     border-radius: 8px;
