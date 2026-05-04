@@ -54,6 +54,7 @@
 <% if (sameVendorFoods.length === 0) { %>
     <p>Geen andere streetfoods gevonden.</p>
 <% } else { %>
+    <div class="sub-cards-grid">
     <% for (let food of sameVendorFoods) { %>
         <article class="sub-card clickable-row" onclick="window.location='/streetfoods/<%= food.id %>'">
             <img src="<%= food.imageUrl %>" alt="<%= food.name %>">
@@ -72,6 +73,7 @@
             </div>
         </article>
     <% } %>
+    </div>
 <% } %>
 
 <%- include("partials/footer") %>

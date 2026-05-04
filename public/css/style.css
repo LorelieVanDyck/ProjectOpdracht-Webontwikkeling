@@ -1,6 +1,4 @@
-/* =============================================
-   CSS VARIABLES
-   ============================================= */
+/* === CSS VARIABLES === */
 :root {
     --green-dark:    #2d6a4f;
     --green-medium:  #52b788;
@@ -15,9 +13,8 @@
     --radius:        10px;
 }
 
-/* =============================================
-   RESET & BASE
-   ============================================= */
+
+/* === RESET & BASE === */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -33,9 +30,9 @@ body {
     flex-direction: column;
 }
 
-/* =============================================
-   LAYOUT — sidebar links, content rechts
-   ============================================= */
+
+/* === LAYOUT === */
+/* sidebar links, content rechts */
 main.content {
     display: flex;
     flex: 1;
@@ -51,9 +48,8 @@ main.content {
     overflow-y: auto;
 }
 
-/* =============================================
-   SIDEBAR
-   ============================================= */
+
+/* === SIDEBAR === */
 .sidebar {
     width: 240px;
     min-width: 240px;
@@ -79,7 +75,9 @@ main.content {
     border-bottom: 1px solid rgba(255, 255, 255, 0.18);
     padding-bottom: 18px;
 }
+
 .logo-icon { font-size: 28px; }
+
 .logo-text { letter-spacing: 1px; }
 
 .sidebar h3 {
@@ -90,7 +88,7 @@ main.content {
     margin-bottom: 10px;
 }
 
-/* Search */
+/* --- Search --- */
 .sidebar input[type="text"] {
     width: 100%;
     padding: 8px 12px;
@@ -102,6 +100,7 @@ main.content {
     outline: none;
     margin-bottom: 8px;
 }
+
 .sidebar input[type="text"]::placeholder {
     color: rgba(255, 255, 255, 0.45);
 }
@@ -118,16 +117,18 @@ main.content {
     font-weight: 600;
     transition: background 0.2s;
 }
+
 .sidebar button:hover {
     background: #3fa070;
 }
 
-/* Nav */
+/* --- Nav --- */
 .sidebar nav {
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
+
 .sidebar a {
     display: block;
     color: rgba(255, 255, 255, 0.82);
@@ -137,14 +138,14 @@ main.content {
     font-size: 15px;
     transition: background 0.18s, color 0.18s;
 }
+
 .sidebar a:hover {
     background: rgba(255, 255, 255, 0.13);
     color: var(--white);
 }
 
-/* =============================================
-   HEADINGS
-   ============================================= */
+
+/* === HEADINGS === */
 h1 {
     font-size: 30px;
     font-weight: 700;
@@ -158,11 +159,17 @@ h2 {
     font-size: 19px;
     color: var(--green-dark);
     font-weight: 600;
+    margin-top: 40px;
+    margin-bottom: 0;
 }
 
-/* =============================================
-   HOME — hero image
-   ============================================= */
+.sidebar h2 {
+    margin: 0;
+}
+
+
+/* === HOME === */
+/* hero image */
 .hero {
     padding: 0;
     border-radius: var(--radius);
@@ -170,12 +177,14 @@ h2 {
     box-shadow: var(--shadow);
     border: 1px solid var(--green-light);
 }
+
 .hero img {
     width: 100%;
     max-height: 440px;
     object-fit: cover;
     display: block;
 }
+
 .hero p {
     padding: 20px 26px;
     font-size: 16px;
@@ -184,9 +193,8 @@ h2 {
     background: var(--white);
 }
 
-/* =============================================
-   ARTICLES — gewone kaarten
-   ============================================= */
+
+/* === ARTICLES === */
 article {
     background: var(--white);
     border-radius: var(--radius);
@@ -194,11 +202,13 @@ article {
     box-shadow: var(--shadow);
     border: 1px solid var(--green-light);
 }
+
 article h3 {
     font-size: 17px;
     color: var(--green-dark);
     margin-bottom: 8px;
 }
+
 article p {
     color: var(--text-mid);
     font-size: 15px;
@@ -210,15 +220,16 @@ article.clickable-row {
     cursor: pointer;
     transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
 }
+
 article.clickable-row:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 28px rgba(45, 106, 79, 0.18);
     border-color: var(--green-medium);
 }
 
-/* =============================================
-   DETAIL CARD — afbeelding links, info rechts
-   ============================================= */
+
+/* === DETAIL CARD === */
+/* afbeelding links, info rechts */
 .detail-card {
     display: flex;
     flex-direction: row;
@@ -226,47 +237,63 @@ article.clickable-row:hover {
     align-items: flex-start;
     padding: 28px;
 }
+
 .detail-card img {    
-    margin-top: 14px;
-    width: 300px;
-    min-width: 300px;
+    width: 60%;
+    max-height: none;      /* geen hoogte limiet */
+    object-fit: contain;   /* volledige afbeelding, niet bijknippen */
     border-radius: var(--radius);
     object-fit: cover;
     box-shadow: var(--shadow);
+    margin: 0 auto;
+    display: block;
 }
+
 .detail-info {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 14px;
 }
+
 .detail-info h2 {
     margin-top: 6px;
 }
+
 .detail-info p {
     font-size: 15px;
     color: var(--text-mid);
     line-height: 1.65;
 }
+
 .detail-info p strong {
     color: var(--text-dark);
 }
 
 /* Sub-items (vendor op streetfood-detail / foods op vendor-detail) */
+/* wrapper rond de sub-cards */
+.sub-cards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
 .sub-card {
     display: flex;
-    flex-direction: row;
-    gap: 22px;
-    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
     padding: 18px 22px;
+    width: 280px;   /* vaste breedte per kaart */
 }
+
 .sub-card img {
-    margin-top: 6px;
-    width: 160px;
-    min-width: 160px;
+    width: 100%;
+    max-height: 180px;
     border-radius: 8px;
     object-fit: cover;
+    min-width: unset;
 }
+
 .sub-card-info {
     flex: 1;
     display: flex;
@@ -280,9 +307,8 @@ article.clickable-row:hover {
     font-size: 14px;
 }
 
-/* =============================================
-   TABLE
-   ============================================= */
+
+/* === TABLE === */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -296,6 +322,7 @@ thead {
     background: var(--green-dark);
     color: var(--white);
 }
+
 thead th {
     padding: 14px 16px;
     text-align: left;
@@ -304,6 +331,7 @@ thead th {
     letter-spacing: 0.4px;
     white-space: nowrap;
 }
+
 thead th a {
     color: var(--white);
     text-decoration: none;
@@ -311,11 +339,12 @@ thead th a {
     align-items: center;
     gap: 5px;
 }
+
 thead th a:hover {
     color: var(--green-pastel);
 }
 
-/* Dropdown in thead */
+/* --- Dropdown in thead --- */
 thead th select {
     background: rgba(255, 255, 255, 0.14);
     color: var(--white);
@@ -328,6 +357,7 @@ thead th select {
     width: 100%;
     max-width: 160px;
 }
+
 thead th select option {
     background: var(--green-dark);
     color: var(--white);
@@ -337,12 +367,15 @@ tbody tr {
     border-bottom: 1px solid var(--green-light);
     transition: background 0.14s;
 }
+
 tbody tr:last-child {
     border-bottom: none;
 }
+
 tbody tr.clickable-row {
     cursor: pointer;
 }
+
 tbody tr.clickable-row:hover {
     background: var(--green-xlight);
 }
@@ -353,14 +386,14 @@ tbody td {
     color: var(--text-mid);
     vertical-align: middle;
 }
+
 tbody td img {
     border-radius: 7px;
     display: block;
 }
 
-/* =============================================
-   INFO / NO RESULTS BERICHTEN
-   ============================================= */
+
+/* === INFO / NO RESULTS BERICHTEN === */
 .page-content > p {
     background: var(--cream);
     border-left: 4px solid var(--green-medium);
@@ -370,9 +403,8 @@ tbody td img {
     font-size: 14px;
 }
 
-/* =============================================
-   FOOTER
-   ============================================= */
+
+/* === FOOTER === */
 footer {
     background: var(--green-dark);
     color: rgba(255, 255, 255, 0.65);
@@ -380,10 +412,95 @@ footer {
     padding: 18px;
     font-size: 13px;
 }
+
 footer a {
     color: var(--green-pastel);
     text-decoration: none;
 }
+
 footer a:hover {
     text-decoration: underline;
+}
+
+
+
+/* === MEDIA QUERIES === */
+/* === TABLET (max 1024px) === */
+@media (max-width: 1024px) {
+    .page-content {
+        padding: 24px 28px;
+    }
+
+    .detail-card img {
+        width: 220px;
+        min-width: 220px;
+    }
+}
+
+
+/* === MOBILE (max 768px) === */
+@media (max-width: 768px) {
+
+    /* Layout: sidebar bovenaan, content eronder */
+    main.content {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: unset;
+        position: static;
+        flex-direction: column;  /* ← column in plaats van row */
+        gap: 16px;
+        padding: 16px 20px;
+    }
+
+    .logo {
+        width: 100%;
+        border-bottom: 1px solid rgba(255,255,255,0.18);
+        padding-bottom: 12px;
+    }
+
+    .sidebar nav {
+        flex-direction: row;  /* nav links naast elkaar */
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .detail-card {
+        flex-direction: column;
+    }
+
+    .detail-card img {
+        width: 100%;
+        min-width: unset;
+        max-height: 280px;
+        margin-top: 0;
+    }
+
+    .sub-card {
+        flex-direction: column;
+    }
+
+    .sub-card img {
+        width: 100%;
+        min-width: unset;
+        max-height: 200px;
+    }
+}
+
+
+/* === KLEINE MOBILE (max 480px) === */
+@media (max-width: 480px) {
+    .page-content {
+        padding: 16px 12px;
+    }
+
+    .hero img {
+        max-height: 220px;
+    }
+
+    .sidebar {
+        padding: 12px 16px;
+    }
 }
