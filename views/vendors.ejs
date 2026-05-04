@@ -11,88 +11,86 @@
 <% if (vendors.length === 0) { %>
     <p>Geen resultaten gevonden</p>
 <% } else { %>
-<form method="GET" action="/vendors">
-    <input type="hidden" name="search_bar" value="<%= search %>">
-    <input type="hidden" name="sortField" value="<%= sortField %>">
-    <input type="hidden" name="sortDirection" value="<%= sortDirection %>">
+    <form method="GET" action="/vendors">
+        <input type="hidden" name="search_bar" value="<%= search %>">
+        <input type="hidden" name="sortField" value="<%= sortField %>">
+        <input type="hidden" name="sortDirection" value="<%= sortDirection %>">
 
-    <table>
-        
-        <thead>
-            <tr>
-                <!-- IMAGE -->
-                <th>Afbeelding</th>
+        <table>
+            <thead>
+                <tr>
+                    <!-- IMAGE -->
+                    <th>Afbeelding</th>
 
-                <!-- NAME SORT -->
-                <th>
-                    <a href="/vendors?search_bar=<%= search %>&cityFilter=<%= cityFilter %>&countryFilter=<%= countryFilter %>&sortField=name&sortDirection=<%= sortField === 'name' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
-                        Naam
-                        <% if (sortField === "name") { %>
-                            <%= sortDirection === "asc" ? "▲" : "▼" %>
-                        <% } %>
-                    </a>
-                </th>
+                    <!-- NAME SORT -->
+                    <th>
+                        <a href="/vendors?search_bar=<%= search %>&cityFilter=<%= cityFilter %>&countryFilter=<%= countryFilter %>&sortField=name&sortDirection=<%= sortField === 'name' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
+                            Naam
+                            <% if (sortField === "name") { %>
+                                <%= sortDirection === "asc" ? "▲" : "▼" %>
+                            <% } %>
+                        </a>
+                    </th>
 
-                <!-- CITY FILTER -->
-                <th>
-                    <select name="cityFilter" onchange="this.form.submit()">
-                        <option value="">Alle steden</option>
-                        <% for (let city of allCities) { %>
-                            <option value="<%= city %>" <%= cityFilter === city ? "selected" : "" %>>
-                                <%= city %>
-                            </option>
-                        <% } %>
-                    </select>
-                </th>
+                    <!-- CITY FILTER -->
+                    <th>
+                        <select name="cityFilter" onchange="this.form.submit()">
+                            <option value="">Alle steden</option>
+                            <% for (let city of allCities) { %>
+                                <option value="<%= city %>" <%= cityFilter === city ? "selected" : "" %>>
+                                    <%= city %>
+                                </option>
+                            <% } %>
+                        </select>
+                    </th>
 
-                <!-- COUNTRY FILTER -->
-                <th>
-                    <select name="countryFilter" onchange="this.form.submit()">
-                        <option value="">Alle landen</option>
-                        <% for (let country of allCountries) { %>
-                            <option value="<%= country %>" <%= countryFilter === country ? "selected" : "" %>>
-                                <%= country %>
-                            </option>
-                        <% } %>
-                    </select>
-                </th>
+                    <!-- COUNTRY FILTER -->
+                    <th>
+                        <select name="countryFilter" onchange="this.form.submit()">
+                            <option value="">Alle landen</option>
+                            <% for (let country of allCountries) { %>
+                                <option value="<%= country %>" <%= countryFilter === country ? "selected" : "" %>>
+                                    <%= country %>
+                                </option>
+                            <% } %>
+                        </select>
+                    </th>
 
-                <!-- STATUS -->
-                <th>Status</th>
+                    <!-- STATUS -->
+                    <th>Status</th>
 
-                <!-- AVERAGE PRICE -->
-                <th>
-                    <a href="/vendors?search_bar=<%= search %>&cityFilter=<%= cityFilter %>&countryFilter=<%= countryFilter %>&sortField=averagePriceEur&sortDirection=<%= sortField === 'averagePriceEur' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
-                        Gem. Prijs (€)
-                        <% if (sortField === "averagePriceEur") { %>
-                            <%= sortDirection === "asc" ? "▲" : "▼" %>
-                        <% } %>
-                    </a>
-                </th>
+                    <!-- AVERAGE PRICE -->
+                    <th>
+                        <a href="/vendors?search_bar=<%= search %>&cityFilter=<%= cityFilter %>&countryFilter=<%= countryFilter %>&sortField=averagePriceEur&sortDirection=<%= sortField === 'averagePriceEur' && sortDirection === 'asc' ? 'desc' : 'asc' %>">
+                            Gem. Prijs (€)
+                            <% if (sortField === "averagePriceEur") { %>
+                                <%= sortDirection === "asc" ? "▲" : "▼" %>
+                            <% } %>
+                        </a>
+                    </th>
 
-                <!-- SPECIALTY -->
-                <th>Specialiteit</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <% for (let vendor of vendors) { %>
-                <tr class="clickable-row" onclick="window.location='/vendors/<%= vendor.id %>'">
-                    <td>
-                        <img src="<%= vendor.standImageUrl %>" alt="<%= vendor.name %>" width="100px">
-                    </td>
-                    <td><%= vendor.name %></td>
-                    <td><%= vendor.city %></td>
-                    <td><%= vendor.country %></td>
-                    <td><%= vendor.isOpenNow ? "🟢 Open" : "🔴 Gesloten" %></td>
-                    <td>€ <%= vendor.averagePriceEur.toFixed(2).replace(".", ",") %></td>
-                    <td><%= vendor.specialty %></td>
+                    <!-- SPECIALTY -->
+                    <th>Specialiteit</th>
                 </tr>
-            <% } %>
-        </tbody>
+            </thead>
 
-    </table>
-</form>
+            <tbody>
+                <% for (let vendor of vendors) { %>
+                    <tr class="clickable-row" onclick="window.location='/vendors/<%= vendor.id %>'">
+                        <td>
+                            <img src="<%= vendor.standImageUrl %>" alt="<%= vendor.name %>" width="100px">
+                        </td>
+                        <td><%= vendor.name %></td>
+                        <td><%= vendor.city %></td>
+                        <td><%= vendor.country %></td>
+                        <td><%= vendor.isOpenNow ? "🟢 Open" : "🔴 Gesloten" %></td>
+                        <td>€ <%= vendor.averagePriceEur.toFixed(2).replace(".", ",") %></td>
+                        <td><%= vendor.specialty %></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </form>
 <% } %>
 
 <%- include("partials/footer") %>

@@ -45,7 +45,7 @@ function normalizeString(normalString: string): string {
 };
 
 
-/* ---------------- HOME ---------------- */
+/* ================ HOME ================ */
 app.get("/", (req, res) => {
     res.render("home", {
         title: "Home", // Dynamische Titel
@@ -54,23 +54,21 @@ app.get("/", (req, res) => {
 });
 
 
-/* ---------------- STREETFOODS LIST ----------------- */
+/* ================ STREETFOODS LIST ================ */
 app.get("/streetfoods", async (req, res) => {
 
     // Haalt alle streetfoods op uit API/JSON
     const streetfoods = await fetchStreetFood();
-   
-    /* =========================
-       🔍 1. SEARCH
-    ========================= */
+
+
+    /* ---------------- 1. SEARCH ---------------- */
     // Zoekterm uit URL (?search_bar=...)
     // Undefined → "" zodat code niet breekt
     // Lowercase + trim = niet hoofdlettergevoelig + geen spaties
     const search = (req.query.search_bar as string || "").toLowerCase().trim();
 
-    /* =========================
-       🔎 2. FILTER LOGICA
-    ========================= */
+
+    /* ---------------- 2. FILTER LOGICA ---------------- */
     const normalizeSearch = normalizeString(search);
     const searchNoSpaces = normalizeSearch.replace(/\s+/g, "");
     
@@ -82,32 +80,30 @@ app.get("/streetfoods", async (req, res) => {
             const nameNoSpaces = normalizedName.replace(/\s+/g, "");
             return normalizedName.includes(normalizeSearch) || nameNoSpaces.includes(searchNoSpaces);
         })
-        : streetfoods;
+        : streetfoods
+    ;
 
-    /* =========================
-       📉 3. NO RESULTS CHECK
-    ========================= */
+    /* ---------------- 3. NO RESULTS CHECK ---------------- */
     // Alleen true als:
     // - er een search was
     // - en geen resultaten gevonden zijn
     const noResults = search !== "" && filteredStreetFoods.length === 0;
 
-    /* =========================
-       📊 4. SORT INPUT
-    ========================= */
+
+    /* ---------------- 4. SORT INPUT ---------------- */
     // Welke kolom wordt gesorteerd (name, category, priceTier, spiceLevel)
     const sortField = typeof req.query.sortField === "string"
         ? req.query.sortField
-        : "name";
+        : "name"
+    ;
 
     // Sort richting (asc / desc)
     const sortDirection = typeof req.query.sortDirection === "string"
         ? req.query.sortDirection
-        : "asc";
+        : "asc"
+    ;
 
-    /* =========================
-       💰 5. PRICE HELPER FUNCTION
-    ========================= */
+    /* ---------------- 5. PRICE HELPER FUNCTION ---------------- */
     // Zet "€€€" om naar een getal zodat we kunnen sorteren
     const priceValue = (p: string): number => {
 
@@ -117,9 +113,8 @@ app.get("/streetfoods", async (req, res) => {
         return p.length;
     };
 
-    /* =========================
-       🔥 6. SORT LOGICA
-    ========================= */
+
+    /* ---------------- 6. SORT LOGICA ---------------- */
     const sortedStreetFoods = [...filteredStreetFoods].sort((a, b) => {
 
         // SORT OP NAAM (A-Z)
@@ -127,36 +122,35 @@ app.get("/streetfoods", async (req, res) => {
             return sortDirection === "asc"
                 ? a.name.localeCompare(b.name)
                 : b.name.localeCompare(a.name);
-        }
+        };
 
         // SORT OP CATEGORY (A-Z)
         if (sortField === "category") {
             return sortDirection === "asc"
                 ? a.category.localeCompare(b.category)
                 : b.category.localeCompare(a.category);
-        }
+        };
 
         // SORT OP PRICE (€/€€/€€€)
         if (sortField === "priceTier") {
             return sortDirection === "asc"
                 ? priceValue(a.priceTier) - priceValue(b.priceTier)
                 : priceValue(b.priceTier) - priceValue(a.priceTier);
-        }
+        };
 
         // SORT OP SPICE LEVEL (numeriek)
         if (sortField === "spiceLevel") {
             return sortDirection === "asc"
                 ? a.spiceLevel - b.spiceLevel
                 : b.spiceLevel - a.spiceLevel;
-        }
+        };
 
         // Fallback (geen sort)
         return 0;
     });
 
-    /* =========================
-       📋 7. SORT
-    ========================= */
+
+    /* ---------------- 7. SORT ---------------- */
 
     // Dropdown opties voor sorteren in frontend
     const sortFields = [
@@ -166,9 +160,8 @@ app.get("/streetfoods", async (req, res) => {
         { value: "spiceLevel", text: "Spice Level" }
     ];
 
-    /* =========================
-       🌐 8. RENDER
-    ========================= */
+
+    /* ---------------- 8. RENDER ---------------- */
     res.render("streetfoods", {
 
         streetfoods: sortedStreetFoods, // Uiteindelijke data
@@ -190,55 +183,50 @@ app.get("/streetfoods", async (req, res) => {
 });
 
 
-/* ---------------- VENDORS LIST ----------------- */
+/* ================ VENDORS LIST ================ */
 app.get("/vendors", async (req, res) => {
 
     // Haalt alle vendors op uit je JSON/API
     const vendors = await fetchVendors();
    
-    /* =========================
-       🔍 1. SEARCH
-    ========================= */
+    /* ---------------- 1. SEARCH ---------------- */
     // Haalt zoekterm op uit URL (?search_bar=...)
     // Zet undefined om naar "" en maakt alles lowercase zodat zoeken niet hoofdlettergevoelig is
     const search = (req.query.search_bar as string || "")
         .toLowerCase()
-        .trim();
+        .trim()
+    ;
 
-    /* =========================
-       🌍 2. FILTERS
-    ========================= */
+    /* ---------------- 2. FILTERS ---------------- */
     // Filter op stad (dropdown)
     const cityFilter = (req.query.cityFilter as string || "").trim();
 
     // Filter op land (dropdown)
     const countryFilter = (req.query.countryFilter as string || "").trim();
 
-    /* =========================
-       📊 3. SORT INPUT
-    ========================= */
+
+    /* ---------------- 3. SORT INPUT ---------------- */
     // Welke kolom wordt gesorteerd (bv. name, price)
     const sortField = typeof req.query.sortField === "string"
         ? req.query.sortField
-        : "name"; // default sort = naam
+        : "name" // default sort = naam
+    ;
 
     // Welke richting (asc = A-Z, desc = Z-A)
     const sortDirection = typeof req.query.sortDirection === "string"
         ? req.query.sortDirection
-        : "asc"; // default = oplopend
+        : "asc" // default = oplopend
+    ;
 
-    /* =========================
-       🌐 4. DROPDOWNS DATA
-    ========================= */
+    /* ---------------- 4. DROPDOWNS DATA ---------------- */
     // Alle unieke steden uit vendors halen
     const allCities = [...new Set(vendors.map(v => v.city))].sort();
 
     // Alle unieke landen uit vendors halen
     const allCountries = [...new Set(vendors.map(v => v.country))].sort();
 
-    /* =========================
-       🔎 5. FILTER LOGICA
-    ========================= */
+
+    /* ---------------- 5. FILTER LOGICA ---------------- */
     const normalizedSearch = normalizeString(search);
     const searchNoSpaces = normalizedSearch.replace(/\s+/g, "");
     
@@ -252,33 +240,32 @@ app.get("/vendors", async (req, res) => {
             const nameNoSpaces = normalizedName.replace(/\s+/g, "");
             return normalizedName.includes(normalizedSearch) || nameNoSpaces.includes(searchNoSpaces);
         });
-    }
+    };
 
     // Filter op city dropdown
     if (cityFilter) {
         filteredVendors = filteredVendors.filter(v =>
             v.city === cityFilter
         );
-    }
+    };
 
     // Filter op country dropdown
     if (countryFilter) {
         filteredVendors = filteredVendors.filter(v =>
             v.country === countryFilter
         );
-    }
+    };
 
-    /* =========================
-       📉 6. NO RESULTS CHECK
-    ========================= */
+
+    /* ---------------- 6. NO RESULTS CHECK ---------------- */
     // Checkt of er filters/search actief zijn én geen resultaten
     const noResults =
         (search !== "" || cityFilter !== "" || countryFilter !== "")
-        && filteredVendors.length === 0;
+        && filteredVendors.length === 0
+    ;
 
-    /* =========================
-       🔥 7. SORT LOGICA
-    ========================= */
+
+    /* ---------------- 7. SORT LOGICA ---------------- */
     // Sorteert de gefilterde vendors
     const sortedVendors = [...filteredVendors].sort((a, b) => {
 
@@ -300,18 +287,16 @@ app.get("/vendors", async (req, res) => {
         return 0;
     });
 
-    /* =========================
-       📋 7B. SORT
-    ========================= */
+
+    /* ---------------- 7B. SORT ---------------- */
     // Lijst van sorteeropties voor dropdown in EJS
     let sortFields = [
         { value: "name", text: "Naam" },
         { value: "averagePriceEur", text: "Gemiddelde Kostprijs" }
     ];
 
-    /* =========================
-       🌐 8. RENDER
-    ========================= */
+
+    /* ---------------- 8. RENDER ---------------- */
     res.render("vendors", {
 
         vendors: sortedVendors, // Uiteindelijke data
@@ -339,7 +324,7 @@ app.get("/vendors", async (req, res) => {
 });
 
 
-/* ---------------- STREETFOOD DETAIL ---------------- */
+/* ================ STREETFOOD DETAIL ================ */
 app.get("/streetfoods/:id", async(req, res) => {
     const streetfoods = await fetchStreetFood();
 
@@ -351,7 +336,7 @@ app.get("/streetfoods/:id", async(req, res) => {
         return res.status(404).render("page_404", {
             title: "Not Found" // Nodig voor dynamische titel
         });
-    }
+    };
 
     /* Volledige vendor ophalen uit vendors.json */
     const vendors = await fetchVendors();
@@ -376,7 +361,7 @@ app.get("/streetfoods/:id", async(req, res) => {
 });
 
 
-/* ---------------- VENDOR DETAIL ---------------- */
+/* ================ VENDOR DETAIL ================ */
 app.get("/vendors/:id", async(req, res) => {
     const vendors = await fetchVendors();
 
@@ -388,7 +373,7 @@ app.get("/vendors/:id", async(req, res) => {
         return res.status(404).render("page_404", {
             title: "Not Found" // Nodig voor dynamische titel
         });
-    }
+    };
 
     const streetfoods = await fetchStreetFood();
     const vendorFoods = streetfoods.filter(food => food.vendor.id === vendor.id);
@@ -402,7 +387,7 @@ app.get("/vendors/:id", async(req, res) => {
 });
 
 
-/* ---------------- START SERVER ---------------- */
+/* ================ START SERVER ================ */
 app.listen(app.get("port"), () => {
     console.log("Server started on http://localhost:" + app.get("port"));
 });

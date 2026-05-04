@@ -26,18 +26,18 @@
     <p>Geen streetfoods gevonden.</p>
 <% } else { %>
     <div class="sub-cards-grid">
-    <% for (let food of vendorFoods) { %>
-        <article class="sub-card clickable-row" onclick="window.location='/streetfoods/<%= food.id %>'">
-            <img src="<%= food.imageUrl %>" alt="<%= food.name %>">
-            <div class="sub-card-info">
-                <h3><%= food.name %></h3>
-                <p><strong>Categorie:</strong> <%= food.category %></p>
-                <p><strong>Prijs:</strong> <%= food.priceTier %> of €€€ </p>
-                <p><strong>Spice Level:</strong> <%= "🌶️".repeat(food.spiceLevel) %></p>
-                <p><strong>Populariteit:</strong> <%= food.isPopular ? "🔥 Favoriet" : "Normaal" %></p>
-            </div>
-        </article>
-    <% } %>
+        <% for (let food of vendorFoods) { %>
+            <article class="sub-card clickable-row" onclick="window.location='/streetfoods/<%= food.id %>'">
+                <img src="<%= food.imageUrl %>" alt="<%= food.name %>">
+                <div class="sub-card-info">
+                    <h3><%= food.name %></h3>
+                    <p><strong>Categorie:</strong> <%= food.category %></p>
+                    <p><strong>Prijs:</strong> <%= food.priceTier %> of €€€ </p>
+                    <p><strong>Spice Level:</strong> <%= "🌶️".repeat(food.spiceLevel) %></p>
+                    <p><strong>Populariteit:</strong> <%= food.isPopular ? "🔥 Favoriet" : "Normaal" %></p>
+                </div>
+            </article>
+        <% } %>
     </div>
 <% } %>
 

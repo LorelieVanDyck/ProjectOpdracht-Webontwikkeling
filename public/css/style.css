@@ -1,4 +1,4 @@
-/* === CSS VARIABLES === */
+/* ================ CSS VARIABLES ================ */
 :root {
     --green-dark:    #2d6a4f;
     --green-medium:  #52b788;
@@ -14,7 +14,7 @@
 }
 
 
-/* === RESET & BASE === */
+/* ================ RESET & BASE ================ */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -31,7 +31,7 @@ body {
 }
 
 
-/* === LAYOUT === */
+/* ================ LAYOUT ================ */
 /* sidebar links, content rechts */
 main.content {
     display: flex;
@@ -49,7 +49,7 @@ main.content {
 }
 
 
-/* === SIDEBAR === */
+/* ================ SIDEBAR ================ */
 .sidebar {
     width: 240px;
     min-width: 240px;
@@ -88,7 +88,7 @@ main.content {
     margin-bottom: 10px;
 }
 
-/* --- Search --- */
+/* ---------------- Search ---------------- */
 .sidebar input[type="text"] {
     width: 100%;
     padding: 8px 12px;
@@ -122,7 +122,7 @@ main.content {
     background: #3fa070;
 }
 
-/* --- Nav --- */
+/* ---------------- Nav ---------------- */
 .sidebar nav {
     display: flex;
     flex-direction: column;
@@ -145,7 +145,7 @@ main.content {
 }
 
 
-/* === HEADINGS === */
+/* ================ HEADINGS ================ */
 h1 {
     font-size: 30px;
     font-weight: 700;
@@ -168,7 +168,7 @@ h2 {
 }
 
 
-/* === HOME === */
+/* ================ HOME ================ */
 /* hero image */
 .hero {
     padding: 0;
@@ -194,7 +194,7 @@ h2 {
 }
 
 
-/* === ARTICLES === */
+/* ================ ARTICLES ================ */
 article {
     background: var(--white);
     border-radius: var(--radius);
@@ -228,7 +228,7 @@ article.clickable-row:hover {
 }
 
 
-/* === DETAIL CARD === */
+/* ================ DETAIL CARD ================ */
 /* afbeelding links, info rechts */
 .detail-card {
     display: flex;
@@ -270,7 +270,8 @@ article.clickable-row:hover {
     color: var(--text-dark);
 }
 
-/* Sub-items (vendor op streetfood-detail / foods op vendor-detail) */
+/* ---------------- Sub-items ----------------*/
+/* vendor op streetfood-detail / foods op vendor-detail */
 /* wrapper rond de sub-cards */
 .sub-cards-grid {
     display: flex;
@@ -308,7 +309,7 @@ article.clickable-row:hover {
 }
 
 
-/* === TABLE === */
+/* ================ TABLE ================ */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -344,7 +345,7 @@ thead th a:hover {
     color: var(--green-pastel);
 }
 
-/* --- Dropdown in thead --- */
+/* ---------------- Dropdown in thead ---------------- */
 thead th select {
     background: rgba(255, 255, 255, 0.14);
     color: var(--white);
@@ -393,7 +394,7 @@ tbody td img {
 }
 
 
-/* === INFO / NO RESULTS BERICHTEN === */
+/* ================ INFO / NO RESULTS BERICHTEN ================ */
 .page-content > p {
     background: var(--cream);
     border-left: 4px solid var(--green-medium);
@@ -404,7 +405,7 @@ tbody td img {
 }
 
 
-/* === FOOTER === */
+/* ================ FOOTER ================ */
 footer {
     background: var(--green-dark);
     color: rgba(255, 255, 255, 0.65);
@@ -424,8 +425,8 @@ footer a:hover {
 
 
 
-/* === MEDIA QUERIES === */
-/* === TABLET (max 1024px) === */
+/* ================ MEDIA QUERIES ================ */
+/* ---------------- TABLET (max 1024px) ---------------- */
 @media (max-width: 1024px) {
     .page-content {
         padding: 24px 28px;
@@ -438,7 +439,7 @@ footer a:hover {
 }
 
 
-/* === MOBILE (max 768px) === */
+/* ---------------- MOBILE (max 768px) ---------------- */
 @media (max-width: 768px) {
 
     /* Layout: sidebar bovenaan, content eronder */
@@ -450,7 +451,7 @@ footer a:hover {
         width: 100%;
         min-height: unset;
         position: static;
-        flex-direction: column;  /* ← column in plaats van row */
+        flex-direction: column;  /* column in plaats van row */
         gap: 16px;
         padding: 16px 20px;
     }
@@ -490,7 +491,7 @@ footer a:hover {
 }
 
 
-/* === KLEINE MOBILE (max 480px) === */
+/* ---------------- KLEINE MOBILE (max 480px) ---------------- */
 @media (max-width: 480px) {
     .page-content {
         padding: 16px 12px;
