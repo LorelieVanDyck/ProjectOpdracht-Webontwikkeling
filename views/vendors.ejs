@@ -34,7 +34,7 @@
 
                     <!-- CITY FILTER -->
                     <th>
-                        <select name="cityFilter" onchange="this.form.submit()">
+                        <select name="cityFilter" id="cityFilter">
                             <option value="">Alle steden</option>
                             <% for (let city of allCities) { %>
                                 <option value="<%= city %>" <%= cityFilter === city ? "selected" : "" %>>
@@ -46,7 +46,7 @@
 
                     <!-- COUNTRY FILTER -->
                     <th>
-                        <select name="countryFilter" onchange="this.form.submit()">
+                        <select name="countryFilter" id="countryFilter">
                             <option value="">Alle landen</option>
                             <% for (let country of allCountries) { %>
                                 <option value="<%= country %>" <%= countryFilter === country ? "selected" : "" %>>
@@ -92,5 +92,18 @@
         </table>
     </form>
 <% } %>
+
+<!-- Als er geselecteerd wordt op land ~ reset selectie op hoofdstad en andersom -->
+<script>
+    document.getElementById("cityFilter").addEventListener("change", function() {
+        document.getElementById("countryFilter").value = "";
+        this.form.submit();
+    });
+
+    document.getElementById("countryFilter").addEventListener("change", function() {
+        document.getElementById("cityFilter").value = "";
+        this.form.submit();
+    });
+</script>
 
 <%- include("partials/footer") %>
