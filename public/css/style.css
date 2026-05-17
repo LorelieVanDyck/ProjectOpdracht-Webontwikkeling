@@ -430,6 +430,7 @@ tbody td img {
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 1rem;
+    font-family: inherit;
 }
 
 .form-actions {
@@ -444,14 +445,19 @@ tbody td img {
     border: none;
     padding: 0.6rem 1.2rem;
     border-radius: 6px;
+    font-size: 1rem;
     cursor: pointer;
 }
 
 .form-actions a {
+    display: inline-block;
     padding: 0.6rem 1.2rem;
     border-radius: 6px;
     text-decoration: none;
     border: 1px solid #ccc;
+    font-size: 1rem;
+    color: #2d6a4f;
+    cursor: pointer;
 }
 
 .btn-edit {
