@@ -59,7 +59,7 @@ app.get("/", (req, res) => {
 app.get("/streetfoods", async (req, res) => {
 
     // Haalt alle streetfoods op uit API/JSON
-    // const streetfoods = await fetchStreetFood();
+    /* const streetfoods = await fetchStreetFood();*/
 
     const streetfoods = await getStreetFoods();
 
@@ -190,13 +190,11 @@ app.get("/streetfoods", async (req, res) => {
 app.get("/vendors", async (req, res) => {
 
     // Haalt alle vendors op uit je JSON/API
-    // const vendors = await fetchVendors();
+    /* const vendors = await fetchVendors(); */
 
     const vendors = await getVendors();
    
     /* ---------------- 1. SEARCH ---------------- */
-    // Haalt zoekterm op uit URL (?search_bar=...)
-    // Zet undefined om naar "" en maakt alles lowercase zodat zoeken niet hoofdlettergevoelig is
     const search = (req.query.search_bar as string || "")
         .toLowerCase()
         .trim()
