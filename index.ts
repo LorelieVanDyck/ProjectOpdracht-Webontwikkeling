@@ -4,7 +4,8 @@ import path from "path";
 
 
 /* Import Interfaces */
-import { Vendor, StreetFood } from "./types";
+// import { Vendor, StreetFood } from "./types";
+import { connect, getStreetFoods, getStreetFoodById, getVendors, getVendorById, updateStreetFood } from "./database";
 
 dotenv.config();
 
@@ -21,18 +22,18 @@ app.set("port", process.env.PORT || 3000);
 
 /* Data Ophalen */
 /* Interface 'StreetFood' */
-async function fetchStreetFood() : Promise<StreetFood[]> {
+/* async function fetchStreetFood() : Promise<StreetFood[]> {
     const response = await fetch("https://raw.githubusercontent.com/LorelieVanDyck/Projectopdracht-Webontwikkeling_Jsons/refs/heads/main/jsons/streetfoods.json");
     const data : StreetFood[] = await response.json();
     return data;
-};
+}; */
 
 /* Interface 'Vendor' */
-async function fetchVendors() : Promise<Vendor[]> {
+/* async function fetchVendors() : Promise<Vendor[]> {
     const response = await fetch("https://raw.githubusercontent.com/LorelieVanDyck/Projectopdracht-Webontwikkeling_Jsons/refs/heads/main/jsons/vendors.json");
     const data : Vendor[] = await response.json();
     return data;
-};
+}; */
 
 
 /* Helper Functie: Wegwerken Accenten */
@@ -58,7 +59,9 @@ app.get("/", (req, res) => {
 app.get("/streetfoods", async (req, res) => {
 
     // Haalt alle streetfoods op uit API/JSON
-    const streetfoods = await fetchStreetFood();
+    // const streetfoods = await fetchStreetFood();
+
+    const streetfoods = await getStreetFoods();
 
 
     /* ---------------- 1. SEARCH ---------------- */
@@ -187,7 +190,9 @@ app.get("/streetfoods", async (req, res) => {
 app.get("/vendors", async (req, res) => {
 
     // Haalt alle vendors op uit je JSON/API
-    const vendors = await fetchVendors();
+    // const vendors = await fetchVendors();
+
+    const vendors = await getVendors();
    
     /* ---------------- 1. SEARCH ---------------- */
     // Haalt zoekterm op uit URL (?search_bar=...)
@@ -325,7 +330,7 @@ app.get("/vendors", async (req, res) => {
 
 
 /* ================ STREETFOOD DETAIL ================ */
-app.get("/streetfoods/:id", async(req, res) => {
+/* app.get("/streetfoods/:id", async(req, res) => {
     const streetfoods = await fetchStreetFood();
 
     const id = req.params.id;
@@ -336,14 +341,14 @@ app.get("/streetfoods/:id", async(req, res) => {
         return res.status(404).render("page_404", {
             title: "Not Found" // Nodig voor dynamische titel
         });
-    };
+    }; */
 
     /* Volledige vendor ophalen uit vendors.json */
-    const vendors = await fetchVendors();
-    const fullVendor = vendors.find(v => v.id === streetfood.vendor.id);
+   /* const vendors = await fetchVendors();
+    const fullVendor = vendors.find(v => v.id === streetfood.vendor.id); */
 
     /* Andere streetfoods van dezelfde vendor */
-    const sameVendorFoods = streetfoods.filter(food =>
+    /* const sameVendorFoods = streetfoods.filter(food =>
         food.vendor.id === streetfood.vendor.id &&
         food.id !== streetfood.id
     );
@@ -358,11 +363,39 @@ app.get("/streetfoods/:id", async(req, res) => {
         showSearch: false, //showSearch wordt verwacht (toont zoekbar) -> false aanduiden -> anders error
         title: `Streetfood - ${streetfood.name} (#${streetfood.id})` // nodig voor dynamische titel
     });
+}); */
+
+app.get("/streetfoods/:id", async (req, res) => {
+    const streetfood = await getStreetFoodById(req.params.id);
+
+    if (!streetfood) {
+        return res.status(404).render("page_404", {
+            title: "Not Found"
+        });
+    }
+
+    const fullVendor = await getVendorById(streetfood.vendor.id);
+
+    const allFoods = await getStreetFoods();
+    const sameVendorFoods = allFoods.filter(food =>
+        food.vendor.id === streetfood.vendor.id &&
+        food.id !== streetfood.id
+    );
+
+    res.render("streetfood-detail", {
+        streetfood: {
+            ...streetfood,
+            vendor: fullVendor ?? streetfood.vendor
+        },
+        sameVendorFoods,
+        showSearch: false,
+        title: `Streetfood - ${streetfood.name} (#${streetfood.id})`
+    });
 });
 
 
 /* ================ VENDOR DETAIL ================ */
-app.get("/vendors/:id", async(req, res) => {
+/* app.get("/vendors/:id", async(req, res) => {
     const vendors = await fetchVendors();
 
     const id = req.params.id;
@@ -384,10 +417,72 @@ app.get("/vendors/:id", async(req, res) => {
         showSearch: false, //showSearch wordt verwacht (toont zoekbar) -> false aanduiden -> anders error
         title: `Vendor - ${vendor.name} (#${vendor.id})` // Nodig voor dynamische titel
     });
+}); */
+
+app.get("/vendors/:id", async (req, res) => {
+    const vendor = await getVendorById(req.params.id);
+
+    if (!vendor) {
+        return res.status(404).render("page_404", {
+            title: "Not Found"
+        });
+    }
+
+    const allFoods = await getStreetFoods();
+    const vendorFoods = allFoods.filter(food => food.vendor.id === vendor.id);
+
+    res.render("vendor-detail", {
+        vendor,
+        vendorFoods,
+        showSearch: false,
+        title: `Vendor - ${vendor.name} (#${vendor.id})`
+    });
+});
+
+
+/* ================ STREETFOOD EDIT – FORMULIER ================ */
+app.get("/streetfoods/:id/edit", async (req, res) => {
+    const streetfood = await getStreetFoodById(req.params.id);
+
+    if (!streetfood) {
+        return res.status(404).render("page_404", { title: "Not Found" });
+    }
+
+    res.render("streetfood-edit", {
+        streetfood,
+        showSearch: false,
+        title: `Bewerk - ${streetfood.name}`
+    });
+});
+
+
+/* ================ STREETFOOD EDIT – VERWERKEN ================ */
+app.post("/streetfoods/:id/edit", async (req, res) => {
+    const id = req.params.id;
+    const { name, description, category, priceTier, spiceLevel, isPopular } = req.body;
+
+    await updateStreetFood(id, {
+        name,
+        description,
+        category,
+        priceTier,
+        spiceLevel: parseInt(spiceLevel),
+        isPopular: isPopular === "true"
+    });
+
+    res.redirect(`/streetfoods/${id}`);
 });
 
 
 /* ================ START SERVER ================ */
-app.listen(app.get("port"), () => {
+/* app.listen(app.get("port"), () => {
     console.log("Server started on http://localhost:" + app.get("port"));
-});
+}); */
+
+connect()
+    .then(() => {
+        app.listen(app.get("port"), () => {
+            console.log("Server started on http://localhost:" + app.get("port"));
+        });
+    })
+    .catch(console.error);

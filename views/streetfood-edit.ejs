@@ -1,0 +1,56 @@
+<%- include("partials/header") %>
+
+<h1>Bewerk: <%= streetfood.name %></h1>
+
+<form action="/streetfoods/<%= streetfood.id %>/edit" method="POST" class="edit-form">
+
+    <div class="form-group">
+        <label for="name">Naam</label>
+        <input type="text" id="name" name="name" value="<%= streetfood.name %>" required>
+    </div>
+
+    <div class="form-group">
+        <label for="description">Beschrijving</label>
+        <textarea id="description" name="description" rows="4" required><%= streetfood.description %></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="category">Categorie</label>
+        <input type="text" id="category" name="category" value="<%= streetfood.category %>" required>
+    </div>
+
+    <div class="form-group">
+        <label for="priceTier">Prijsklasse</label>
+        <select id="priceTier" name="priceTier">
+            <option value="€"  <%= streetfood.priceTier === "€"   ? "selected" : "" %>>€ – Goedkoop</option>
+            <option value="€€" <%= streetfood.priceTier === "€€"  ? "selected" : "" %>>€€ – Gemiddeld</option>
+            <option value="€€€"<%= streetfood.priceTier === "€€€" ? "selected" : "" %>>€€€ – Duur</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="spiceLevel">Spice Level</label>
+        <select id="spiceLevel" name="spiceLevel">
+            <option value="0" <%= streetfood.spiceLevel === 0 ? "selected" : "" %>>0 – Geen</option>
+            <option value="1" <%= streetfood.spiceLevel === 1 ? "selected" : "" %>>1 – Mild</option>
+            <option value="2" <%= streetfood.spiceLevel === 2 ? "selected" : "" %>>2 – Medium</option>
+            <option value="3" <%= streetfood.spiceLevel === 3 ? "selected" : "" %>>3 – Heet</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="isPopular">Populariteit</label>
+        <select id="isPopular" name="isPopular">
+            <option value="true"  <%= streetfood.isPopular === true  ? "selected" : "" %>>🔥 Favoriet</option>
+            <option value="false" <%= streetfood.isPopular === false ? "selected" : "" %>>Normaal</option>
+        </select>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit">Opslaan</button>
+        <a href="/streetfoods/<%= streetfood.id %>">Annuleren</a>
+    </div>
+
+</form>
+
+<%- include("partials/footer") %>
