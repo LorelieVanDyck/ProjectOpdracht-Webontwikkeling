@@ -422,7 +422,7 @@ app.get("/vendors", secureMiddleware, async (req, res) => {
 }); */
 
 app.get("/streetfoods/:id", secureMiddleware, async (req, res) => {
-    const streetfood = await getStreetFoodById(req.params.id);
+    const streetfood = await getStreetFoodById(req.params.id as string);
 
     if (!streetfood) {
         return res.status(404).render("page_404", {
@@ -476,7 +476,7 @@ app.get("/streetfoods/:id", secureMiddleware, async (req, res) => {
 }); */
 
 app.get("/vendors/:id", secureMiddleware, async (req, res) => {
-    const vendor = await getVendorById(req.params.id);
+    const vendor = await getVendorById(req.params.id as string);
 
     if (!vendor) {
         return res.status(404).render("page_404", {
@@ -498,7 +498,7 @@ app.get("/vendors/:id", secureMiddleware, async (req, res) => {
 
 /* ================ STREETFOOD EDIT – FORMULIER ================ */
 app.get("/streetfoods/:id/edit", secureMiddleware, adminMiddleware, async (req, res) => {
-    const streetfood = await getStreetFoodById(req.params.id);
+    const streetfood = await getStreetFoodById(req.params.id as string);
 
     if (!streetfood) {
         return res.status(404).render("page_404", { title: "Not Found" });
@@ -514,7 +514,7 @@ app.get("/streetfoods/:id/edit", secureMiddleware, adminMiddleware, async (req, 
 
 /* ================ STREETFOOD EDIT – VERWERKEN ================ */
 app.post("/streetfoods/:id/edit", secureMiddleware, adminMiddleware, async (req, res) => {
-    const id = req.params.id;
+    const id = req.params.id as string;
     const { name, description, category, priceTier, spiceLevel, isPopular } = req.body;
 
     await updateStreetFood(id, {
