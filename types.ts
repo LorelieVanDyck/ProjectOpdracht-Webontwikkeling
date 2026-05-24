@@ -23,3 +23,19 @@ export interface StreetFood {
     tags: string[];
     vendor: Vendor;
 }
+
+import { ObjectId } from "mongodb";
+
+/* MongoDB-document voor Gebruiker */
+export interface User {
+    _id?: ObjectId;
+    username: string;
+    password?: string; // Optioneel ~ Delete na log-in
+    role: "ADMIN" | "USER"; // Rolbepaling
+}
+
+/* Tijdelijke opslag fout- en succesmeldingen ~ weergave na redirect */
+export interface FlashMessage {
+    type: "error" | "success" | "info";
+    message: string;
+}

@@ -5,6 +5,16 @@
         <span class="logo-text">UrbanTaste</span>
     </h2>
 
+    <!-- Enkel Zichtbaar Als ADMIN: Gebruikersnaam & Logout -->
+    <% if (typeof user !== 'undefined' && user) { %>
+        <div class="user-info">    
+            <p>Ingelogd als: <strong><%= user.username %></strong></p>
+            <form action="/logout" method="post">
+                <button type="submit">Uitloggen</button>
+            </form>
+        </div>
+    <% } %>
+
     <% if (showSearch) { %>
         <h3>Search</h3>
 

@@ -2,7 +2,10 @@
 
 <h1><%= streetfood.name %></h1>
 
-<a href="/streetfoods/<%= streetfood.id %>/edit" class="btn-edit">✏️ Bewerk dit streetfood</a>
+<!-- Enkel Zichtbaar Als ADMIN: Edit Functie -->
+<% if (typeof user !== 'undefined' && user && user.role === "ADMIN") { %>
+    <a href="/streetfoods/<%= streetfood.id %>/edit" class="btn-edit">✏️ Bewerk dit streetfood</a>
+<% } %>
 
 <!-- STREETFOOD INFO -->
 <article class="detail-card">

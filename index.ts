@@ -3,9 +3,20 @@ import dotenv from "dotenv";
 import path from "path";
 
 
-/* Import Interfaces */
+/* ===== Security imports ===== */
+import sessionMiddleware from "./session";
+import { secureMiddleware } from "./middleware/secure-middleware";
+import { flashMiddleware } from "./middleware/flash-middleware";
+import { adminMiddleware } from "./middleware/admin-middleware";
+
+
+/* ===== Importeren Interfaces ===== */
 // import { Vendor, StreetFood } from "./types";
-import { connect, getStreetFoods, getStreetFoodById, getVendors, getVendorById, updateStreetFood } from "./database";
+// import { connect, getStreetFoods, getStreetFoodById, getVendors, getVendorById, updateStreetFood } from "./database";
+
+
+/* ===== Importeren Database Functies ===== */
+import { connect, getStreetFoods, getStreetFoodById, getVendors, getVendorById, updateStreetFood, login as loginUser, register } from "./database";
 
 dotenv.config();
 
@@ -20,15 +31,20 @@ app.set('views', path.join(__dirname, "views"));
 app.set("port", process.env.PORT || 3000);
 
 
-/* Data Ophalen */
-/* Interface 'StreetFood' */
+/* ===== Globaal: Sessie & Flash ===== */
+app.use(sessionMiddleware);
+app.use(flashMiddleware);
+
+
+/* ===== Data Ophalen ===== */
+/* ----- Interface 'StreetFood' ----- */
 /* async function fetchStreetFood() : Promise<StreetFood[]> {
     const response = await fetch("https://raw.githubusercontent.com/LorelieVanDyck/Projectopdracht-Webontwikkeling_Jsons/refs/heads/main/jsons/streetfoods.json");
     const data : StreetFood[] = await response.json();
     return data;
 }; */
 
-/* Interface 'Vendor' */
+/* ----- Interface 'Vendor' ----- */
 /* async function fetchVendors() : Promise<Vendor[]> {
     const response = await fetch("https://raw.githubusercontent.com/LorelieVanDyck/Projectopdracht-Webontwikkeling_Jsons/refs/heads/main/jsons/vendors.json");
     const data : Vendor[] = await response.json();
@@ -36,27 +52,70 @@ app.set("port", process.env.PORT || 3000);
 }; */
 
 
-/* Helper Functie: Wegwerken Accenten */
+/* ===== Helper Functie: Wegwerken Accenten ===== */
 function normalizeString(normalString: string): string {
     return normalString
         .toLowerCase()
         .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "") // wegwerken van accenten
+        .replace(/[\u0300-\u036f]/g, "") // Wegwerken van accenten
         .trim();
 };
 
 
+/* ================ LOGIN ================ */
+app.get("/login", (req, res) => {
+    if (req.session.user) return res.redirect("/"); // Al ingelogd ~ Doorsturen
+    res.render("login", { title: "Inloggen", showSearch: false });
+});
+
+app.post("/login", async (req, res) => {
+    const { username, password } = req.body;
+    try {
+        const user = await loginUser(username, password);
+        delete user.password; // Nooit in sessie opslaan
+        req.session.user = user;
+        res.redirect("/");
+    } catch (e: any) {
+        req.session.message = { type: "error", message: e.message }; // Bewaren voor na redirect
+        res.redirect("/login");
+    }
+});
+
+app.post("/logout", secureMiddleware, (req, res) => {
+    req.session.destroy(() => res.redirect("/login")); // Volledige sessie vernietigen
+});
+
+
+/* ================ REGISTREREN ================ */
+app.get("/register", (req, res) => {
+    if (req.session.user) return res.redirect("/"); // Al ingelogd ~ Doorsturen
+    res.render("register", { title: "Registreren", showSearch: false });
+});
+
+app.post("/register", async (req, res) => {
+    const { username, password } = req.body;
+    try {
+        await register(username, password);
+        req.session.message = { type: "success", message: "Registratie geslaagd! Je kan nu inloggen." };
+        res.redirect("/login");
+    } catch (e: any) {
+        req.session.message = { type: "error", message: e.message };
+        res.redirect("/register");
+    }
+});
+
+
 /* ================ HOME ================ */
-app.get("/", (req, res) => {
+app.get("/", secureMiddleware, (req, res) => {
     res.render("home", {
-        title: "Home", // Dynamische Titel
-        showSearch: false // Dynamische Search
+        title: "Home", // Dynamische titel
+        showSearch: false // Dynamische search
     });
 });
 
 
 /* ================ STREETFOODS LIST ================ */
-app.get("/streetfoods", async (req, res) => {
+app.get("/streetfoods", secureMiddleware, async (req, res) => {
 
     // Haalt alle streetfoods op uit API/JSON
     /* const streetfoods = await fetchStreetFood();*/
@@ -109,7 +168,6 @@ app.get("/streetfoods", async (req, res) => {
     /* ---------------- 5. PRICE HELPER FUNCTION ---------------- */
     // Zet "€€€" om naar een getal zodat we kunnen sorteren
     const priceValue = (p: string): number => {
-
         // "€"   → 1
         // "€€"  → 2
         // "€€€" → 3
@@ -141,7 +199,7 @@ app.get("/streetfoods", async (req, res) => {
                 : priceValue(b.priceTier) - priceValue(a.priceTier);
         };
 
-        // SORT OP SPICE LEVEL (numeriek)
+        // SORT OP SPICE LEVEL (Numeriek)
         if (sortField === "spiceLevel") {
             return sortDirection === "asc"
                 ? a.spiceLevel - b.spiceLevel
@@ -187,7 +245,7 @@ app.get("/streetfoods", async (req, res) => {
 
 
 /* ================ VENDORS LIST ================ */
-app.get("/vendors", async (req, res) => {
+app.get("/vendors", secureMiddleware, async (req, res) => {
 
     // Haalt alle vendors op uit je JSON/API
     /* const vendors = await fetchVendors(); */
@@ -272,14 +330,14 @@ app.get("/vendors", async (req, res) => {
     // Sorteert de gefilterde vendors
     const sortedVendors = [...filteredVendors].sort((a, b) => {
 
-        // SORT OP NAAM (string vergelijking)
+        // SORT OP NAAM (String Vergelijking)
         if (sortField === "name") {
             return sortDirection === "asc"
                 ? a.name.localeCompare(b.name)
                 : b.name.localeCompare(a.name);
         }
 
-        // SORT OP PRIJS (nummer vergelijking)
+        // SORT OP PRIJS (Nummer Vergelijking)
         if (sortField === "averagePriceEur") {
             return sortDirection === "asc"
                 ? (a.averagePriceEur || 0) - (b.averagePriceEur || 0)
@@ -363,7 +421,7 @@ app.get("/vendors", async (req, res) => {
     });
 }); */
 
-app.get("/streetfoods/:id", async (req, res) => {
+app.get("/streetfoods/:id", secureMiddleware, async (req, res) => {
     const streetfood = await getStreetFoodById(req.params.id);
 
     if (!streetfood) {
@@ -383,7 +441,7 @@ app.get("/streetfoods/:id", async (req, res) => {
     res.render("streetfood-detail", {
         streetfood: {
             ...streetfood,
-            vendor: fullVendor ?? streetfood.vendor
+            vendor: fullVendor ?? streetfood.vendor // Fallback ~ Als fullVendor niet gevonden
         },
         sameVendorFoods,
         showSearch: false,
@@ -417,7 +475,7 @@ app.get("/streetfoods/:id", async (req, res) => {
     });
 }); */
 
-app.get("/vendors/:id", async (req, res) => {
+app.get("/vendors/:id", secureMiddleware, async (req, res) => {
     const vendor = await getVendorById(req.params.id);
 
     if (!vendor) {
@@ -439,7 +497,7 @@ app.get("/vendors/:id", async (req, res) => {
 
 
 /* ================ STREETFOOD EDIT – FORMULIER ================ */
-app.get("/streetfoods/:id/edit", async (req, res) => {
+app.get("/streetfoods/:id/edit", secureMiddleware, adminMiddleware, async (req, res) => {
     const streetfood = await getStreetFoodById(req.params.id);
 
     if (!streetfood) {
@@ -455,7 +513,7 @@ app.get("/streetfoods/:id/edit", async (req, res) => {
 
 
 /* ================ STREETFOOD EDIT – VERWERKEN ================ */
-app.post("/streetfoods/:id/edit", async (req, res) => {
+app.post("/streetfoods/:id/edit", secureMiddleware, adminMiddleware, async (req, res) => {
     const id = req.params.id;
     const { name, description, category, priceTier, spiceLevel, isPopular } = req.body;
 
